@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/skeleton.css"/>
   <link rel="stylesheet" href="css/gallery.css"/>
-  <link rel="stylesheet"  type = "text/css" href="css/Map.css"/>
+  <link rel="stylesheet"  type = "text/css" href="css/MapOntario.css"/>
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -54,10 +54,10 @@
           <div class="container">
              <ul class="navbar-list">
                  
-                 <li class="navbar-item"> <a class="navbar-link" href="file:///Users/Ruth/Desktop/Atlas/home.html#" ><img src="images/sprite2.png" alt="house" style ="width:50px; height:30px; line-height: 8.5rem; ">  </a></li>
+                 <li class="navbar-item"> <a class="navbar-link" href="file:///Users/Ruth/Desktop/Website/home.html#" ><img src="images/sprite2.png" alt="house" style ="width:50px; height:30px; line-height: 8.5rem; ">  </a></li>
                  <li class="navbar-item"> <a class="navbar-link" href="#" >Project Overview</a></li>
                  <li class="navbar-item"> <a class="navbar-link" href="#" >Research Team</a></li>
-                 <li class="navbar-item"> <a class="navbar-link" href="file:///Users/Ruth/Desktop/Atlas/gallery.html" >Maps</a></li>
+                 <li class="navbar-item"> <a class="navbar-link" href="file:///Users/Ruth/Desktop/Website/gallery.html" >Maps</a></li>
 
              </ul>
           </div>
@@ -78,11 +78,12 @@ var map=   L.mapbox.map('map', 'ruthhannah.m9og6ig7')
     .setView([49.696, -87.188], 5);
     
 function getColor(d){
-    return d > 1000 ? '#54278f' :
-           d > 750 ? '#756bb1' :
-           d > 500 ? '#9e9ac8' :
-           d > 250 ? '#cbc9e2' :
-                     '#f2f0f7' ;
+    return  '#fff7bc';
+    //d > 1000 ? '#54278f' :
+    //d > 750 ? '#756bb1' :
+    //d > 500 ? '#9e9ac8' :
+    //d > 250 ? '#cbc9e2' :
+    //'#f2f0f7' ;
 }
     
 function style(feature){
@@ -92,7 +93,7 @@ function style(feature){
         opacity: 1,
         color: 'white',
         dashArray: '',
-        fillOpacity:0.6
+        fillOpacity:0.4
     };
 }
     
@@ -143,24 +144,25 @@ function style(feature){
 
 
     
-var legend = L.control({position: 'topright'});
+//var legend = L.control({position: 'topright'});
     
-legend.onAdd = function (map) {
+//legend.onAdd = function (map) {
   
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades=[0,250,500,750,1000],
-        labels=[];
+ //   var div = L.DomUtil.create('div', 'info legend'),
+ //       grades=[0,250,500,750,1000],
+ //       labels=[];
     
-    for (var i= 0; i <grades.length; i++){
-        div.innerHTML +=
-            '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
-            grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-   return div;
-};
-    legend.addTo(map);
+ //   for (var i= 0; i <grades.length; i++){
+ //       div.innerHTML +=
+ //           '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
+ //           grades[i] + (grades[i + 1]? '&ndash;' + grades[i + //1] + '<br>' : '+');
+//    }
+//   return div;
+//};
+//    legend.addTo(map);
     
-    var info = L.control();
+
+var info = L.control();
 
 info.onAdd = function(map) {
     this._div = L.DomUtil.create('div','info');
@@ -169,11 +171,16 @@ info.onAdd = function(map) {
 };
 
 info.update = function(props) {
-    this._div.innerHTML = '<h5> ONTARIO </h5>' +(props?
-                                                                      'CDUID: ' + props.CDUID + '<br /> Sex Ratio 65: ' + props.SexRatio65 : "");
+    this._div.innerHTML = '<h5> <b> ONTARIO </b> </h5>' 
++ (props? '<b> CDUID</b>: '+ props.CDUID : "")
++ (props? '<br /><b>Sex Ratio 65: </b>' + props.SexRatio65.toFixed(2) + '%' : "")
++ (props? '<br /><b>Sex Ratio 80:</b> ' + props.SexRatio80.toFixed(2) + '%' : "") 
++ (props? '<br /><b>Percent Over 65: </b>' + props.Percent65O.toFixed(2)+ '%' : "")
++ (props? '<br /><b>Percent Over 80: </b>' + props.Percent80_.toFixed(2) + '%' : "")
++ (props? '<br /><b>Old Component Ratio: </b>' + props.OldCompone.toFixed(2) + '%': "");
 };
     
-    info.addTo(map);
+info.addTo(map);
 
         
 </script>
@@ -183,7 +190,7 @@ info.update = function(props) {
     
           <div class = "two columns">
                 <div class="grumpy-image-wrapper">
-               <a href="file:///Users/Ruth/Desktop/Atlas/Map6.html">
+               <a href="file:///Users/Ruth/Desktop/Website/Map6.html">
                 <img class="grumpy-image" src="images/joliette.png" >
                 </a>
             </div>
@@ -192,7 +199,8 @@ info.update = function(props) {
 
         <div class = "two columns">
                 <div class="grumpy-image-wrapper">
-                    <img class="grumpy-image" src="images/flower.jpg" />
+                    <a href="file:///Users/Ruth/Desktop/Website/ONTARIO.html">
+                    <img class="grumpy-image" src="images/Ontario.png" />
                 </div>
         </div>
 

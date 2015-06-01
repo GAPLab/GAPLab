@@ -1,0 +1,65 @@
+body{
+    padding: 0;
+    margin: 0px}
+
+
+#map{
+    display:block;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top:15px;
+    height: 550px;
+    width: 90%;
+    outline-color: dimgrey;
+    outline-style: solid;
+    outline-width: thin;    
+    }
+
+.info{
+    padding: 6px 8px;
+    font: 14px/16px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    border-radius: 3px;
+    border: 1px solid dimgrey;
+  
+}
+
+.info h5{
+    width: 170px;
+    margin: 0 0 5px;
+    text-align: center;
+}
+
+
+.legend{
+    line-height: 18px; 
+}
+
+.legend i{
+    display: block;
+    height: 18px;
+    padding-left: 40px;
+    padding-right: 5px;
+    text-align: right;
+    font-style: normal;
+}
+
+.grumpy-image-wrapper {
+    width: 90%;
+    height: 0;
+    position: relative;
+    
+}
+.grumpy-image {
+    border: 1px solid dimgrey;
+    width: 100%;
+    position: absolute;
+    
+}
+.bandgallery{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+

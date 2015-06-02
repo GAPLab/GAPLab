@@ -4,7 +4,7 @@
 
   <!-- Basic Page Needs –––––––––––––– -->
   <meta charset="utf-8"/>
-  <title>Ontario Map</title>
+  <title>Canada Map: Age Friendly Communities</title>
   <meta name="description" content="">
   <meta name="Ruth McLean" content="">
 
@@ -37,9 +37,7 @@
   <!-- House Image –––––––––––––– -->
   <link rel="icon" type="image/png" href="images/sprite.png">
   
-
-    
-    </head>
+</head>
     
 <body>
 
@@ -68,18 +66,18 @@
 
 
 <div id='map'></div>
-    <script src ="js/Ontario.js"></script>
+    <script src ="js/Saskatchewan.js"></script>
 <script>
 
     
        L.mapbox.accessToken = 'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJkMjE4YjFhY2YxZTEyN2NjNDMyNzVmMGExNDNjMmQyNSJ9.MAh45JFbYJo5QkCimq2WCw';
     
 var map=   L.mapbox.map('map', 'ruthhannah.m9og6ig7')
-    .setView([49.696, -87.188], 5);
+    .setView([ 54.927, -106.084], 5);
     
     
 function getColor(d){
-    return  '#42429A';
+    return  '#c6dbef';
     //d > 1000 ? '#54278f' :
     //d > 750 ? '#756bb1' :
     //d > 500 ? '#9e9ac8' :
@@ -113,14 +111,13 @@ function style(feature){
     }
 }
     
-    
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
         info.update();
     }
     
     var geojson;
-    geojson=L.geoJson(Ontario,{
+    geojson=L.geoJson(Saskatchewan,{
         style:style,
         onEachFeature: onEachFeature
 }).addTo(map);
@@ -137,7 +134,7 @@ function style(feature){
         });
     }
         
-  var Ontario = new L.geoJson(Ontario,{
+  var Saskatchewan = new L.geoJson(Saskatchewan,{
      style:style,
      onEachFeature: onEachFeature
 }).addTo(map);
@@ -172,9 +169,8 @@ info.onAdd = function(map) {
 };
 
 info.update = function(props) {
-    this._div.innerHTML = '<h5> <b> ONTARIO </b> </h5>' 
+    this._div.innerHTML = '<h5> <b> SASKATCHEWAN </b> </h5>' 
 + (props? '<b> Census Division</b>: '+ props.CDNAME : "")
- 
 + (props? '<br /><b>Percent Over 65: </b>' + props.Percent65O.toFixed(2)+ '%' : "")
 + (props? '<br /><b>Percent Over 80: </b>' + props.Percent80_.toFixed(2) + '%' : "")
     + (props? '<br /><b>Sex Ratio 65: </b>' + props.SexRatio65.toFixed(2) + '%' : "")
@@ -186,17 +182,17 @@ info.addTo(map);
 
         
 </script>
+
+
 <div class="container" id = "button">
     
-    <a class = "button" href = "file:///Users/Ruth/Desktop/Website/Ontario_Percent65.html">Percent Over 65</a>
+    <a class = "button" href = "">Percent Over 65</a>
     <a class = "button" href = "">Percent Over 80</a>
     <a class = "button" href = "">Sex Ratio 65 +</a>
     <a class = "button" href = "">Sex Ratio 80 +</a>
     <a class = "button" href = "">Old Component Ratio </a>
     
 </div>
-
-
 
 <h6>PROVINCES AND TERRITORIES</h6>
 
@@ -222,7 +218,7 @@ info.addTo(map);
             <div class = "two columns">
                 <div class="grumpy-image-wrapper">
                     <a href="file:///Users/Ruth/Desktop/Website/Yukon.html">
-                    <img class="grumpy-image" src="images/Yukon.png" /></a>
+                    <img class="grumpy-image" src="images/Saskatchewan.png" /></a>
                 </div>  
             </div>
      
@@ -243,7 +239,6 @@ info.addTo(map);
           
  </div><!--end container-->
   </div><!--end gallery-->
-
 
 <!-- End Document –––––––––––––––––––––––– -->
 </body>

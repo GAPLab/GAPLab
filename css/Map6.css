@@ -22,14 +22,15 @@ body{
     background: rgba(255,255,255,0.8);
     border-radius: 3px;
     border: 1px solid dimgrey;
-  
+    
 }
 
 .info h5{
-    width: 180px;
+    width: 97px;
     margin: 0 0 5px;
-    text-align: center;
+   
 }
+
 
 
 .legend{
@@ -60,13 +61,11 @@ body{
 .bandgallery{
     margin-top: 15px;
     margin-bottom: 15px;
+    height: 40px;
     
 }
 
-.button {
-    margin-top: 15px;}
+h6 {
+text-align: center;}
 
-h6{
-    text-align: center;
-}
 

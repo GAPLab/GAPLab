@@ -44,7 +44,7 @@
     
     <nav class = "NavigationBar" >
     <div class = "container" >
-    <ul class = "NavigationItems">
+    <ul >
             
         <li class="NavigationItem"> 
         <a class="NavigationLink" href="file:///Users/Ruth/Desktop/Website/home.html#" >           
@@ -175,13 +175,11 @@
     legend.addTo(map);
     
     var info = L.control();
-
     info.onAdd = function(map) {
         this._div = L.DomUtil.create('div','info');
         this.update();
         return this._div;
     };
-
     info.update = function(props) {
         this._div.innerHTML = '<h5> JOLIETTE, QC </h5>' +(props? 'DAUID: ' + 
         props.DAUID + '<br /> Population: ' + props.Population : "");

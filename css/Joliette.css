@@ -19,13 +19,6 @@
         margin-bottom: 15px;
     }
 
-    .NavigationItems {
-        list-style: none;
-        margin-bottom: 0;
-        width:500px;
-        float: center;
-        margin: 0 auto  ;
-    }
 
     .NavigationItem {
         position: relative;

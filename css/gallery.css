@@ -45,8 +45,7 @@
   }
 
   .navbar > .container {
-    width: 100%; 
-      
+    width: 100%;   
   }
 
   .navbar-list {
@@ -54,9 +53,7 @@
     margin-bottom: 0;
     width:500px;
     float: center;
-    margin: 0 auto  ;
-    
-    
+    margin: 0 auto;  
   }
   .navbar-item {
     position: relative;
@@ -89,7 +86,7 @@
 .grumpy-image-wrapper {
     width: 100%;
     height: 0;
-    padding-bottom: 55%;
+    padding-bottom: 70%;
     position: relative;
 }
 .grumpy-image {
@@ -101,7 +98,8 @@
 }
 
 H6{
-    text-align: center;}
+    text-align: center;
+padding-top: 1%;}
     
 
 

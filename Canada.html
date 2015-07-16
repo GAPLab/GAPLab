@@ -78,7 +78,7 @@
 <!-- Interactive Map Geojson Source-->
     
     <div id='map'></div>
-        <script src ="js/Joliette.js"></script>
+        
     
 <!-- Interactive Map Script -->
     
@@ -87,11 +87,11 @@
     L.mapbox.accessToken =
     'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJkMjE4YjFhY2YxZTEyN2NjNDMyNzVmMGExNDNjMmQyNSJ9.MAh45JFbYJo5QkCimq2WCw';
     
-    var map = L.mapbox.map('map', 'ruthhannah.m9og6ig7')
-    .setView([45.900, -73.902], 10);
+    var censuslayers = L.mapbox.map('map', 'ruthhannah.6612c939')
+    .setView([70, -90], 3);
     
-    L.mapbox.tileLayer('ruthhannah.5314f160').addTo(map);
-   
+    
+   /*
     // Choropleth Map Colors    
     function getColor(d){
         return d > 1000 ? '#54278f' :
@@ -189,40 +189,12 @@
         props.DAUID + '<br /> Population: ' + props.Population : "");
     };
     info.addTo(map);
-    
+    */
 </script>
 
 <!-- Small gallery to navigate between the maps -->
 
-<div class = "container">
-<div class = "SmallGallery">
-    
-    <div class = "two columns">
-        <a href="">
-        <img class = ""  src="" /></a>
-    </div>
-    <div class = "two columns">
-        <a href="Ontario.html">
-        <img class = "MapImage"  src="images/Ontario.png" /></a>
-    </div>
-          
-    <div class = "two columns">
-        <a href="Saskatchewan.html">
-        <img class = "MapImage" src="images/Saskatchewan.png" /></a>
-    </div>
-          
-    <div class = "two columns">
-        <a href="Yukon.html">
-        <img class = "MapImage"  src="images/Saskatchewan.png" /></a>
-    </div>
-    
-    <div class = "two columns">
-        <a href="Joliette.html" >
-        <img class = "MapImage" src="images/Joliette.png" /></a>
-    </div>
-     
-</div> <!-- End container -->
-</div> <!-- End SmallGallery -->
+
   
 </body> <!-- End Document -->
 </html>

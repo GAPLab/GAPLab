@@ -53,7 +53,10 @@
         margin-left: auto;
         margin-right: auto;
         margin-top:15px;
+         margin-bottom:50px;
+        
         height: 550px;
+        
         width: 90%;
         outline-color: dimgrey;
         outline-style: solid;
@@ -90,6 +93,7 @@
 
     h6 {
         text-align: center;
+        padding-bottom: 10px;
     }
      
 /* Small gallery to navigate between the maps */
@@ -106,7 +110,3 @@
         height: 25px;
     }
 
-#Provinces_Variables {
-  line-width: 1;
-  line-color: rgba(236, 19, 54, 0.91);
-}

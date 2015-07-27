@@ -1,0 +1,53 @@
+_prefs: 
+  mapid: ruthhannah.6612c939
+  saveCenter: false
+_properties: 
+  bridge: 
+    "group-by": layer
+attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a>"
+bounds: 
+  - -180
+  - -85.0511
+  - 180
+  - 85.0511
+center: 
+  - 15.293
+  - 50.8476
+  - 4
+description: A monotone basemap that's easy to recolor.
+format: "png8:m=h"
+interactivity_layer: CD_VariablesWeb
+layers: null
+maxzoom: 22
+minzoom: 0
+name: MapboxLight_Province_CD
+source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.5314f160,ruthhannah.46a1e580"
+styles: 
+  - style.mss
+  - labels.mss
+  - roads.mss
+template: |-
+  <strong>{{CDNAME}}</strong>
+  {{#SexRatio65}}
+  <br /><small>{{SexRatio65}}</small>
+  {{/SexRatio65}}
+  {{#SexRatio80}}
+  <br /><small>{{SexRatio80}}</small>
+  {{/SexRatio80}}
+  {{#OldCompone}}
+  <br /><small>{{OldCompone}}</small>
+  {{/OldCompone}}
+  {{#SharePop65}}
+  <br /><small>{{SharePop65}}</small>
+  {{/SharePop65}}
+  {{#Percent65O}}
+  <br /><small>{{Percent65O}}</small>
+  {{/Percent65O}}
+  {{#Percent80_}}
+  <br /><small>{{Percent80_}}</small>
+  {{/Percent80_}}
+  
+
+
+
+ 

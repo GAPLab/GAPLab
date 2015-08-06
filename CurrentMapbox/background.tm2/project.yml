@@ -4,7 +4,7 @@ _prefs:
 _properties: 
   bridge: 
     "group-by": layer
-attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a>"
+attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>"
 bounds: 
   - -180
   - -85.0511
@@ -26,9 +26,11 @@ styles:
   - style.mss
   - labels.mss
   - roads.mss
-template: ''
-  
-
-
-
- 
+template: |-
+  <strong>{{CDNAME}}</strong>
+  <br /> <strong> Percentage 65+: </strong> {{Percent65O}}%
+  <br /> <strong> Percentage 80+: </strong> {{Percent80_}}%
+  <br /> <strong> Sex Ratio 65+: </strong> {{SexRatio65}}
+  <br /> <strong> Sex Ratio 80+: </strong> {{SexRatio80}}
+  <br /> <strong> Share of Population 65+: </strong> {{SharePop65}}%
+  <br /> <strong>Old Component Ratio:</strong> {{OldCompone}}

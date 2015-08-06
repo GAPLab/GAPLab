@@ -25,13 +25,16 @@ maintain or invert existing value (light to dark) scale.
 Map { background-color: @land; }
 
 #Provinces_Variables {
-  line-width: 1;
+  line-width: .8;
   line-color: rgba(19, 8, 9, 0.91);
 }
 
 #CD_VariablesWeb {
-  line-width: 1;
-  line-color: rgba(28, 3, 228, 0.89);
+  line-width: 0.6;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#f6eff6;
+  polygon-opacity:0;
 }
 
 

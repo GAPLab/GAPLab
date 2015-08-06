@@ -8,10 +8,19 @@
   <Parameter name="center">15.293,50.8476,4</Parameter>
   <Parameter name="description"><![CDATA[A monotone basemap that's easy to recolor.]]></Parameter>
   <Parameter name="format">png8:m=h</Parameter>
+  <Parameter name="interactivity_layer">CD_VariablesWeb</Parameter>
+  <Parameter name="interactivity_fields">CDNAME,Percent65O,Percent80_,SexRatio65,SexRatio80,SharePop65,OldCompone</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="name"><![CDATA[MapboxLight_Province_CD]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-streets-v5,ruthhannah.5314f160,ruthhannah.46a1e580]]></Parameter>
+  <Parameter name="template"><![CDATA[<strong>{{CDNAME}}</strong>
+<br /> <strong> Percentage 65+: </strong> {{Percent65O}}%
+<br /> <strong> Percentage 80+: </strong> {{Percent80_}}%
+<br /> <strong> Sex Ratio 65+: </strong> {{SexRatio65}}
+<br /> <strong> Sex Ratio 80+: </strong> {{SexRatio80}}
+<br /> <strong> Share of Population 65+: </strong> {{SharePop65}}%
+<br /> <strong>Old Component Ratio:</strong> {{OldCompone}}]]></Parameter>
 </Parameters>
 
 
@@ -3487,7 +3496,7 @@
 
 <Style name="Provinces_Variables" filter-mode="first">
   <Rule>
-    <LineSymbolizer stroke-width="1" stroke="rgba(19, 8, 9, 0.91)" />
+    <LineSymbolizer stroke-width="0.8" stroke="rgba(19, 8, 9, 0.91)" />
   </Rule>
 </Style>
 <Layer name="Provinces_Variables"
@@ -3496,7 +3505,8 @@
 
 <Style name="CD_VariablesWeb" filter-mode="first">
   <Rule>
-    <LineSymbolizer stroke-width="1" stroke="rgba(28, 3, 228, 0.89)" />
+    <LineSymbolizer stroke-width="0.6" stroke="#575758" stroke-dasharray="5, 3" />
+    <PolygonSymbolizer fill="#f6eff6" fill-opacity="0" />
   </Rule>
 </Style>
 <Layer name="CD_VariablesWeb"

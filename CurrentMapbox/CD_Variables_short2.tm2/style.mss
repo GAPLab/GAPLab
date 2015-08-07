@@ -29,7 +29,7 @@ Map { background-color: @land; }
   line-color: #575758;
   line-dasharray:5,3;
   polygon-fill:#f2efc9;
-  polygon-opacity: 0.5;
+  polygon-opacity: 0.2;
 }
 
 // Political boundaries //

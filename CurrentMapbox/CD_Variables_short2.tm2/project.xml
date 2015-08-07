@@ -9,13 +9,13 @@
   <Parameter name="description"><![CDATA[A monotone basemap that's easy to recolor.]]></Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="interactivity_layer">CD_Variables_short2</Parameter>
-  <Parameter name="interactivity_fields">CDNAME,P65,P80,SR65,SR80,SP65,OCDR</Parameter>
+  <Parameter name="interactivity_fields">CDNAME,P80,SR65,SR80,SP65,OCDR</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="name"><![CDATA[Mapbox Light]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7]]></Parameter>
   <Parameter name="template"><![CDATA[<h3>{{CDNAME}}</h3>
- <strong> Percent Over 65: </strong> {{P65}}%
+ <strong> Percent Over 65: </strong> {{"P65"}}%
 <br /> <strong> Percent Over 80: </strong> {{P80}}%
 <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
 <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}
@@ -3497,7 +3497,7 @@
 <Style name="CD_Variables_short2" filter-mode="first">
   <Rule>
     <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
-    <PolygonSymbolizer fill="#f2efc9" fill-opacity="0.5" />
+    <PolygonSymbolizer fill="#f2efc9" fill-opacity="0.2" />
   </Rule>
 </Style>
 <Layer name="CD_Variables_short2"

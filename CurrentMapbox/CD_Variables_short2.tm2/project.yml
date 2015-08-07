@@ -28,7 +28,7 @@ styles:
   - roads.mss
 template: |-
   <h3>{{CDNAME}}</h3>
-   <strong> Percent Over 65: </strong> {{P65}}%
+   <strong> Percent Over 65: </strong> {{"P65"}}%
   <br /> <strong> Percent Over 80: </strong> {{P80}}%
   <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
   <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}

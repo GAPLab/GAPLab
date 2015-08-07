@@ -3496,7 +3496,7 @@
 
 <Style name="CD_Variables_short2" filter-mode="first">
   <Rule>
-    <LineSymbolizer stroke-width="0.6" stroke="#575758" stroke-dasharray="5, 3" />
+    <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
     <PolygonSymbolizer fill="#f2efc9" fill-opacity="0.5" />
   </Rule>
 </Style>

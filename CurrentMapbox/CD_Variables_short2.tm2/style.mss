@@ -25,7 +25,7 @@ maintain or invert existing value (light to dark) scale.
 Map { background-color: @land; }
 
 #CD_Variables_short2 {
-  line-width: 0.6;
+  line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
   polygon-fill:#f2efc9;

@@ -13,7 +13,7 @@
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="name"><![CDATA[Mapbox Light]]></Parameter>
-  <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7]]></Parameter>
+  <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7,ruthhannah.c8dd71b1]]></Parameter>
   <Parameter name="template"><![CDATA[<h3>{{CDNAME}}</h3>
  <strong> Percent Over 65: </strong> {{"P65"}}%
 <br /> <strong> Percent Over 80: </strong> {{P80}}%
@@ -27,12 +27,12 @@
 <Style name="landuse" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([class] = 'cemetery')</Filter>
+    <Filter>([class] = 'park')</Filter>
     <PolygonSymbolizer fill="#e2e2e2" />
   </Rule>
   <Rule>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'cemetery')</Filter>
+    <Filter>([class] = 'park')</Filter>
     <PolygonSymbolizer fill="#e6e6e6" />
   </Rule>
   <Rule>
@@ -47,20 +47,20 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([class] = 'park')</Filter>
+    <Filter>([class] = 'cemetery')</Filter>
     <PolygonSymbolizer fill="#e2e2e2" />
   </Rule>
   <Rule>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'park')</Filter>
+    <Filter>([class] = 'cemetery')</Filter>
     <PolygonSymbolizer fill="#e6e6e6" />
-  </Rule>
-  <Rule>
-    <Filter>([class] = 'school')</Filter>
-    <PolygonSymbolizer fill="#efefef" />
   </Rule>
   <Rule>
     <Filter>([class] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#efefef" />
+  </Rule>
+  <Rule>
+    <Filter>([class] = 'school')</Filter>
     <PolygonSymbolizer fill="#efefef" />
   </Rule>
   <Rule>
@@ -68,11 +68,11 @@
     <PolygonSymbolizer fill="#efefef" />
   </Rule>
   <Rule>
-    <Filter>([class] = 'sand')</Filter>
+    <Filter>([class] = 'pitch')</Filter>
     <PolygonSymbolizer fill="#d6d6d6" />
   </Rule>
   <Rule>
-    <Filter>([class] = 'pitch')</Filter>
+    <Filter>([class] = 'sand')</Filter>
     <PolygonSymbolizer fill="#d6d6d6" />
   </Rule>
 </Style>
@@ -105,46 +105,46 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#d1d1d1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#d1d1d1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#d1d1d1" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke="#d1d1d1" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#d1d1d1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#d1d1d1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#d1d1d1" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke="#d1d1d1" stroke-width="0.5" />
   </Rule>
 </Style>
@@ -3503,5 +3503,36 @@
 <Layer name="CD_Variables_short2"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>CD_Variables_short2</StyleName>  </Layer>
+
+<Style name="CD_P65_Short2" filter-mode="first">
+  <Rule>
+    <Filter>([P65] &gt; 18) and ([P65] &lt;= 23)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
+    <PolygonSymbolizer fill="#2b8cbe" />
+  </Rule>
+  <Rule>
+    <Filter>([P65] &gt; 12) and ([P65] &lt;= 18)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
+    <PolygonSymbolizer fill="#74a9cf" />
+  </Rule>
+  <Rule>
+    <Filter>([P65] &gt; 7) and ([P65] &lt;= 12)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
+    <PolygonSymbolizer fill="#bdc9e1" />
+  </Rule>
+  <Rule>
+    <Filter>([P65] &gt; 23)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
+    <PolygonSymbolizer fill="#045a8d" />
+  </Rule>
+  <Rule>
+    <Filter>([P65] &lt;= 7)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#575758" stroke-dasharray="5, 3" />
+    <PolygonSymbolizer fill="#f1eef6" />
+  </Rule>
+</Style>
+<Layer name="CD_P65_Short2"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>CD_P65_Short2</StyleName>  </Layer>
 
 </Map>

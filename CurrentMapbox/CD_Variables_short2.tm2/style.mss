@@ -32,6 +32,44 @@ Map { background-color: @land; }
   polygon-opacity: 0.2;
 }
 
+#CD_P65_Short2 [P65<=7] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#F1EEF6;
+  
+}
+#CD_P65_Short2 [P65>7][P65<=12] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#BDC9E1;
+  
+}
+#CD_P65_Short2 [P65>12][P65<=18]  {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#74A9CF;
+  
+}
+#CD_P65_Short2 [P65>18][P65<=23] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#2B8CBE;
+  
+}
+#CD_P65_Short2 [P65>23] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#045A8D;
+  
+}
+
+
+
 // Political boundaries //
 #admin[admin_level=2][maritime=0] {
   line-join: round;

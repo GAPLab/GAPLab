@@ -89,19 +89,19 @@
     
     
 <div id='legend' style='display:none;'>
-  <strong>The Title or Explanation of your Map</strong>
+  <strong>Percentage of the population over 65</strong>
   <nav class='legend clearfix'>
     <span style='background:#F1EEF6;'></span>
     <span style='background:#BDC9E1;'></span>
     <span style='background:#74A9CF;'></span>
     <span style='background:#2B8CBE;'></span>
     <span style='background:#045A8D;'></span>
-    <label>0 - 20%</label>
-    <label>40%</label>
-    <label>60%</label>
-    <label>80%</label>
-    <label>100%</label>
-    <small>Source: <a href="#link to source">Name of source</a></small>
+    <label>0-7%</label>
+    <label>7-12%</label>
+    <label>12-18%</label>
+    <label>18-23%</label>
+    <label>23+%</label>
+    
 </div>
     
     
@@ -121,12 +121,18 @@
     .setView([70, -90], 3);
 map.legendControl.addLegend(document.getElementById('legend').innerHTML);
     
-
+var SummaryLayer = L.mapbox.tileLayer('ruthhannah.ac663ec3.CD_Variables_short2');
     
- 
+ map.removeLayer(SummaryLayer);
 </script>
 
 
+<div class="container" id = "button">
+    
+    <a class = "button" href = >Population 65+</a>
+
+    
+</div>
   
 </body> <!-- End Document -->
 </html>

@@ -21,7 +21,7 @@ layers: null
 maxzoom: 22
 minzoom: 0
 name: Mapbox Light
-source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7"
+source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7,ruthhannah.c8dd71b1"
 styles: 
   - style.mss
   - labels.mss

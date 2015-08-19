@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <title>Canada</title>
+  <meta name="description" content="">
+  <meta name="Ruth McLean" content="">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/Joliette.css">
+  <link rel="stylesheet" href="css/Canada.css">
+    
+    
+  <!-- Leaflet -->
+  <link rel ="stylesheet" href ="leaflet/leaflet.css" >    
+  <script src="leaflet/leaflet.js"></script>
+    
+  <!-- Mapbox -->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'>   
+  <!-- House Image -->
+  <link rel="icon" type="image/png" href="images/sprite.png">
+    
+</head>
+
+   
+<body>
+<!-- Header --> 
+    
+    <div class = "container">
+    <div class = "header">
+    </div>
+    </div>
+    
+<!-- Navigation Bar -->
+    
+    <nav class = "NavigationBar" >
+    <div class = "container" >
+    <ul >
+            
+        <li class="NavigationItem"> 
+        <a class="NavigationLink" href="home.html#" >           
+        <img src="images/sprite2.png" 
+             alt="house" 
+             style ="width:50px; height:30px; line-height: 8.5rem;">
+        </a>
+        </li>
+            
+        <li class="NavigationItem"> 
+        <a class="NavigationLink" href="#" >Project Overview
+        </a>
+        </li>
+            
+        <li class="NavigationItem"> 
+        <a class="NavigationLink" href="#" >Research Team
+        </a>
+        </li>
+            
+        <li class="NavigationItem"> 
+        <a class="NavigationLink" href="gallery.html" >Maps
+        </a>
+        </li>
+            
+    </ul> <!-- Navigation Items -->
+    </div> <!-- container -->
+    </nav> <!-- Navigation Bar -->
+
+    
+    
+
+    
+    
+<!-- Interactive Map Geojson Source-->
+    
+    <div id='map' ></div>
+        
+    
+<!-- Interactive Map Script -->
+    
+<script>
+        
+    L.mapbox.accessToken =
+    'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJkMjE4YjFhY2YxZTEyN2NjNDMyNzVmMGExNDNjMmQyNSJ9.MAh45JFbYJo5QkCimq2WCw';
+    
+    var map = L.mapbox.map('map', 'ruthhannah.ac663ec3')
+    .setView([70, -90], 3);
+
+    
+
+    
+ 
+</script>
+
+
+  
+</body> <!-- End Document -->
+</html>

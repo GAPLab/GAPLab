@@ -74,7 +74,37 @@
     </ul> <!-- Navigation Items -->
     </div> <!-- container -->
     </nav> <!-- Navigation Bar -->
-
+<style>
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:15px;
+  width:20%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+    
+    
+<div id='legend' style='display:none;'>
+  <strong>The Title or Explanation of your Map</strong>
+  <nav class='legend clearfix'>
+    <span style='background:#F1EEF6;'></span>
+    <span style='background:#BDC9E1;'></span>
+    <span style='background:#74A9CF;'></span>
+    <span style='background:#2B8CBE;'></span>
+    <span style='background:#045A8D;'></span>
+    <label>0 - 20%</label>
+    <label>40%</label>
+    <label>60%</label>
+    <label>80%</label>
+    <label>100%</label>
+    <small>Source: <a href="#link to source">Name of source</a></small>
+</div>
+    
+    
 <!-- Interactive Map Geojson Source-->
     
     <div id='map' ></div>
@@ -89,122 +119,12 @@
     
     var map = L.mapbox.map('map', 'ruthhannah.ac663ec3')
     .setView([70, -90], 3);
-    
+map.legendControl.addLegend(document.getElementById('legend').innerHTML);
     
 
     
-    /*
-var provinceTiles = L.mapbox.tileLayer().addTo(map),
-    cdTiles = L.mapbox.tileLayer().addTo(map);
-
-var cdGrid = L.mapbox.gridLayer().addTo(map),
-    provinceGrid = L.mapbox.gridLayer().addTo(map);
-
-var cdControl = L.mapbox.gridControl(cdGrid).addTo(map),
-    provinceControl = L.mapbox.gridControl(provinceGrid).addTo(map);
-    */
-   /*
-    // Choropleth Map Colors    
-    function getColor(d){
-        return d > 1000 ? '#54278f' :
-               d > 750 ?  '#756bb1' :
-               d > 500 ?  '#9e9ac8' :
-               d > 250 ?  '#cbc9e2' :
-                          '#f2f0f7' ;
-    }
-    
-    function style(feature){
-        return {
-            fillColor: getColor(feature.properties.Population),
-            weight: 1,
-            opacity: 1,
-            color: 'white',
-            dashArray: '',
-            fillOpacity:0.6
-        };
-    }
-    
-    // Highlighting area under cursor
-    function highlightFeature(e){
-        var layer = e.target;
-        info.update(layer.feature.properties);
-        layer.setStyle({
-            weight:1,
-            color: '#666',
-            dashArray:'',
-            fillOpacity:0.6
-        });
-        if (!L.Browser.ie && !L.Browser.opera){
-            layer.bringToFront();
-        }
-    }
-    
-    // Reset colour     
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-    
-    var geojson;
-        
-    // Adding Joliette variable to the map
-    geojson = L.geoJson(Joliette,{
-        style:style,
-        onEachFeature: onEachFeature
-        }).addTo(map);
-    
-    // Zoom into area when clicked    
-    function zoomToFeature(e){
-        map.fitBounds(e.target.getBounds());
-    }
-    
-    // Highlight feature under cursor, reset, zoom    
-    function onEachFeature (feature, layer){
-        layer.on({
-            mouseover:highlightFeature,
-            mouseout:resetHighlight,
-            click:zoomToFeature
-        });
-    }
-        
-    var Joliette = new L.geoJson(Joliette,{
-        style:style,
-        onEachFeature: onEachFeature
-    }).addTo(map);
-        
-    // Legend
-    var legend = L.control({position: 'topright'});
-    
-    legend.onAdd = function (map) {
-        
-        var div = L.DomUtil.create('div', 'info legend'),
-            grades=[0,250,500,750,1000],
-            labels=[];
-        
-        for (var i= 0; i <grades.length; i++){
-            div.innerHTML +=
-            '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
-            grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-        }
-        return div;
-    };
-    legend.addTo(map);
-    
-    var info = L.control();
-    info.onAdd = function(map) {
-        this._div = L.DomUtil.create('div','info');
-        this.update();
-        return this._div;
-    };
-    info.update = function(props) {
-        this._div.innerHTML = '<h5> JOLIETTE, QC </h5>' +(props? 'DAUID: ' + 
-        props.DAUID + '<br /> Population: ' + props.Population : "");
-    };
-    info.addTo(map);
-    */
+ 
 </script>
-
-<!-- Small gallery to navigate between the maps -->
 
 
   

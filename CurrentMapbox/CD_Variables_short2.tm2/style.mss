@@ -22,15 +22,53 @@ maintain or invert existing value (light to dark) scale.
 
 @text: #777;
 
-Map { background-color: @land; }
+Map {  }
 
 #CD_Variables_short2 {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
-  polygon-fill:#f2efc9;
-  polygon-opacity: 0.2;
+  polygon-fill:#ede687;
+  polygon-opacity: 0.4;
 }
+
+/*
+#CD_P80_Short2[P80<=3.2] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#f2f0f7;
+}
+
+#CD_P80_Short2[P80>3.2][P80<=4.1] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#cbc9e2;
+}
+
+#CD_P80_Short2[P80>4.1][P80<=4.7] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#9e9ac8;
+}
+
+#CD_P80_Short2[P80>4.7][P80<=5.56] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#756bb1;
+}
+
+#CD_P80_Short2[P80>5.56][P80<=8.5] {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#54278f;
+}
+
+
 
 #CD_P65_Short2 [P65<=7] {
   line-width: 0.5;
@@ -67,7 +105,7 @@ Map { background-color: @land; }
   polygon-fill:#045A8D;
   
 }
-
+*/
 
 
 // Political boundaries //

@@ -117,34 +117,11 @@
     L.mapbox.accessToken =
     'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJkMjE4YjFhY2YxZTEyN2NjNDMyNzVmMGExNDNjMmQyNSJ9.MAh45JFbYJo5QkCimq2WCw';
     
-    var map = L.mapbox.map('map', 'mapbox.streets').setView([70, -90], 3);
-    
-    var nprTiles=L.mapbox.tileLayer('ruthhannah.ac663ec3').addTo(map);
-    
-    var nprGrid = L.mapbox.gridLayer('ruthhannah.ac663ec3').addTo(map);
-
-    
-    nprGrid.on('click', function(e) {
-    if (!e.data) return;
-    var popup = L.popup()
-        .setLatLng(e.latLng)
-        .setContent(e.data.name)
-        .openOn(map);
-});
-/*   
     var map = L.mapbox.map('map', 'ruthhannah.ac663ec3')
     .setView([70, -90], 3);
 map.legendControl.addLegend(document.getElementById('legend').innerHTML);
     
-var p80 = L.mapbox.tileLayer('ruthhannah.5cbb6327');
-var p65 = L.mapbox.tileLayer('ruthhannah.c8dd71b1');    
-map.removeLayer(p80)
-map.removeLayer(p65)
-*/
 
-
-    
-    
 </script>
 
 

@@ -1,4 +1,5 @@
 _prefs: 
+  mapid: ruthhannah.b54f056c
   saveCenter: true
 _properties: 
   bridge: 
@@ -10,12 +11,12 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -81.6064
-  - 47.8721
-  - 5
+  - -95.0977
+  - 69.473
+  - 3
 description: AllVariables
 format: "png8:m=h"
-interactivity_layer: ''
+interactivity_layer: CD_Variables_short2
 layers: null
 maxzoom: 22
 minzoom: 0
@@ -23,4 +24,11 @@ name: AllVariables
 source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7"
 styles: 
   - style.mss
-template: ''
+template: |-
+  <h4> {{CDNAME}} </h4>
+    <strong> Percent Over 65: </strong> {{P65}}%
+   <br /> <strong> Percent Over 80: </strong> {{P80}}%
+   <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
+   <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}
+   <br /> <strong> Share of Population Over 65: </strong> {{SP65}}%
+   <br /> <strong> Old Component Ratio: </strong> {{OCDR}}

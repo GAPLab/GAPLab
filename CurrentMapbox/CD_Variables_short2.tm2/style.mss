@@ -33,6 +33,8 @@ Map {  }
 }
 
 
+
+
 #CD_P80_Short2[P80<=3.2] {
   line-width: 0.5;
   line-color: #575758;
@@ -105,9 +107,15 @@ Map {  }
   polygon-fill:#045A8D;
   
 }
-
-
-
+/*
+#OCDR_g {
+  line-width: 0.5;
+  line-color: #575758;
+  line-dasharray:5,3;
+  polygon-fill:#87ed8e;
+  polygon-opacity: 0.4;
+}
+*/
 // Political boundaries //
 #admin[admin_level=2][maritime=0] {
   line-join: round;

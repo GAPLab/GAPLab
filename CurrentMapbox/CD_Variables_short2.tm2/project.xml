@@ -13,7 +13,7 @@
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="name"><![CDATA[CD_Variables_layer]]></Parameter>
-  <Parameter name="source"><![CDATA[mapbox:///ruthhannah.c5d034e7,ruthhannah.cc626a3d,ruthhannah.ee624c0a]]></Parameter>
+  <Parameter name="source"><![CDATA[mapbox:///ruthhannah.c5d034e7,ruthhannah.cc626a3d,ruthhannah.ee624c0a,ruthhannah.ae513445]]></Parameter>
   <Parameter name="template"><![CDATA[<h3>{{CDNAME}}</h3>
  <strong> Percent Over 65: </strong> {{"P65"}}%
 <br /> <strong> Percent Over 80: </strong> {{P80}}%
@@ -95,5 +95,9 @@
 <Layer name="CD_P80_Short2"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>CD_P80_Short2</StyleName>  </Layer>
+
+<Layer name="OCDR_g"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+      </Layer>
 
 </Map>

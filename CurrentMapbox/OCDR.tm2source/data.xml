@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+
+<Parameters>
+  <Parameter name="attribution"><![CDATA[OCDR]]></Parameter>
+  <Parameter name="center">57.0663,24.2261,6</Parameter>
+  <Parameter name="description"><![CDATA[OCDR]]></Parameter>
+  <Parameter name="format">pbf</Parameter>
+  <Parameter name="json"><![CDATA[{"vector_layers":[{"id":"OCDR_g","description":"OCDR","fields":{"OBJECTID_1":"Number","CDUID":"String","CDNAME":"String","CDTYPE":"String","PRUID":"String","PRNAME":"String","OCDR":"Number"}}]}]]></Parameter>
+  <Parameter name="maxzoom">6</Parameter>
+  <Parameter name="minzoom">3</Parameter>
+  <Parameter name="name"><![CDATA[OCDR_z3_z6]]></Parameter>
+</Parameters>
+
+
+<Layer name="OCDR_g"
+  buffer-size="8"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Ruth/Desktop/ShapeFiles/Canada_Provinces_CD/CD/CD_SHORT/CD_INDIVIDUAL/CD_OCDR/OCDR_g.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

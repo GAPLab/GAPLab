@@ -14,14 +14,14 @@ center:
   - 15.293
   - 50.8476
   - 4
-description: A monotone basemap that's easy to recolor.
+description: CD_Variables_layer
 format: "png8:m=h"
 interactivity_layer: CD_Variables_short2
 layers: null
 maxzoom: 22
 minzoom: 0
-name: Mapbox Light
-source: "mapbox:///ruthhannah.c5d034e7,ruthhannah.c8dd71b1,ruthhannah.5cbb6327"
+name: CD_Variables_layer
+source: "mapbox:///ruthhannah.c5d034e7,ruthhannah.cc626a3d,ruthhannah.ee624c0a"
 styles: 
   - style.mss
   - labels.mss

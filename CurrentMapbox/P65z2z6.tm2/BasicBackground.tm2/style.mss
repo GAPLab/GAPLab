@@ -12,14 +12,6 @@
 
 Map { background-color: @land; }
 
-#CD_Variables_short2 {
-  line-width: 0.5;
-  line-color: #575758;
-  line-dasharray:5,3;
-  polygon-fill:#f2efc9;
-  polygon-opacity: 0.2;
-}
-
 // Political boundaries //
 
 #admin[admin_level=2][maritime=0] {

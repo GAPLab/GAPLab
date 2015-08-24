@@ -10,24 +10,17 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -64.27
-  - 53.9819
-  - 5
-description: ''
+  - -102.6563
+  - 62.3496
+  - 3
+description: AllVariables
 format: "png8:m=h"
-interactivity_layer:  CD_Variables_short2
+interactivity_layer: ''
 layers: null
 maxzoom: 22
 minzoom: 0
-name: MoreNames
+name: AllVariables
 source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7"
 styles: 
   - style.mss
-template: |-
-  <h3>{{CDNAME}}</h3>
-   <strong> Percent Over 65: </strong> {{"P65"}}%
-  <br /> <strong> Percent Over 80: </strong> {{P80}}%
-  <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
-  <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}
-  <br /> <strong> Share of Population Over 65: </strong> {{SP65}}%
-  <br /> <strong> Old Component Ratio: </strong> {{OCDR}}
+template: ''

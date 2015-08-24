@@ -32,7 +32,7 @@ Map {  }
   polygon-opacity: 0.4;
 }
 
-/*
+
 #CD_P80_Short2[P80<=3.2] {
   line-width: 0.5;
   line-color: #575758;
@@ -105,7 +105,7 @@ Map {  }
   polygon-fill:#045A8D;
   
 }
-*/
+
 
 
 // Political boundaries //

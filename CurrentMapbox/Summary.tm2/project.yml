@@ -1,20 +1,19 @@
 _prefs: 
-  mapid: ruthhannah.b54f056c
   saveCenter: true
 _properties: 
   bridge: 
     "group-by": layer
-attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'></a>"
+attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>"
 bounds: 
   - -180
   - -85.0511
   - 180
   - 85.0511
 center: 
-  - -101.4258
-  - 65.8028
-  - 3
-description: AllVariables_English
+  - -102.5684
+  - 60.7162
+  - 4
+description: Summary
 format: "png8:m=h"
 interactivity_layer: CD_Variables_short2_English
 layers: 
@@ -42,10 +41,15 @@ layers:
   - housenum_label
 maxzoom: 22
 minzoom: 0
-name: AllVariables_English
+name: Summary
 source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.3b99cd3e"
 styles: 
   - style.mss
 template: |-
   <STRONG> Census Division: </STRONG>{{CDNAME}} 
+  <br /> <strong> Percent Over 65: </strong> {{P65}}%
+  <br /> <strong> Percent Over 80: </strong> {{P80}}%
+  <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
+  <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}
   <br /> <strong> Share of Population Over 65: </strong> {{SP65}}%
+  <br /> <strong> Old Component Ratio: </strong> {{OCDR}}

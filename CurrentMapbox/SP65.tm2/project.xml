@@ -3,25 +3,102 @@
 <Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#ffffff">
 
 <Parameters>
-  <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'></a>]]></Parameter>
+  <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">-101.4258,65.8028,3</Parameter>
-  <Parameter name="description"><![CDATA[AllVariables_English]]></Parameter>
+  <Parameter name="center">-94.5703,69.5959,3</Parameter>
+  <Parameter name="description"><![CDATA[SP65]]></Parameter>
   <Parameter name="format">png8:m=h</Parameter>
-  <Parameter name="interactivity_layer">CD_Variables_short2_English</Parameter>
-  <Parameter name="interactivity_fields">CDNAME,SP65</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
-  <Parameter name="name"><![CDATA[AllVariables_English]]></Parameter>
+  <Parameter name="name"><![CDATA[SP65]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-streets-v5,ruthhannah.3b99cd3e]]></Parameter>
-  <Parameter name="template"><![CDATA[<STRONG> Census Division: </STRONG>{{CDNAME}} 
-<br /> <strong> Share of Population Over 65: </strong> {{SP65}}%]]></Parameter>
 </Parameters>
 
 
 <Layer name="landuse"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
       </Layer>
+
+<Style name="waterway" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke="#c3e6ff" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke="#c3e6ff" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#c3e6ff" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke="#c3e6ff" stroke-width="0.5" />
+  </Rule>
+</Style>
+<Layer name="waterway"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway</StyleName>  </Layer>
+
+<Style name="water" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#c3e6ff" gamma="0.6" />
+  </Rule>
+</Style>
+<Layer name="water"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>water</StyleName>  </Layer>
 
 <Layer name="aeroway"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -35,7 +112,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
       </Layer>
 
-<Layer name="lanuse_overlay"
+<Layer name="landuse_overlay"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
       </Layer>
 
@@ -381,118 +458,6 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>country_label_line</StyleName>  </Layer>
 
-<Style name="waterway" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'stream')</Filter>
-    <LineSymbolizer stroke="#c3e6ff" stroke-width="0.5" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke="#c3e6ff" stroke-width="0.5" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#c3e6ff" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke="#c3e6ff" stroke-width="0.5" />
-  </Rule>
-</Style>
-<Layer name="waterway"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>waterway</StyleName>  </Layer>
-
-<Style name="water" filter-mode="first">
-  <Rule>
-    <PolygonSymbolizer fill="#c3e6ff" gamma="0.6" />
-  </Rule>
-</Style>
-<Layer name="water"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>water</StyleName>  </Layer>
-
-<Style name="CD_Variables_short2_English" filter-mode="first">
-  <Rule>
-    <Filter>([SP65] &gt; 0.13) and ([SP65] &lt;= 0.28)</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
-    <PolygonSymbolizer fill="#88419d" />
-  </Rule>
-  <Rule>
-    <Filter>([SP65] &gt; 0.07) and ([SP65] &lt;= 0.13)</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
-    <PolygonSymbolizer fill="#8c96c6" />
-  </Rule>
-  <Rule>
-    <Filter>([SP65] &gt; 0.06) and ([SP65] &lt;= 0.07)</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
-    <PolygonSymbolizer fill="#b3cde3" />
-  </Rule>
-  <Rule>
-    <Filter>([SP65] &gt; 0.28)</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
-    <PolygonSymbolizer fill="#810f7c" />
-  </Rule>
-  <Rule>
-    <Filter>([SP65] &lt;= 0.06)</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
-    <PolygonSymbolizer fill="#edf8fb" />
-  </Rule>
-</Style>
-<Layer name="CD_Variables_short2_English"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>CD_Variables_short2_English</StyleName>  </Layer>
-
 <Style name="country_label" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
@@ -578,99 +543,99 @@
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'town')</Filter>
-    <TextSymbolizer size="20" face-name="Source Sans Pro Regular" fill="#111111" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="20" face-name="Source Sans Pro Regular" fill="#333333" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'town')</Filter>
-    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#111111" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#333333" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'town')</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#111111" size="14" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#333333" size="14" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'city')</Filter>
-    <TextSymbolizer size="24" face-name="Source Sans Pro Semibold" fill="#222222" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="24" face-name="Source Sans Pro Semibold" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'city')</Filter>
-    <TextSymbolizer size="18" face-name="Source Sans Pro Semibold" fill="#222222" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="18" face-name="Source Sans Pro Semibold" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'city')</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#222222" size="16" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Semibold" fill="#444444" size="16" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'hamlet')</Filter>
-    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'hamlet')</Filter>
-    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'hamlet')</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#444444" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#666666" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
-    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
-    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'suburb')</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#444444" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#666666" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
-    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="16" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
-    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#666666" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'neighbourhood')</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#444444" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#666666" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'village')</Filter>
-    <TextSymbolizer size="18" face-name="Source Sans Pro Regular" fill="#222222" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="18" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'village')</Filter>
-    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#222222" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer size="14" face-name="Source Sans Pro Regular" fill="#444444" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([localrank] &lt;= 2) and ([type] = 'village')</Filter>
-    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#222222" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Source Sans Pro Regular" fill="#444444" size="12" ><![CDATA[[name_en]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="place_label"
@@ -732,5 +697,36 @@
 <Layer name="housenum_label"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
       </Layer>
+
+<Style name="CD_Variables_short2_English" filter-mode="first">
+  <Rule>
+    <Filter>([SP65] &gt; 0.13) and ([SP65] &lt;= 0.28)</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
+    <PolygonSymbolizer fill="#88419d" />
+  </Rule>
+  <Rule>
+    <Filter>([SP65] &gt; 0.07) and ([SP65] &lt;= 0.13)</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
+    <PolygonSymbolizer fill="#8c96c6" />
+  </Rule>
+  <Rule>
+    <Filter>([SP65] &gt; 0.06) and ([SP65] &lt;= 0.07)</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
+    <PolygonSymbolizer fill="#b3cde3" />
+  </Rule>
+  <Rule>
+    <Filter>([SP65] &gt; 0.28)</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
+    <PolygonSymbolizer fill="#810f7c" />
+  </Rule>
+  <Rule>
+    <Filter>([SP65] &lt;= 0.06)</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#575758" />
+    <PolygonSymbolizer fill="#edf8fb" />
+  </Rule>
+</Style>
+<Layer name="CD_Variables_short2_English"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>CD_Variables_short2_English</StyleName>  </Layer>
 
 </Map>

@@ -12,188 +12,6 @@
 
 Map { background-color: @land; }
 
-
-
-/*
-#CD_Variables_short2_English {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#f8f89f;
-  polygon-opacity: 0.5;
-}
-
-// P65 ///////////////////////////////////////////////
-
-#CD_Variables_short2_English [P65<=12.740] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#ffffcc;
-    
-}
-
-#CD_Variables_short2_English [P65>12.740][P65<=15.900] {
-  line-width: 0.5;
-  line-color: #575758; 
-  polygon-fill:#c2e699;
-   
-}
-
-#CD_Variables_short2_English [P65>15.900][P65<=18.220]  {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#78c679;
-  
-}
-
-#CD_Variables_short2_English [P65>18.220][P65<=20.400] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#31a354;
-  
-}
-
-#CD_Variables_short2_English [P65>20.400] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#006837;
-  
-  
-}
-
-
-// P80 //////////////////////////////////////////
-
-#CD_Variables_short2_English [P80<=3.2] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#f0f9e8;
-}
-
-#CD_Variables_short2_English [P80>3.2][P80<=4.1] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#bae4bc;
-}
-
-#CD_Variables_short2_English [P80>4.1][P80<=4.7] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#7bccc4;
-}
-
-#CD_Variables_short2_English [P80>4.7][P80<=5.56] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#43a2ca;
-}
-
-#CD_Variables_short2_English [P80>5.56][P80<=8.5] {
-  line-width: 0.5;
-  line-color: #575758;
-  polygon-fill:#0868ac;
-}
-
-// SR65 /////////////////////////////////////////
-
-#CD_Variables_short2_English [SR65<=79.700] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#ffffd4;
-
-  
-}
-#CD_Variables_short2_English [SR65>79.700][SR65<=83.260] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#fed98e;
-
-}
-
-#CD_Variables_short2_English [SR65>83.260][SR65<=87.000]  {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#fe9929;
-
-}
-
-#CD_Variables_short2_English [SR65>87.000][SR65<=93.160] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#d95f0e; 
-
-}
-
-#CD_Variables_short2_English [SR65>93.160] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#993404;
-
-}
-
-// SR80 /////////////////////////////////////////////
-
-#CD_Variables_short2_English [SR80<=55.640] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#fef0d9;
-}
-
-#CD_Variables_short2_English [SR80>55.640][SR80<=59.390] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#fdcc8a;
-}
-
-#CD_Variables_short2_English [SR80>59.390][SR80<=63.360]  {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#fc8d59;
-}
-
-#CD_Variables_short2_English [SR80>63.360][SR80<=69.020] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#e34a33;
-}
-
-#CD_Variables_short2_English [SR80>69.020] {
-  line-width: 0.8;
-  line-color: #090909;
-  polygon-fill:#b30000;
-}
-*/
-// SP65 /////////////////////////////////////////////////
-
-#CD_Variables_short2_English [SP65<=0.06000] {
-  line-width: 0.8;
-  line-color: #575758;
-  polygon-fill:#edf8fb;
-}
-
-#CD_Variables_short2_English [SP65>0.06000][SP65<=0.0700] {
-  line-width: 0.8;
-  line-color: #575758;
-  polygon-fill:#b3cde3;
-}
-
-#CD_Variables_short2_English [SP65>0.0700][SP65<=0.13000]  {
-  line-width: 0.8;
-  line-color: #575758;
-  polygon-fill:#8c96c6;
-}
-
-#CD_Variables_short2_English [SP65>0.13000][SP65<=0.28000] {
-  line-width: 0.8;
-  line-color: #575758;
-  polygon-fill:#88419d;
-}
-
-#CD_Variables_short2_English [SP65>0.28000] {
-  line-width: 0.8;
-  line-color: #575758;
-  polygon-fill:#810f7c;
-}
-/*
 // OCDR //////////////////////////////////////////////
 
 #CD_Variables_short2_English [OCDR<=18.640] {
@@ -225,8 +43,7 @@ Map { background-color: @land; }
   line-color: #575758;
   polygon-fill:#7a0177;
 }
-*/
-///////////////////////////////////////
+
 // Political boundaries //
 
 #admin[admin_level=2][maritime=0] {
@@ -265,7 +82,7 @@ Map { background-color: @land; }
   [type='city'][zoom<=15] {
     text-name: @name;
     text-face-name: @sans_bold;
-    text-fill: #222;
+    text-fill: #444;
     text-size: 16;
     [zoom>=10] { text-size: 18; }
     [zoom>=12] { text-size: 24; }
@@ -273,7 +90,7 @@ Map { background-color: @land; }
   [type='town'][zoom<=17] {
     text-name: @name;
     text-face-name: @sans;
-    text-fill: #111;
+    text-fill: #333;
     text-size: 14;
     [zoom>=10] { text-size: 16; }
     [zoom>=12] { text-size: 20; }
@@ -281,7 +98,7 @@ Map { background-color: @land; }
   [type='village'] {
     text-name: @name;
     text-face-name: @sans;
-    text-fill: #222;
+    text-fill: #444;
     text-size: 12;
     [zoom>=12] { text-size: 14; }
     [zoom>=14] { text-size: 18; }
@@ -291,7 +108,7 @@ Map { background-color: @land; }
   [type='neighbourhood'] {
     text-name: @name;
     text-face-name: @sans;
-    text-fill: #444;
+    text-fill: #666;
     text-size: 12;
     [zoom>=14] { text-size: 14; }
     [zoom>=16] { text-size: 16; }

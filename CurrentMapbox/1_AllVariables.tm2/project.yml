@@ -4,31 +4,53 @@ _prefs:
 _properties: 
   bridge: 
     "group-by": layer
-attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>"
+attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'></a>"
 bounds: 
   - -180
   - -85.0511
   - 180
   - 85.0511
 center: 
-  - -95.0977
-  - 69.473
-  - 3
-description: AllVariables
+  - -76.0075
+  - 44.9531
+  - 9
+description: AllVariables_English
 format: "png8:m=h"
-interactivity_layer: CD_Variables_short2
-layers: null
+interactivity_layer: CD_Variables_short2_English
+layers: 
+  - landuse
+  - aeroway
+  - barrier_line
+  - building
+  - lanuse_overlay
+  - tunnel
+  - road
+  - bridge
+  - admin
+  - country_label_line
+  - CD_Variables_short2_English
+  - waterway
+  - water
+  - country_label
+  - marine_label
+  - state_label
+  - place_label
+  - water_label
+  - poi_label
+  - road_label
+  - waterway_label
+  - housenum_label
 maxzoom: 22
 minzoom: 0
-name: AllVariables
-source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.c5d034e7"
+name: AllVariables_English
+source: "mapbox:///mapbox.mapbox-streets-v5,ruthhannah.3b99cd3e"
 styles: 
   - style.mss
 template: |-
-  <h4> {{CDNAME}} </h4>
-    <strong> Percent Over 65: </strong> {{P65}}%
-   <br /> <strong> Percent Over 80: </strong> {{P80}}%
-   <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
-   <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}
-   <br /> <strong> Share of Population Over 65: </strong> {{SP65}}%
-   <br /> <strong> Old Component Ratio: </strong> {{OCDR}}
+  <STRONG> Census Division: </STRONG>{{CDNAME}} 
+  <br /> <strong> Percent Over 65: </strong> {{P65}}%
+  <br /> <strong> Percent Over 80: </strong> {{P80}}%
+  <br /> <strong> Sex Ratio Over 65: </strong> {{SR65}}
+  <br /> <strong> Sex Ratio Over 80: </strong> {{SR80}}
+  <br /> <strong> Share of Population Over 65: </strong> {{SP65}}%
+  <br /> <strong> Old Component Ratio: </strong> {{OCDR}}

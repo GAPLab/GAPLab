@@ -8,11 +8,14 @@
 
 // Common Colors //
 @land: #fff;
-@water: #c3e6ff;
+@water: #d0e8fa;
 
 Map { background-color: @land; }
+
+
+
 /*
-#CD_Variables_short2 {
+#CD_Variables_short2_English {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -22,49 +25,50 @@ Map { background-color: @land; }
 */
 // P65 ///////////////////////////////////////////////
 
-#CD_Variables_short2 [P65<=7] {
-  line-width: 0.5;
+#CD_Variables_short2_English [P65<=7] {
+  line-width: 0.6;
   line-color: #575758;
-  line-dasharray:5,3;
-  polygon-fill:#eff3ff;
-  polygon-opacity: 0.6;  
+  
+  polygon-fill:#ffffcc;
+  polygon-opacity: 0.8;  
 }
 
-#CD_Variables_short2 [P65>7][P65<=12] {
-  line-width: 0.5;
+#CD_Variables_short2_English [P65>7][P65<=12] {
+  line-width: 0.6;
   line-color: #575758;
-  line-dasharray:5,3;
-  polygon-fill:#bdd7e7;
-  polygon-opacity: 0.6;  
+ 
+  polygon-fill:#c2e699;
+  polygon-opacity: 0.8; 
 }
 
-#CD_Variables_short2 [P65>12][P65<=18]  {
-  line-width: 0.5;
+#CD_Variables_short2_English [P65>12][P65<=18]  {
+  line-width: 0.6;
   line-color: #575758;
-  line-dasharray:5,3;
-  polygon-fill:#6baed6;
-  polygon-opacity: 0.6;
+
+  polygon-fill:#78c679;
+  polygon-opacity: 0.8;
 }
 
-#CD_Variables_short2 [P65>18][P65<=23] {
-  line-width: 0.5;
+#CD_Variables_short2_English [P65>18][P65<=23] {
+  line-width: 0.6;
   line-color: #575758;
-  line-dasharray:5,3;
-  polygon-fill:#3182bd;
-  polygon-opacity: 0.6;
+
+  polygon-fill:#31a354;
+  polygon-opacity: 0.8;
 }
 
-#CD_Variables_short2 [P65>23] {
-  line-width: 0.5;
+#CD_Variables_short2_English [P65>23] {
+  line-width: 0.6;
   line-color: #575758;
-  line-dasharray:5,3;
-  polygon-fill:#08519c;
-  polygon-opacity: 0.6;
+
+  polygon-fill:#006837;
+  polygon-opacity: 0.8;
+  
 }
 /*
 // P80 //////////////////////////////////////////
 
-#CD_Variables_short2[P80<=3.2] {
+#CD_Variables_short2_English [P80<=3.2] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -72,7 +76,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.6;
 }
 
-#CD_Variables_short2[P80>3.2][P80<=4.1] {
+#CD_Variables_short2_English [P80>3.2][P80<=4.1] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -80,7 +84,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.6;
 }
 
-#CD_Variables_short2[P80>4.1][P80<=4.7] {
+#CD_Variables_short2_English [P80>4.1][P80<=4.7] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -88,7 +92,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.6;
 }
 
-#CD_Variables_short2[P80>4.7][P80<=5.56] {
+#CD_Variables_short2_English [P80>4.7][P80<=5.56] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -96,7 +100,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.6;
 }
 
-#CD_Variables_short2[P80>5.56][P80<=8.5] {
+#CD_Variables_short2_English [P80>5.56][P80<=8.5] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -106,7 +110,7 @@ Map { background-color: @land; }
 
 // SR65 /////////////////////////////////////////
 
-#CD_Variables_short2 [SR65<=79.700] {
+#CD_Variables_short2_English [SR65<=79.700] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -114,7 +118,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
   
 }
-#CD_Variables_short2 [SR65>79.700][SR65<=83.260] {
+#CD_Variables_short2_English [SR65>79.700][SR65<=83.260] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -122,7 +126,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SR65>83.260][SR65<=87.000]  {
+#CD_Variables_short2_English [SR65>83.260][SR65<=87.000]  {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -130,7 +134,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65; 
 }
 
-#CD_Variables_short2 [SR65>87.000][SR65<=93.160] {
+#CD_Variables_short2_English [SR65>87.000][SR65<=93.160] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -138,7 +142,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;  
 }
 
-#CD_Variables_short2 [SR65>93.160] {
+#CD_Variables_short2_English [SR65>93.160] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -148,7 +152,7 @@ Map { background-color: @land; }
 
 // SR80 /////////////////////////////////////////////
 
-#CD_Variables_short2 [SR80<=55.640] {
+#CD_Variables_short2_English [SR80<=55.640] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -156,7 +160,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SR80>55.640][SR80<=59.390] {
+#CD_Variables_short2_English [SR80>55.640][SR80<=59.390] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -164,7 +168,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SR80>59.390][SR80<=63.360]  {
+#CD_Variables_short2_English [SR80>59.390][SR80<=63.360]  {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -172,7 +176,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SR80>63.360][SR80<=69.020] {
+#CD_Variables_short2_English [SR80>63.360][SR80<=69.020] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -180,7 +184,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SR80>69.020] {
+#CD_Variables_short2_English [SR80>69.020] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -190,7 +194,7 @@ Map { background-color: @land; }
 
 // SP65 /////////////////////////////////////////////////
 
-#CD_Variables_short2 [SP65<=0.06000] {
+#CD_Variables_short2_English [SP65<=0.06000] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -198,7 +202,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SP65>0.06000][SP65<=0.100000] {
+#CD_Variables_short2_English [SP65>0.06000][SP65<=0.100000] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -206,7 +210,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SP65>0.100000][SP65<=0.17200]  {
+#CD_Variables_short2_English [SP65>0.100000][SP65<=0.17200]  {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -214,7 +218,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SP65>0.17200][SP65<=0.35000] {
+#CD_Variables_short2_English [SP65>0.17200][SP65<=0.35000] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -222,7 +226,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [SP65>0.35000] {
+#CD_Variables_short2_English [SP65>0.35000] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -232,7 +236,7 @@ Map { background-color: @land; }
 
 // OCDR //////////////////////////////////////////////
 
-#CD_Variables_short2 [OCDR<=18.640] {
+#CD_Variables_short2_English [OCDR<=18.640] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -240,7 +244,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [OCDR>18.640][OCDR<=23.980] {
+#CD_Variables_short2_English [OCDR>18.640][OCDR<=23.980] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -248,7 +252,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [OCDR>23.980][OCDR<=27.520]  {
+#CD_Variables_short2_English [OCDR>23.980][OCDR<=27.520]  {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -256,7 +260,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [OCDR>27.520][OCDR<=31.280] {
+#CD_Variables_short2_English [OCDR>27.520][OCDR<=31.280] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;
@@ -264,7 +268,7 @@ Map { background-color: @land; }
   polygon-opacity: 0.65;
 }
 
-#CD_Variables_short2 [OCDR>31.280] {
+#CD_Variables_short2_English [OCDR>31.280] {
   line-width: 0.5;
   line-color: #575758;
   line-dasharray:5,3;

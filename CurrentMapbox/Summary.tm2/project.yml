@@ -10,9 +10,9 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -102.5684
-  - 60.7162
-  - 4
+  - -76.0226
+  - 46.2345
+  - 10
 description: Summary
 format: "png8:m=h"
 interactivity_layer: CD_Variables_short2_English

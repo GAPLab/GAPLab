@@ -12,15 +12,12 @@
 
 Map { background-color: @land; }
 
-
 #CD_Variables_short2_English {
   line-width: 0.5;
   line-color: #575758;
   polygon-fill:#f8f89f;
   polygon-opacity: 0.5;
 }
-
-
 
 // Political boundaries //
 

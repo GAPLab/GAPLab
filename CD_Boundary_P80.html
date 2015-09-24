@@ -63,7 +63,24 @@
       </nav> 
 
     <div id='map'></div>
+    <div id='legend' style='display:none;'>
+    
+  <strong>Percentage of the Population Over 65 Years </strong>
+  <nav class='legend clearfix'>
+    <span style='background:#f0f9e8; '></span>
+    <span style='background:#bae4bc; '></span>
+    <span style='background:#7bccc4; '></span>
+    <span style='background:#43a2ca; '></span>
+    <span style='background:#0868ac; '></span>
+    <label>0-3.2</label>
+    <label>3.2-4.1</label>
+    <label>4.1-4.7</label>
+    <label>4.7-5.56</label>
+    <label>5.56+</label>
+
+</div> 
     <script src ="js/CDBoundary_Variables.js"></script>
+    
 
     <script>
         
@@ -72,13 +89,15 @@
         var map=   L.mapbox.map('map', 'ruthhannah.48731bc4')
             .setView([64.696, -100.986], 3);
         
+         map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+        
     
         function getColor(d){
-            return  d > 5.56? '#006837' :
-                    d > 4.7 ? '#31a354' :
-                    d > 4.1 ? '#78c679' :
-                    d > 3.2 ? '#c2eb99' :
-                    '#ffffcc' ;
+            return  d > 5.55 ? '#0868ac' :
+                    d > 4.71 ? '#43a2ca' :
+                    d > 4.08 ? '#7bccc4' :
+                    d > 3.16 ? '#bae4bc' :
+                    '#f0f9e8' ;
         }
     
  function style(feature){
@@ -135,25 +154,9 @@
             onEachFeature: onEachFeature
         }).addTo(map);
         
-    
-        var legend = L.control({position: 'bottomright'});
-    
-        legend.onAdd = function (map) {
-  
-         var div = L.DomUtil.create('div', 'info legend'),
-               grades=[0,3.2,4.1,4.7,5.56],
-               labels=[];
-    
-           for (var i= 0; i <grades.length; i++){
-               div.innerHTML +=
-                   '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
-                   grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-               }
-          return div;
-          };
-          legend.addTo(map);
-    
 
+    
+      
         var info = L.control();
 
         info.onAdd = function(map) {

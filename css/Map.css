@@ -112,6 +112,18 @@
     position: relative;   
 }
 
+.grumpy-image-wrapper {
+    width: 90%;
+    height: 0;
+    position: relative;
+    }
+
+.grumpy-image {
+    border: 1px solid dimgrey;
+    width: 100%;
+    position: absolute;
+    }
+
 H6{
     text-align: center;
 }
@@ -120,6 +132,8 @@ H6{
 H5{
     text-align: center;
 }
+
+/* MAP ELEMENTS */
 
 body{
     padding: 0;
@@ -138,6 +152,8 @@ body{
     outline-width: thin;    
     }
 
+/* info box */
+
 .info{
     padding: 6px 8px;
     font: 14px/16px;
@@ -153,7 +169,6 @@ body{
     text-align: center;
     }
 
-
 .legend{
     line-height: 18px; 
     }
@@ -165,18 +180,6 @@ body{
     padding-right: 5px;
     text-align: right;
     font-style: normal;
-    }
-
-.grumpy-image-wrapper {
-    width: 90%;
-    height: 0;
-    position: relative;
-    }
-
-.grumpy-image {
-    border: 1px solid dimgrey;
-    width: 100%;
-    position: absolute;
     }
 
 .bandgallery{
@@ -198,9 +201,6 @@ body{
   /* Re-overiding the width 100% declaration to match size of % based container */
   /* .has-docked-nav .navbar > .container {
     width: 80%; } /*
-
-
-
 
 
 /* #Page Styles

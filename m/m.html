@@ -53,11 +53,14 @@
   </div>
 
 <div id ='map'></div>
-<script scr "js/CartographicCdVariables8_3.js"></script>
+<script scr "js/DigitalCdVariables5_3.js"></script>
 
 <script>
 
-  var map = L.map('map').setView([64.696, -100.986],3)
+  L.mapbox.accessToken = 'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJkMjE4YjFhY2YxZTEyN2NjNDMyNzVmMGExNDNjMmQyNSJ9.MAh45JFbYJo5QkCimq2WCw';
+    
+        var map=   L.mapbox.map('map', 'ruthhannah.97be37d0')
+            .setView([64.696, -100.986], 3);
 
 
 </script>

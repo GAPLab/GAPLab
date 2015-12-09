@@ -1,4 +1,4 @@
-// Country labels //
+/*// Country labels //
 #country_label[zoom>=3] {
   text-name: @name;
   text-face-name: @sans_bold;
@@ -235,3 +235,4 @@
   text-halo-radius: 1;
   text-fill: @text;
 }
+*/

@@ -11,15 +11,15 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -99.4043
-  - 68.7841
-  - 3
+  - -104.3701
+  - 54.1109
+  - 5
 description: GAPmaps basemap
 format: "png8:m=h"
 interactivity_layer: ''
 layers: null
-maxzoom: 12
-minzoom: 3
+maxzoom: 5
+minzoom: 2
 name: m
 source: "mapbox:///mapbox.mapbox-streets-v5"
 styles: 

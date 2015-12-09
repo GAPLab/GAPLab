@@ -1,4 +1,4 @@
-// dummy styles to set ordering (case below fill)
+/* // dummy styles to set ordering (case below fill)
 #tunnel, #bridge, #road {
   ::case { opacity: 1; }
   ::fill { opacity: 1; }
@@ -84,3 +84,4 @@
     [class='street_limited'] { line-dasharray: 4,2; }
   }
 }
+*/

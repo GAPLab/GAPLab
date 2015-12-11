@@ -5,8 +5,37 @@
     margin-top:15px;
     margin-bottom: 15px;
     height: 550px;
-    width: 90%;
+    width: 85%;
     outline-color: dimgrey;
     outline-style: solid;
-    outline-width: thin;    
+    outline-width: 2px;
     }
+
+/* info box */
+
+.info{
+    padding: 6px 8px;
+    font: 14px/16px;
+    background: white;
+    /*background: rgba(255,255,255,0.8);*/
+    border-radius: 3px;
+    border: 1px solid dimgrey;
+}
+
+.info h5{
+    width: 180px;
+    margin: 0 0 5px;
+    text-align: center;
+}
+.legend{
+    line-height: 18px;
+}
+
+.legend i{
+    display: block;
+    height: 18px;
+    padding-left: 40px;
+    padding-right: 5px;
+    text-align: right;
+    font-style: normal;
+}

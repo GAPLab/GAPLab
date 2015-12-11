@@ -11,9 +11,9 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -104.3701
-  - 54.1109
-  - 5
+  - -94.9219
+  - 69.1626
+  - 2
 description: GAPmaps basemap
 format: "png8:m=h"
 interactivity_layer: ''

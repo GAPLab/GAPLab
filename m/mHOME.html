@@ -39,6 +39,35 @@
 
 <!-- Primary Page Layout -->
 
+<div class= "wrapper">
+    <button href="/Users/Ruth/Desktop/Website/m/mHOME.html"><img src="images/sprite.png" alt="house" style ="width:15px; line-height: 10rem;  "></button>
+
+    <button onclick="
+        var geojson=L.geoJson(CDBoundary_simple,{
+        style:style,
+        onEachFeature: onEachFeature
+        }).addTo(map);
+        ">Summary</button>
+    
+    <button onclick="
+        var geojson=L.geoJson(CDBoundary_simple,{
+        style:styleSR65,
+        onEachFeature: onEachFeature
+        }).addTo(map);
+        
+        ">SR65</button>
+    
+    <button onclick="
+        var geojson=L.geoJson(CDBoundary_simple,{
+        style:styleSR80,
+        onEachFeature: onEachFeature
+        }).addTo(map);
+        
+        ">
+        SR80</button>
+    
+
+</div>
 <div id ='map'></div>
 <script scr ="js/PopulatedPlaces_Canada.js"></script>
 
@@ -70,7 +99,7 @@ function style(feature){
         opacity: 1,
         color: '#bdbdbd',
         dashArray: '',
-        fillOpacity:0
+        fillOpacity:0.4
     };
 }
 
@@ -105,12 +134,12 @@ function getColorSR80(d){
 /////////////////////////////////////////////
 function styleSR80(feature){
     return {
-        fillColor: getColor(feature.properties.SR80),
+        fillColor: getColorSR80(feature.properties.SR80),
         weight: 0.5,
         opacity: 1,
         color: '#bdbdbd',
         dashArray: '',
-        fillOpacity:0
+        fillOpacity:0.4
     };
 }
 ////////////
@@ -181,111 +210,8 @@ function styleSR80(feature){
     
 
 
-////////////////////////////////////// LEGEND SR65
-    var legendSR65 = L.control({position: 'bottomright'});
-    
-    legendSR65.onAdd = function (map) {
-        
-        var div = L.DomUtil.create('div', 'info legend'),
-        grades=[0,80,83,87,93],
-        labels=[];
-        
-        for (var i= 0; i <grades.length; i++){
-            div.innerHTML +=
-            '<i  style="background:' +getColorSR65(grades[i] +1) + '"></i.>' +
-            grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-        }
-        return div;
-    };
-
-
-////////////////////////////////////// LEGEND SR80
-var legendSR80 = L.control({position: 'bottomright'});
-
-legendSR80.onAdd = function (map) {
-    
-    var div = L.DomUtil.create('div', 'info legend'),
-    grades=[0,55,59,63,69],
-    labels=[];
-    
-    for (var i= 0; i <grades.length; i++){
-        div.innerHTML +=
-        '<i  style="background:' +getColorSR80(grades[i] +1) + '"></i.>' +
-        grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-    return div;
-};
-
 </script>
-<div class= "wrapper">
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:style,
-    onEachFeature: onEachFeature
-    }).addTo(map);
-    
 
-
-    
-    
-    ">Summary</button>
-
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:styleSR65,
-    onEachFeature: onEachFeature
-    }).addTo(map); 
-    
-
-">
-    SR65</button>
-
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:styleSR80,
-    onEachFeature: onEachFeature
-    }).addTo(map);
-    
-">
-    SR80</button>
-
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:styleSP65,
-    onEachFeature: onEachFeature
-    }).addTo(map);
-    
-    
- ">
-    SP65</button>
-
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:styleP80,
-    onEachFeature: onEachFeature
-    }).addTo(map);
-    
-">
-    P80</button>
-
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:styleP65,
-    onEachFeature: onEachFeature
-    }).addTo(map);
-    
-">
-    P65</button>
-
-<button onclick="
-    var geojson=L.geoJson(CDBoundary_simple,{
-    style:styleOCDR,
-    onEachFeature: onEachFeature
-    }).addTo(map);
-
-    ">
-    OCDR</button>
-</div>
 <!-- End Document -->
 </body>
 </html>

@@ -27,15 +27,32 @@
     margin: 0 0 5px;
     text-align: center;
 }
+/*
 .legend{
-    line-height: 18px;
+    line-height: 40px;
 }
 
 .legend i{
     display: block;
     height: 18px;
-    padding-left: 40px;
+    padding-left: 5px;
     padding-right: 5px;
+    margin-bottom:20px;
     text-align: right;
     font-style: normal;
+}
+*/
+.legend {
+    line-height: 60px;
+    color: #000;
+}
+
+.legend i {
+    width: 35px;
+    height: 20px;
+    float: left;
+    margin-right: 3px;
+    margin-left:3px;
+    margin-bottom:10px;
+    opacity: 0.8;
 }

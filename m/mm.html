@@ -46,7 +46,8 @@
 <script src ="js/CDBoundary_simple.js"></script>
 
 <script>
-    
+    // Setting up custom mapbox basemap
+  
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
@@ -58,22 +59,27 @@
                           {maxBounds: bounds,})
                           .setView([64.696, -100.986], 3);
     
-    // returns a color based on value d
+    // Returns a color based on a value
     function getColor(d){
-    return  '#fff7bc';
+    return d> 69.020?'#54278f':
+    d> 63.360 ?'#756bb1':
+    d> 59.380?'#9e9ac8':
+    d> 55.640?'#cbc9e2':
+    '#f2f0f7';
     }
 
     function style(feature){
     return {
-        fillColor: getColor(feature.properties.SR65),
+        fillColor: getColor(feature.properties.SR80),
         weight: 0.5,
         opacity: 1,
         color: '#bdbdbd',
         dashArray: '',
-        fillOpacity:0
+        fillOpacity:0.4
         };
     }
 
+    // Highlights census divisions
     function highlightFeature(e){
         var layer = e.target;
         info.update(layer.feature.properties);
@@ -81,7 +87,7 @@
             weight:1,
             color: '#737373',
             dashArray:'',
-            fillOpacity:0
+            fillOpacity:0.8
             });
                    
             if (!L.Browser.ie && !L.Browser.opera){
@@ -89,20 +95,19 @@
                 }
     }
 
+    // Resets the census division highlight
+    var geojson;
+    
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
         info.update();
     }
 
-    var geojson=L.geoJson(CDBoundary_simple,{
-        style:style,
-        onEachFeature: onEachFeature
-        }).addTo(map);
-                      
     function zoomToFeature(e){
         map.fitBounds(e.target.getBounds());
     }
 
+    // Adds listeners to layer so that census divisions are highlighted and reset
     function onEachFeature (feature, layer){
         layer.on({
              mouseover:highlightFeature,
@@ -111,7 +116,13 @@
              });
     }
 
-    // shows information on each CD on hover
+    var geojson=L.geoJson(CDBoundary_simple,{
+                      style:style,
+                      onEachFeature: onEachFeature
+                      }).addTo(map);
+
+    // When the mouse hovers the variables attached to each
+    // census division are shown in an info box when mouse hovers
     var info = L.control();
 
     info.onAdd = function(map) {
@@ -131,9 +142,30 @@
         };
 
     info.addTo(map);
-
+    
+    //Map Legend
+    var legend = L.control({position: 'bottomright'});
+    
+    legend.onAdd = function (map) {
+        
+        var div = L.DomUtil.create('div', 'info legend'),
+        grades=[0,55,59,63,69],
+        labels=[];
+        
+        for (var i= 0; i <grades.length; i++){
+            div.innerHTML +=
+            '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
+            grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+        return div;
+    };
+    legend.addTo(map);
+    
+    
 
 </script>
+
+
 
 <!-- End Document -->
 </body>

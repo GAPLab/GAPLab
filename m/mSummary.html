@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>gap maps</title>
+    <title>GAP Summary Map</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -40,32 +40,9 @@
 <!-- Primary Page Layout -->
 
 <div class= "wrapper">
-    <button href="/Users/Ruth/Desktop/Website/m/mHOME.html"><img src="images/sprite.png" alt="house" style ="width:15px; line-height: 10rem;  "></button>
+    
+<a class="button" href="/Users/Ruth/Desktop/Website/m/mChoropleth.html">CHOROPLETH MAPS</a>
 
-    <button onclick="
-        var geojson=L.geoJson(CDBoundary_simple,{
-        style:style,
-        onEachFeature: onEachFeature
-        }).addTo(map);
-        ">Summary</button>
-    
-    <button onclick="
-        var geojson=L.geoJson(CDBoundary_simple,{
-        style:styleSR65,
-        onEachFeature: onEachFeature
-        }).addTo(map);
-        
-        ">SR65</button>
-    
-    <button onclick="
-        var geojson=L.geoJson(CDBoundary_simple,{
-        style:styleSR80,
-        onEachFeature: onEachFeature
-        }).addTo(map);
-        
-        ">
-        SR80</button>
-    
 
 </div>
 <div id ='map'></div>
@@ -75,8 +52,8 @@
 <script src ="js/CDBoundary_simple.js"></script>
 
 <script>
-    // Setting up custom mapbox basemap
-  
+    
+// Setting up custom mapbox basemap
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
@@ -88,70 +65,29 @@
                           {maxBounds: bounds,})
                           .setView([64.696, -100.986], 3);
  
-   
 
-/////////////////////////////////////////////SUMMARY MAP
-
-function style(feature){
-    return {
-        fillColor: '#FFFFFF',
-        weight: 0.5,
-        opacity: 1,
-        color: '#bdbdbd',
-        dashArray: '',
-        fillOpacity:0.4
-    };
-}
-
-/////////////////////////////////////////////SR65 Map
-    function getColorSR65(d){
-        return d> 93.160?'#08519c':
-        d> 87.000 ?'#3182bd':
-        d> 83.260?'#6baed6':
-        d> 79.700?'#bdd7e7':
-            '#eff3ff';
-    }
-
-/////////////////////////////////////////////
-    function styleSR65(feature){
+//Summary Map
+    function style(feature){
         return {
-            fillColor: getColorSR65(feature.properties.SR65),
+            fillColor: '#FFFFFF',
             weight: 0.5,
             opacity: 1,
-            color: '#bdbdbd',
+            color: '#C80000',
             dashArray: '',
-            fillOpacity:0.4
+        fillOpacity:0.4
         };
     }
-/////////////////////////////////////////////SR80 Map
-function getColorSR80(d){
-    return d> 69.020?'#08519c':
-    d> 63.360 ?'#3182bd':
-    d> 59.380?'#6baed6':
-    d> 55.640?'#bdd7e7':
-    '#eff3ff';
-}
-/////////////////////////////////////////////
-function styleSR80(feature){
-    return {
-        fillColor: getColorSR80(feature.properties.SR80),
-        weight: 0.5,
-        opacity: 1,
-        color: '#bdbdbd',
-        dashArray: '',
-        fillOpacity:0.4
-    };
-}
-////////////
-    // Highlights census divisions
+
+
+// Highlights census divisions
     function highlightFeature(e){
         var layer = e.target;
         info.update(layer.feature.properties);
         layer.setStyle({
             weight:1,
-            color: '#737373',
+            color: '#000000',
             dashArray:'',
-            fillOpacity:0.8
+            fillOpacity:0
             });
                    
             if (!L.Browser.ie && !L.Browser.opera){
@@ -159,7 +95,7 @@ function styleSR80(feature){
                 }
     }
 
-    // Resets the census division highlight
+// Resets the census division highlight
     var geojson;
     
     function resetHighlight(e) {
@@ -171,7 +107,7 @@ function styleSR80(feature){
         map.fitBounds(e.target.getBounds());
     }
 
-    // Adds listeners to layer so that census divisions are highlighted and reset
+// Adds listeners to layer so that census divisions are highlighted and reset
     function onEachFeature (feature, layer){
         layer.on({
              mouseover:highlightFeature,
@@ -185,7 +121,7 @@ function styleSR80(feature){
                       onEachFeature: onEachFeature
                       }).addTo(map);
 
-//////////////////////////////////////SUMMARY INFO
+
 // When the mouse hovers the variables attached to each
 // census division are shown in an info box when mouse hovers
     var info = L.control();
@@ -203,7 +139,8 @@ function styleSR80(feature){
         + (props? '<br /><b>Percent Over 80: </b>' + props.P80.toFixed(2) + '%' : "")
         + (props? '<br /><b>Sex Ratio 65: </b>' + props.SR65.toFixed(2) + '%' : "")
         + (props? '<br /><b>Sex Ratio 80:</b> ' + props.SR80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Old Component Ratio: </b>' + props.ODR.toFixed(2) + '%': "");
+        + (props? '<br /><b>Old Component Dependency Ratio: </b>' + props.ODR.toFixed(2) + '%': "")
+        + (props? '<br /><b>Share of the Population over 65: </b>' + props.S65.toFixed(2) + '%': "");
         };
 
     info.addTo(map);

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>GAP Choropleth Maps</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- FONT -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+<!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/m.css">
+
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+<!-- Leaflet -->
+    <link rel ="stylesheet" href ="leaflet/leaflet.css" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="leaflet/leaflet.js"></script>
+  
+<!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
+    <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
+
+</head>
+
+<body>
+
+<!-- Primary Page Layout -->
+<div class= "row">
+<div class= "wrapper">
+    <div class= "two columns">
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
+    </div>
+    <div class= "ten columns">
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mP65.html">P65</a>
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html">P80</a>
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html">SR65</a>
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html">SR80</a>
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html">SP65</a>
+        <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html">OCDR</a>
+    </div>
+</div>
+</div>
+
+<div id ='map'></div>
+
+<script src ="js/CDBoundary_simple.js"></script>
+
+<script>
+    
+    // Setting up custom mapbox basemap
+  
+    L.mapbox.accessToken =
+        'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
+    
+    var southWest = L.latLng(30, -145),
+        northEast = L.latLng(85, -50),
+        bounds = L.latLngBounds(southWest, northEast);
+    
+    var map= L.mapbox.map('map','ruthhannah.97be37d0',
+                          {maxBounds: bounds,})
+                          .setView([64.696, -100.986], 3);
+ 
+   
+   //Summary Map
+   function style(feature){
+       return {
+           fillColor: '#FFFFFF',
+           weight: 0.5,
+           opacity: 1,
+           color: '#000000',
+           dashArray: '',
+           fillOpacity:0.4
+       };
+   }
+var geojson;
+
+var geojson=L.geoJson(CDBoundary_simple,{
+                      style:style,
+                      
+                      }).addTo(map);
+
+
+
+
+
+
+
+</script>
+
+<!-- End Document -->
+</body>
+</html>

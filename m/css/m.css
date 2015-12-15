@@ -28,7 +28,7 @@
     text-align: center;
 }
 
-
+/*
 .legend {
     line-height: 50px;
     color: #000;
@@ -41,9 +41,28 @@
     margin-right: 3px;
     margin-left:3px;
     margin-bottom:10px;
-    opacity: 0.8;
+    opacity: 0.7;
+}
+*/
+
+
+.legend label {
+    display:block;
+    float:left;
+    height:15px;
+    width:55px;
+    text-align:center;
+    font-size:9px;
+    color:#000000;
 }
 
+.legend span {
+    display:block;
+    float:left;
+    height:20px;
+    width:20%;
+    opacity: 0.7;
+}
 
 
 

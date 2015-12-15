@@ -53,7 +53,21 @@
     </div>
 </div>
 </div>
-
+<div id='legend' style='display:none;'>
+    
+    <nav class='legend clearfix'>
+        <span style='background:#ffffff;'></span>
+        <span style='background:#ccccff;'></span>
+        <span style='background:#8080ff;'></span>
+        <span style='background:#1a1aff;'></span>
+        <span style='background:#0000b3;'></span>
+        <label>0-12.7%</label>
+        <label>12.7-15.9%</label>
+        <label>15.9-18.2%</label>
+        <label>18.2-20.4%</label>
+        <label>20.4%+</label>
+        
+</div>
 <div id ='map'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
@@ -72,15 +86,15 @@
                           {maxBounds: bounds,})
                           .setView([64.696, -100.986], 3);
  
-   
+   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 
     function getColor(d){
-        return d> 20.400?'#08519c':
-        d> 18.220 ?'#3182bd':
-        d> 15.900?'#6baed6':
-        d> 12.740?'#bdd7e7':
-            '#eff3ff';
+        return d> 20.400?'#0000b3':
+        d> 18.220 ?'#1a1aff':
+        d> 15.900?'#8080ff':
+        d> 12.740?'#ccccff':
+            '#ffffff';
     }
 
 /////////////////////////////////////////////
@@ -157,7 +171,7 @@ function onEachFeature (feature, layer){
     info.addTo(map);
     
 
-
+/*
 ////////////////////////////////////// LEGEND
 var legend = L.control({position: 'bottomright'});
 
@@ -176,7 +190,7 @@ legend.onAdd = function (map) {
 };
 
 legend.addTo(map);
-
+*/
 </script>
 
 <!-- End Document -->

@@ -84,8 +84,8 @@
         var layer = e.target;
         info.update(layer.feature.properties);
         layer.setStyle({
-            weight:1,
-            color: '#C80000',
+            weight:1.2,
+            color: '#1a1aff',
             dashArray:'',
             fillOpacity:0
             });
@@ -135,12 +135,12 @@
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percent Over 65: </b>' + props.P65.toFixed(2)+ '%' : "")
-        + (props? '<br /><b>Percent Over 80: </b>' + props.P80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex Ratio 65: </b>' + props.SR65.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex Ratio 80:</b> ' + props.SR80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Old Component Dependency Ratio: </b>' + props.ODR.toFixed(2) + '%': "")
-        + (props? '<br /><b>Share of the Population over 65: </b>' + props.S65.toFixed(2) + '%': "");
+        + (props? '<br /><b>Percent of the population 65 and over: </b>' + props.P65.toFixed(2)+ '%' : "")
+        + (props? '<br /><b>Percent of the population 80 and over: </b>' + props.P80.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Sex ratio 65 and over: </b>' + props.SR65.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Sex ratio 80 and over :</b> ' + props.SR80.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Share of the population 65 and over: </b>' + props.S65.toFixed(2) + '%': "")
+        + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2) + '%': "");
         };
 
     info.addTo(map);

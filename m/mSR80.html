@@ -32,7 +32,12 @@
 <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
-
+    <!--Tooltip-->
+    
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -44,15 +49,24 @@
         <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
     </div>
     <div class= "ten columns">
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mP65.html">P65</a>
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html">P80</a>
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html">SR65</a>
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html">SR80</a>
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html">SP65</a>
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html">OCDR</a>
+        <div class= "ten columns">
+            <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html" > Sex Ratio 65+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
+            
+        </div>
     </div>
 </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+                      $('[data-toggle="tooltip"]').tooltip();
+                      });
+    </script>
 
 <div id='legend' style='display:none;'>
     

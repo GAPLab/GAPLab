@@ -34,9 +34,7 @@
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
 
 <!--Tooltip-->
-
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
@@ -45,12 +43,11 @@
 <body>
 
 <!-- Primary Page Layout -->
-<div class= "row">
-<div class= "wrapper">
-    <div class= "two columns">
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
-    </div>
-    <div class= "ten columns">
+    <div class= "row">
+    <div class= "wrapper">
+        <div class= "two columns">
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
+        </div>
         <div class= "ten columns">
             <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
@@ -58,42 +55,37 @@
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
-            
         </div>
-    </div>
-</div>
-</div>
-
-<script>
-    $(document).ready(function(){
-                      $('[data-toggle="tooltip"]').tooltip();
-                      });
-    </script>
-
-<div id='legend' style='display:none;'>
-    
-    <nav class='legend clearfix'>
-        <span style='background:#ffffff;'></span>
-        <span style='background:#ccccff;'></span>
-        <span style='background:#8080ff;'></span>
-        <span style='background:#1a1aff;'></span>
-        <span style='background:#0000b3;'></span>
-        <label>0-18.6%</label>
-        <label>18.6-24.0%</label>
-        <label>24.0-27.5%</label>
-        <label>27.5-31.3%</label>
-        <label>31.3%+</label>
         
-</div>
+    </div>
+    </div>
 
+    <script>
+        $(document).ready(function(){
+                          $('[data-toggle="tooltip"]').tooltip();
+                          });
+        </script>
 
-<div id ='map'></div>
+    <div id='legend' style='display:none;'>
+        <nav class='legend clearfix'>
+            <span style='background:#ffffff;'></span>
+            <span style='background:#ccccff;'></span>
+            <span style='background:#8080ff;'></span>
+            <span style='background:#1a1aff;'></span>
+            <span style='background:#0000b3;'></span>
+            <label>0-18.6%</label>
+            <label>18.6-24.0%</label>
+            <label>24.0-27.5%</label>
+            <label>27.5-31.3%</label>
+            <label>31.3%+</label>
+    </div>
 
-<script src ="js/CDBoundary_simple.js"></script>
+    <div id ='map'></div>
 
-<script>
+    <script src ="js/CDBoundary_simple.js"></script>
+
+    <script>
     // Setting up custom mapbox basemap
-  
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
@@ -105,9 +97,7 @@
                           {maxBounds: bounds,})
                           .setView([64.696, -100.986], 3);
                           
-   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
-   
-
+    map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
     function getColor(d){
         return d> 31.280?'#0000b3':
@@ -117,7 +107,7 @@
             '#ffffff';
     }
 
-/////////////////////////////////////////////
+    /////////////////////////////////////////////
     function style(feature){
         return {
             fillColor: getColor(feature.properties.ODR),
@@ -130,10 +120,10 @@
     }
 
 
-function highlightFeature(e){
-    var layer = e.target;
-    info.update(layer.feature.properties);
-    layer.setStyle({
+    function highlightFeature(e){
+        var layer = e.target;
+        info.update(layer.feature.properties);
+        layer.setStyle({
                    weight:0.7,
                    color: '#000000',
                    dashArray:'',
@@ -143,33 +133,32 @@ function highlightFeature(e){
                    if (!L.Browser.ie && !L.Browser.opera){
                        layer.bringToFront();
                    }
-}
+    }
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
 
 
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
-
-var geojson=L.geoJson(CDBoundary_simple,{
+    var geojson=L.geoJson(CDBoundary_simple,{
                       style:style,
                       onEachFeature: onEachFeature
                       }).addTo(map);
                       
                       
                       
-                      function zoomToFeature(e){
-                          map.fitBounds(e.target.getBounds());
-                      }
+     function zoomToFeature(e){
+         map.fitBounds(e.target.getBounds());
+         }
 
-function onEachFeature (feature, layer){
-    layer.on({
+    function onEachFeature (feature, layer){
+        layer.on({
              mouseover:highlightFeature,
              mouseout:resetHighlight,
              click:zoomToFeature
              });
-}
+    }
 
 //////////////////////////////////////SUMMARY INFO
 // When the mouse hovers the variables attached to each
@@ -189,27 +178,6 @@ function onEachFeature (feature, layer){
         };
 
     info.addTo(map);
-    
-
-
-////////////////////////////////////// LEGEND
-/*var legend = L.control({position: 'bottomright'});
-
-legend.onAdd = function (map) {
-    
-    var div = L.DomUtil.create('div', 'info legend'),
-    grades=[0,18.7,24.0,27.5,31.2],
-    labels=[];
-    
-    for (var i= 0; i <grades.length; i++){
-        div.innerHTML +=
-        '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
-        grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-    return div;
-};
-
-legend.addTo(map);*/
 
 </script>
 

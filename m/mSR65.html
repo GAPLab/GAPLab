@@ -46,11 +46,10 @@
 
 <!-- Primary Page Layout -->
 <div class= "row">
-<div class= "wrapper">
-    <div class= "two columns">
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
-    </div>
-    <div class= "ten columns">
+    <div class= "wrapper">
+        <div class= "two columns">
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
+        </div>
         <div class= "ten columns">
             <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
@@ -58,10 +57,9 @@
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
-            
         </div>
+        
     </div>
-</div>
 </div>
 
 <script>
@@ -181,31 +179,11 @@ function onEachFeature (feature, layer){
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Sex Ratio Over 65: </b>' + props.SR65.toFixed(2) + '%' : "");
+        + (props? '<br /><b>Sex ratio 65 and over: </b>' + props.SR65.toFixed(2) + '%' : "");
         };
 
     info.addTo(map);
-    
 
-/*
-////////////////////////////////////// LEGEND
-var legend = L.control({position: 'bottomright'});
-
-legend.onAdd = function (map) {
-    
-    var div = L.DomUtil.create('div', 'info legend'),
-    grades=[0,79.7,83.2,87.0,93.1],
-    labels=[];
-    
-    for (var i= 0; i <grades.length; i++){
-        div.innerHTML +=
-        '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
-        grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-    return div;
-};
-
-legend.addTo(map);*/
 
 </script>
 

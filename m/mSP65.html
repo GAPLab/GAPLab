@@ -49,16 +49,14 @@
                     <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
                 </div>
                 <div class= "ten columns">
-                    <div class= "ten columns">
-                        <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
-                        <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
-                        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html" > Sex Ratio 65+</a>
-                        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
-                        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
-                        <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
-                        
-                    </div>
+                    <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
+                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
+                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html" > Sex Ratio 65+</a>
+                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
+                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
+                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
                 </div>
+                
             </div>
         </div>
         
@@ -182,31 +180,10 @@
         info.update = function(props) {
             this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
             + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-            + (props? '<br /><b>Share of the Population over 65: </b>' + props.S65.toFixed(2) + '%': "");
+            + (props? '<br /><b>Share of the population 65 and over: </b>' + props.S65.toFixed(2) + '%': "");
         };
         
         info.addTo(map);
-        
-        
-        /*
-        ////////////////////////////////////// LEGEND NOT WORKING!!!
-        var legend = L.control({position: 'bottomright'});
-        
-        legend.onAdd = function (map) {
-            
-            var div = L.DomUtil.create('div', 'info legend'),
-            grades=[0.0,0.06, 0.10, 0.17, 0.35],
-            labels=[];
-            
-            for (var i= 0; i <grades.length; i++){
-                div.innerHTML +=
-                '<i  style="background:' +getColor(grades[i] +1) + '"></i.>' +
-                grades[i] + (grades[i + 1]? '&ndash;' + grades[i + 1] + '<br>' : '+');
-            }
-            return div;
-        };
-        
-        legend.addTo(map);*/
         
             </script>
         

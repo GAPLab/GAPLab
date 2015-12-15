@@ -46,11 +46,10 @@
 
 <!-- Primary Page Layout -->
 <div class= "row">
-<div class= "wrapper">
-    <div class= "two columns">
-        <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
-    </div>
-    <div class= "ten columns">
+    <div class= "wrapper">
+        <div class= "two columns">
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
+        </div>
         <div class= "ten columns">
             <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
@@ -58,10 +57,9 @@
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
-            
         </div>
+        
     </div>
-</div>
 </div>
 
 <script>
@@ -182,7 +180,7 @@ function onEachFeature (feature, layer){
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percentage Over 80: </b>' + props.P80.toFixed(2)+ '%' : "");
+        + (props? '<br /><b>Percent of the population 80 and over: </b>' + props.P80.toFixed(2)+ '%' : "");
         };
 
     info.addTo(map);

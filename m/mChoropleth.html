@@ -32,12 +32,12 @@
 <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
+    
 <!--Tooltip-->
-    
-    
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -57,7 +57,6 @@
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
         </div>
-        
     </div>
 </div>
 
@@ -65,7 +64,7 @@
     $(document).ready(function(){
                       $('[data-toggle="tooltip"]').tooltip();
                       });
-    </script>
+</script>
 
 <div id ='map'></div>
 
@@ -74,7 +73,6 @@
 <script>
     
     // Setting up custom mapbox basemap
-  
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
@@ -86,8 +84,7 @@
                           {maxBounds: bounds,})
                           .setView([64.696, -100.986], 3);
  
-   
-   //Summary Map
+   // Summary Map
    function style(feature){
        return {
            fillColor: '#FFFFFF',
@@ -98,18 +95,12 @@
            fillOpacity:0.4
        };
    }
-var geojson;
 
-var geojson=L.geoJson(CDBoundary_simple,{
+    var geojson;
+
+    var geojson=L.geoJson(CDBoundary_simple,{
                       style:style,
-                      
                       }).addTo(map);
-
-
-
-
-
-
 
 </script>
 

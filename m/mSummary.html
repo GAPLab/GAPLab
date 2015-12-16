@@ -40,14 +40,10 @@
 <!-- Primary Page Layout -->
 
 <div class= "wrapper">
-    
 <a class="button" href="/Users/Ruth/Desktop/Website/m/mChoropleth.html">CHOROPLETH MAPS</a>
-
-
 </div>
-<div id ='map'></div>
-<script scr ="js/PopulatedPlaces_Canada.js"></script>
 
+<div id ='map'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
 
@@ -74,9 +70,9 @@
             opacity: 1,
             color: '#000000',
             dashArray: '',
-        fillOpacity:0.4
-        };
-    }
+            fillOpacity:0.4
+            };
+        }
 
 
 // Highlights census divisions
@@ -120,17 +116,14 @@
                       style:style,
                       onEachFeature: onEachFeature
                       }).addTo(map);
-
-
-// When the mouse hovers the variables attached to each
-// census division are shown in an info box when mouse hovers
+                      
     var info = L.control();
 
     info.onAdd = function(map) {
         this._div = L.DomUtil.create('div','info');
         this.update();
         return this._div;
-    };
+        };
 
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
@@ -142,11 +135,8 @@
         + (props? '<br /><b>Share of the population 65 and over: </b>' + props.S65.toFixed(2) + '%': "")
         + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2) + '%': "");
         };
-
     info.addTo(map);
     
-
-
 </script>
 
 <!-- End Document -->

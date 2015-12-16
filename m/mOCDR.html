@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>GAP Old Component Dependency Ratio</title>
+    <title>GAP Old Component of the Dependency Ratio</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -101,13 +101,12 @@
 
     function getColor(d){
         return d> 31.280?'#0000b3':
-        d> 27.520 ?'#1a1aff':
-        d> 23.980?'#8080ff':
-        d> 18.640?'#ccccff':
-            '#ffffff';
+               d> 27.520 ?'#1a1aff':
+               d> 23.980?'#8080ff':
+               d> 18.640?'#ccccff':
+                         '#ffffff';
     }
 
-    /////////////////////////////////////////////
     function style(feature){
         return {
             fillColor: getColor(feature.properties.ODR),
@@ -122,17 +121,17 @@
 
     function highlightFeature(e){
         var layer = e.target;
-        info.update(layer.feature.properties);
-        layer.setStyle({
-                   weight:0.7,
-                   color: '#000000',
-                   dashArray:'',
-                   fillOpacity:0
-                   });
+            info.update(layer.feature.properties);
+            layer.setStyle({
+                weight:0.7,
+                color: '#000000',
+                dashArray:'',
+                fillOpacity:0
+                });
                    
-                   if (!L.Browser.ie && !L.Browser.opera){
-                       layer.bringToFront();
-                   }
+        if (!L.Browser.ie && !L.Browser.opera){
+            layer.bringToFront();
+            }
     }
 
     function resetHighlight(e) {
@@ -140,15 +139,12 @@
         info.update();
     }
 
-
     var geojson=L.geoJson(CDBoundary_simple,{
-                      style:style,
-                      onEachFeature: onEachFeature
-                      }).addTo(map);
+                          style:style,
+                          onEachFeature: onEachFeature
+                          }).addTo(map);
                       
-                      
-                      
-     function zoomToFeature(e){
+    function zoomToFeature(e){
          map.fitBounds(e.target.getBounds());
          }
 
@@ -160,9 +156,7 @@
              });
     }
 
-//////////////////////////////////////SUMMARY INFO
-// When the mouse hovers the variables attached to each
-// census division are shown in an info box when mouse hovers
+// Summary Information Box
     var info = L.control();
 
     info.onAdd = function(map) {
@@ -180,7 +174,6 @@
     info.addTo(map);
 
 </script>
-
 
 <!-- End Document -->
 </body>

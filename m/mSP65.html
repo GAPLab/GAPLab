@@ -1,118 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         
-        <!-- Basic Page Needs -->
-        <meta charset="utf-8">
-            <title>GAP Share of the Population over 80</title>
-            <meta name="description" content="">
-                <meta name="author" content="">
+<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>GAP Share of the Population over 65</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
                     
-                    <!-- Mobile Specific Metas -->
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
                         
-                        <!-- FONT -->
-                        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<!-- FONT -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
                             
-                            <!-- CSS -->
-                            <link rel="stylesheet" href="css/normalize.css">
-                                <link rel="stylesheet" href="css/skeleton.css">
-                                    <link rel="stylesheet" href="css/m.css">
+<!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/m.css">
                                         
-                                        <!-- Favicon -->
-                                        <link rel="icon" type="image/png" href="images/favicon.png">
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
                                             
-                                            <!-- Leaflet -->
-                                            <link rel ="stylesheet" href ="leaflet/leaflet.css" />
-                                            <!--[if IE]>
-                                             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-                                             <![endif]-->
-                                            <script src="leaflet/leaflet.js"></script>
+<!-- Leaflet -->
+    <link rel ="stylesheet" href ="leaflet/leaflet.css" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="leaflet/leaflet.js"></script>
                                             
-                                            <!-- Mapbox -->
-                                            <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
-                                            <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
-                                            <!--Tooltip-->
-                                            
-                                            
-                                            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-                                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                                                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    </head>
+<!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
+    <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
+
+<!--Tooltip-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
     
-    <body>
+<body>
         
-        <!-- Primary Page Layout -->
-        <div class= "row">
-            <div class= "wrapper">
-                <div class= "two columns">
-                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
-                </div>
-                <div class= "ten columns">
-                    <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
-                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
-                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html" > Sex Ratio 65+</a>
-                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
-                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
-                    <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
-                </div>
-                
-            </div>
+<!-- Primary Page Layout -->
+    <div class= "row">
+    <div class= "wrapper">
+        <div class= "two columns">
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSummary.html">SUMMARY MAP</a>
         </div>
-        
-        <script>
-            $(document).ready(function(){
-                              $('[data-toggle="tooltip"]').tooltip();
-                              });
-            </script>
-        
-        <div id='legend' style='display:none;'>
-            
-            <nav class='legend clearfix'>
-                <span style='background:#ffffff;'></span>
-                <span style='background:#ccccff;'></span>
-                <span style='background:#8080ff;'></span>
-                <span style='background:#1a1aff;'></span>
-                <span style='background:#0000b3;'></span>
-                <label>0-0.06%</label>
-                <label>0.06-0.10%</label>
-                <label>0.10-0.17%</label>
-                <label>0.17-0.35%</label>
-                <label>0.35%+</label>
-                
+        <div class= "ten columns">
+            <a class="button" href="/Users/Ruth/Desktop/Website/m/mP65.html"> Percent 65+ </a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mP80.html"> Percent 80+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR65.html" > Sex Ratio 65+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSR80.html" > Sex Ratio 80+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
+            <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
         </div>
+    </div>
+    </div>
         
-        <div id ='map'></div>
+    <script>
+        $(document).ready(function(){
+                                    $('[data-toggle="tooltip"]').tooltip();
+                                    });
+    </script>
         
-        <script src ="js/CDBoundary_simple.js"></script>
+    <div id='legend' style='display:none;'>
+        <nav class='legend clearfix'>
+        <span style='background:#ffffff;'></span>
+        <span style='background:#ccccff;'></span>
+        <span style='background:#8080ff;'></span>
+        <span style='background:#1a1aff;'></span>
+        <span style='background:#0000b3;'></span>
+        <label>0-0.06%</label>
+        <label>0.06-0.10%</label>
+        <label>0.10-0.17%</label>
+        <label>0.17-0.35%</label>
+        <label>0.35%+</label>
+    </div>
         
-        <script>
-            // Setting up custom mapbox basemap
+    <div id ='map'></div>
+    <script src ="js/CDBoundary_simple.js"></script>
+        
+    <script>
+        // Setting up custom mapbox basemap
             
-            L.mapbox.accessToken =
+        L.mapbox.accessToken =
             'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
             
-            var southWest = L.latLng(30, -145),
+        var southWest = L.latLng(30, -145),
             northEast = L.latLng(85, -50),
             bounds = L.latLngBounds(southWest, northEast);
             
-            var map= L.mapbox.map('map','ruthhannah.97be37d0',
-                                  {maxBounds: bounds,})
-                                  .setView([64.696, -100.986], 3);
+        var map= L.mapbox.map('map','ruthhannah.97be37d0',
+                            {maxBounds: bounds,})
+                         .setView([64.696, -100.986], 3);
                                   
             map.legendControl.addLegend(document.getElementById('legend').innerHTML);
                                   
-                                  
-                                  function getColor(d){
-                                      return d> .35?'#0000b3':
-                                      d> .17 ?'#1a1aff':
-                                      d> .10 ?'#8080ff':
-                                      d> .06?'#ccccff':
-                                      '#ffffff';
-                                  }
-        
-        
-        /////////////////////////////////////////////
+        function getColor(d){
+            return d> .35 ?'#0000b3':
+                   d> .17 ?'#1a1aff':
+                   d> .10 ?'#8080ff':
+                   d> .06 ?'#ccccff':
+                           '#ffffff';
+                   }
+
         function style(feature){
             return {
                 fillColor: getColor(feature.properties.S65),
@@ -121,10 +114,9 @@
                 color: '#000000',
                 dashArray: '',
                 fillOpacity:0.7
-            };
+                };
         }
-        
-        
+    
         function highlightFeature(e){
             var layer = e.target;
             info.update(layer.feature.properties);
@@ -139,14 +131,12 @@
                                layer.bringToFront();
                            }
         }
-        
-        
+    
         function resetHighlight(e) {
             geojson.resetStyle(e.target);
             info.update();
         }
-        
-        
+    
         var geojson=L.geoJson(CDBoundary_simple,{
                               style:style,
                               onEachFeature: onEachFeature
@@ -166,7 +156,7 @@
                      });
         }
         
-        //////////////////////////////////////SUMMARY INFO
+        // Summary Info Box
         // When the mouse hovers the variables attached to each
         // census division are shown in an info box when mouse hovers
         var info = L.control();

@@ -32,12 +32,12 @@
 <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
-    <!--Tooltip-->
-    
-    
+
+<!--Tooltip-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
 </head>
 
 <body>
@@ -56,7 +56,6 @@
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mSP65.html" > Share 65+</a>
             <a class="button " href="/Users/Ruth/Desktop/Website/m/mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old component of the dependency ratio"> OCDR</a>
         </div>
-        
     </div>
 </div>
 
@@ -64,10 +63,9 @@
     $(document).ready(function(){
                       $('[data-toggle="tooltip"]').tooltip();
                       });
-    </script>
+</script>
 
 <div id='legend' style='display:none;'>
-    
     <nav class='legend clearfix'>
         <span style='background:#ffffff;'></span>
         <span style='background:#ccccff;'></span>
@@ -79,8 +77,7 @@
         <label>59.4-63.3%</label>
         <label>63.3-69.0%</label>
         <label>69.0%+</label>
-        
-        </div>
+</div>
 
 <div id ='map'></div>
 
@@ -106,12 +103,11 @@
     function getColor(d){
         return d> 69.020?'#0000b3':
         d> 63.360 ?'#1a1aff':
-        d> 59.380?'#8080ff':
-        d> 55.64?'#ccccff':
-            '#ffffff';
+        d> 59.380 ?'#8080ff':
+        d> 55.64  ?'#ccccff':
+                   '#ffffff';
     }
 
-/////////////////////////////////////////////
     function style(feature){
         return {
             fillColor: getColor(feature.properties.SR80),
@@ -123,51 +119,44 @@
         };
     }
 
-
-function highlightFeature(e){
-    var layer = e.target;
-    info.update(layer.feature.properties);
-    layer.setStyle({
-                   weight:0.7,
-                   color: '#000000',
-                   dashArray:'',
-                   fillOpacity:0
-                   });
+    function highlightFeature(e){
+        var layer = e.target;
+            info.update(layer.feature.properties);
+            layer.setStyle({
+                           weight:0.7,
+                           color: '#000000',
+                           dashArray:'',
+                           fillOpacity:0
+                           });
                    
-                   if (!L.Browser.ie && !L.Browser.opera){
-                       layer.bringToFront();
-                   }
-}
+     if (!L.Browser.ie && !L.Browser.opera){
+        layer.bringToFront();
+     }
+    }
 
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
 
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
-
-var geojson=L.geoJson(CDBoundary_simple,{
+    var geojson=L.geoJson(CDBoundary_simple,{
                       style:style,
                       onEachFeature: onEachFeature
                       }).addTo(map);
                       
-                      
-                      
-                      function zoomToFeature(e){
-                          map.fitBounds(e.target.getBounds());
-                      }
+     function zoomToFeature(e){
+              map.fitBounds(e.target.getBounds());
+              }
 
-function onEachFeature (feature, layer){
-    layer.on({
+    function onEachFeature (feature, layer){
+        layer.on({
              mouseover:highlightFeature,
              mouseout:resetHighlight,
              click:zoomToFeature
              });
-}
+    }
 
-//////////////////////////////////////SUMMARY INFO
-// When the mouse hovers the variables attached to each
-// census division are shown in an info box when mouse hovers
+    // Summary Information Box
     var info = L.control();
 
     info.onAdd = function(map) {
@@ -183,7 +172,6 @@ function onEachFeature (feature, layer){
         };
 
     info.addTo(map);
-
 
 </script>
 

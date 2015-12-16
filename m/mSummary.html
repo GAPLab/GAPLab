@@ -128,16 +128,18 @@
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percent of the population 65 and over: </b>' + props.P65.toFixed(2)+ '%' : "")
-        + (props? '<br /><b>Percent of the population 80 and over: </b>' + props.P80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex ratio 65 and over: </b>' + props.SR65.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex ratio 80 and over :</b> ' + props.SR80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Share of the population 65 and over: </b>' + props.S65.toFixed(2) + '%': "")
+        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "")
+        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Sex ratio 65+: </b>' + props.SR65.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Sex ratio 80+:</b> ' + props.SR80.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2) + '%': "")
         + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2) + '%': "");
         };
     info.addTo(map);
     
 </script>
+
+
 
 <!-- End Document -->
 </body>

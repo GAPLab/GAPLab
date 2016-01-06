@@ -9,9 +9,7 @@
     outline-color: dimgrey;
     outline-style: solid;
     outline-width: 2px;
-    }
-
-/* info box */
+}
 
 .info{
     padding: 6px 8px;
@@ -27,11 +25,13 @@
     margin: 0 0 5px;
     text-align: center;
 }
+
 .legend {
     padding: 0px 0px;
     border-radius: 3px;
     border: 1px solid dimgrey;
 }
+
 .legend label {
     display:block;
     float:left;
@@ -40,7 +40,6 @@
     text-align:center;
     font-size:9px;
     color:#000000;
-    
 }
 
 .legend span {

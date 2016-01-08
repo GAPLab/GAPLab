@@ -5,7 +5,11 @@
     margin-top:10px;
     margin-bottom: 15px;
     height: 550px;
+<<<<<<< 0dc5a92ff0cee3a13d5ce57de20935413932238e
     width: 550px;
+=======
+    width:800px;
+>>>>>>> boundary box and centering
     outline-color: dimgrey;
     outline-style: solid;
     outline-width: 2px;

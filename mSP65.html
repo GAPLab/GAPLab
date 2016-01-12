@@ -51,10 +51,10 @@
         <div class= "ten columns">
             <a class="button" href="mP65.html"> Percent 65+ </a>
             <a class="button " href="mP80.html"> Percent 80+</a>
-            <a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Ratio between males 65+ and females 65+."> Sex Ratio 65+</a>
-            <a class="button " href="mSR80.html" data-toggle="tooltip" data-placement="bottom" title="Ratio between males 80+ and females 80+."> Sex Ratio 80+</a>
-            <a class="button " href="mSP65.html" data-toggle="tooltip" data-placement="bottom" title="Ratio between the population 65+ in the census division and the total population 65+ in Canada."> Share 65+</a>
-            <a class="button " href="mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old Component of the Dependency Ratio is the ratio between the population 65+ and the population aged 15 to 64. "> OCDR</a>
+            <a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> Sex Ratio 65+</a>
+            <a class="button " href="mSR80.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 80+ = males 80 and over / females 80 and over x 100."> Sex Ratio 80+</a>
+            <a class="button " href="mSP65.html" data-toggle="tooltip" data-placement="bottom" title="Share 65+ = population 65 and over in the census division / population 65 and over in Canada x 100."> Share 65+</a>
+            <a class="button " href="mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old Component of the Dependency Ratio = population 65 and over /  population between 15 to 64 x 100. "> OCDR</a>
         </div>
     </div>
     </div>
@@ -170,7 +170,7 @@
         info.update = function(props) {
             this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
             + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-            + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2) + '%': "");
+            + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2) : "");
         };
         
         info.addTo(map);

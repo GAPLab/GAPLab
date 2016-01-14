@@ -47,6 +47,7 @@
 
 <script src ="js/CDBoundary_simple.js"></script>
 <script src ="js/Canada_precision_2.js"></script>
+<script src ="js/PopulatedPlaces_Canada.js"></script>
 
 <script>
     
@@ -64,6 +65,9 @@
 
  
 //Summary Map
+
+
+
     function style2(feature){
         return {
             //fillColor: '#FFFFFF',
@@ -105,6 +109,7 @@ function style(feature){
 // Resets the census division highlight
     var geojson;
     var geo;
+    var geo2;
     
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
@@ -123,7 +128,10 @@ function style(feature){
              click:zoomToFeature
              });
     }
-var geo=L.geoJson(Canada_precision_2,{
+
+                  
+                  
+    var geo=L.geoJson(Canada_precision_2,{
                   style:style2,
                   }).addTo(map);
                   
@@ -131,7 +139,24 @@ var geo=L.geoJson(Canada_precision_2,{
                       style:style,
                       onEachFeature: onEachFeature
                       }).addTo(map);
-                      
+    
+/*    var geojsonMarkerOptions = {
+        radius: 8;
+        fillColor: "#ff7800",
+        color: "#000"
+        weight: 1,
+        opacity: 1,
+        fillOpacity:0.8
+    };
+
+var geo2 = L.geojson(PopulatedPlaces_Canada, {
+          pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, geojsonMarkerOptions);
+          }
+          }).addTo(map);
+
+
+     */                 
 
                       
     var info = L.control();

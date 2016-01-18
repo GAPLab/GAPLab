@@ -87,6 +87,7 @@
 <div id ='map'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
+<script src = "js/CanadaESRI.js"></script>
 
 <script>
     // Setting up custom mapbox basemap
@@ -94,9 +95,9 @@
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
-    var southWest = L.latLng(0, -145),
-        northEast = L.latLng(85, -50),
-        bounds = L.latLngBounds(southWest, northEast);
+    var southWest = L.latLng(15, -180),
+    northEast = L.latLng(85, -10),
+    bounds = L.latLngBounds(southWest, northEast);
     
     var map= L.mapbox.map('map','ruthhannah.97be37d0',
                           {maxBounds: bounds,})
@@ -112,6 +113,16 @@
     }
 
 /////////////////////////////////////////////
+function style2(feature){
+    return {
+        //fillColor: '#FFFFFF',
+        weight: 0.5,
+        opacity: 1,
+        color: '#000000',
+        dashArray: '',
+        //fillOpacity:0.4
+    };
+}
     function style(feature){
         return {
             fillColor: getColor(feature.properties.SR65),
@@ -139,6 +150,8 @@ function highlightFeature(e){
                    }
 }
 
+var geojson;
+var geo;
 
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
@@ -146,10 +159,6 @@ function resetHighlight(e) {
 }
 
 
-var geojson=L.geoJson(CDBoundary_simple,{
-                      style:style,
-                      onEachFeature: onEachFeature
-                      }).addTo(map);
                       
                       
                       
@@ -164,6 +173,16 @@ function onEachFeature (feature, layer){
              click:zoomToFeature
              });
 }
+
+var geo=L.geoJson(CanadaESRI,{
+                  style:style2,
+                  }).addTo(map);
+                  
+                  
+var geojson=L.geoJson(CDBoundary_simple,{
+                 style:style,
+                 onEachFeature: onEachFeature
+                 }).addTo(map);
 
 //Summary Information Box
 

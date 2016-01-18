@@ -46,8 +46,9 @@
 <div id ='map'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
-<script src ="js/Canada_precision_2.js"></script>
+
 <script src ="js/PopulatedPlaces_Canada.js"></script>
+<script src = "js/CanadaESRI.js"></script>
 
 <script>
     
@@ -55,8 +56,8 @@
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
-    var southWest = L.latLng(0, -145),
-        northEast = L.latLng(85, -50),
+    var southWest = L.latLng(15, -180),
+        northEast = L.latLng(85, -10),
         bounds = L.latLngBounds(southWest, northEast);
     
     var map= L.mapbox.map('map','ruthhannah.97be37d0',
@@ -109,7 +110,8 @@ function style(feature){
 // Resets the census division highlight
     var geojson;
     var geo;
-    var geo2;
+   
+
     
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
@@ -131,7 +133,7 @@ function style(feature){
 
                   
                   
-    var geo=L.geoJson(Canada_precision_2,{
+    var geo=L.geoJson(CanadaESRI,{
                   style:style2,
                   }).addTo(map);
                   
@@ -140,23 +142,6 @@ function style(feature){
                       onEachFeature: onEachFeature
                       }).addTo(map);
     
-/*    var geojsonMarkerOptions = {
-        radius: 8;
-        fillColor: "#ff7800",
-        color: "#000"
-        weight: 1,
-        opacity: 1,
-        fillOpacity:0.8
-    };
-
-var geo2 = L.geojson(PopulatedPlaces_Canada, {
-          pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, geojsonMarkerOptions);
-          }
-          }).addTo(map);
-
-
-     */                 
 
                       
     var info = L.control();

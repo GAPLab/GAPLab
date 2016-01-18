@@ -85,6 +85,7 @@
 <div id ='map'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
+<script src = "js/CanadaESRI.js"></script>
 
 <script>
     
@@ -94,16 +95,26 @@
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
-    var southWest = L.latLng(0, -145),
-        northEast = L.latLng(85, -50),
-        bounds = L.latLngBounds(southWest, northEast);
+    var southWest = L.latLng(15, -180),
+    northEast = L.latLng(85, -10),
+    bounds = L.latLngBounds(southWest, northEast);
     
     var map= L.mapbox.map('map','ruthhannah.97be37d0',
                           {maxBounds: bounds,})
                           .setView([67.800, -100.986], 3);
  
    map.legendControl.addLegend(document.getElementById('legend').innerHTML);
-
+   
+   function style2(feature){
+       return {
+           //fillColor: '#FFFFFF',
+           weight: 0.5,
+           opacity: 1,
+           color: '#000000',
+           dashArray: '',
+           //fillOpacity:0.4
+       };
+   }
 
     function getColor(d){
         return d> 20.400?'#0000b3':
@@ -124,6 +135,8 @@
             fillOpacity:0.7
         };
     }
+var geojson;
+var geo;
 
 function highlightFeature(e){
     var layer = e.target;
@@ -145,10 +158,6 @@ function resetHighlight(e) {
     info.update();
 }
 
-var geojson=L.geoJson(CDBoundary_simple,{
-                      style:style,
-                      onEachFeature: onEachFeature
-                      }).addTo(map);
                       
                       
                       
@@ -163,6 +172,16 @@ function onEachFeature (feature, layer){
              click:zoomToFeature
              });
 }
+
+var geo=L.geoJson(CanadaESRI,{
+                  style:style2,
+                  }).addTo(map);
+                  
+                  
+                  var geojson=L.geoJson(CDBoundary_simple,{
+                                        style:style,
+                                        onEachFeature: onEachFeature
+                                        }).addTo(map);
 
 //////////////////////////////////////SUMMARY INFO
 // When the mouse hovers the variables attached to each

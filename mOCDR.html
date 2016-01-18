@@ -83,15 +83,15 @@
     <div id ='map'></div>
 
     <script src ="js/CDBoundary_simple.js"></script>
-
+    <script src = "js/CanadaESRI.js"></script>
     <script>
     // Setting up custom mapbox basemap
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
-    var southWest = L.latLng(0, -145),
-        northEast = L.latLng(85, -50),
-        bounds = L.latLngBounds(southWest, northEast);
+    var southWest = L.latLng(15, -180),
+    northEast = L.latLng(85, -10),
+    bounds = L.latLngBounds(southWest, northEast);
     
     var map= L.mapbox.map('map','ruthhannah.97be37d0',
                           {maxBounds: bounds,})
@@ -99,6 +99,16 @@
                           
     map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
+function style2(feature){
+    return {
+        //fillColor: '#FFFFFF',
+        weight: 0.5,
+        opacity: 1,
+        color: '#000000',
+        dashArray: '',
+        //fillOpacity:0.4
+    };
+}
     function getColor(d){
         return d> 31.280?'#0000b3':
                d> 27.520 ?'#1a1aff':
@@ -117,7 +127,9 @@
             fillOpacity:0.7
         };
     }
-
+    var geojson;
+    var geo;
+    
     function highlightFeature(e){
         var layer = e.target;
             info.update(layer.feature.properties);
@@ -138,10 +150,7 @@
         info.update();
     }
 
-    var geojson=L.geoJson(CDBoundary_simple,{
-                          style:style,
-                          onEachFeature: onEachFeature
-                          }).addTo(map);
+
                       
     function zoomToFeature(e){
          map.fitBounds(e.target.getBounds());
@@ -154,6 +163,16 @@
              click:zoomToFeature
              });
     }
+    
+    var geo=L.geoJson(CanadaESRI,{
+                      style:style2,
+                      }).addTo(map);
+                      
+                      
+                      var geojson=L.geoJson(CDBoundary_simple,{
+                                            style:style,
+                                            onEachFeature: onEachFeature
+                                            }).addTo(map);
 
 // Summary Information Box
     var info = L.control();

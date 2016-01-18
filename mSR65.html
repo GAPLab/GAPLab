@@ -139,10 +139,10 @@ function highlightFeature(e){
     var layer = e.target;
     info.update(layer.feature.properties);
     layer.setStyle({
-                   weight:0.7,
+                   weight:0.9,
                    color: '#000000',
                    dashArray:'',
-                   fillOpacity:0
+                   fillOpacity:0.7
                    });
                    
                    if (!L.Browser.ie && !L.Browser.opera){

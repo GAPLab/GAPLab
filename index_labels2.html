@@ -28,6 +28,12 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="leaflet/leaflet.js"></script>
+   
+   <!-- new for leaflet.labels -->
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js '></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css ' rel='stylesheet' />
+    
   
 <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
@@ -163,8 +169,7 @@ var geoJsonData2 = {
                      "coordinates": [-123.1216442, 49.27341658]
                      },
                      "properties": {
-                     "marker-color": "#00ff00",
-                     "name": "Vancouver"
+                     name: "Vancouver"
                      }
                      },
                      {
@@ -174,8 +179,7 @@ var geoJsonData2 = {
                      "coordinates": [-113.4999819 , 53.55002464]
                      },
                      "properties": {
-                     "marker-color": "#00ff00",
-                     "name": "Edmonton"
+                     name: "Edmonton"
                      }
                      },
                      {
@@ -185,8 +189,7 @@ var geoJsonData2 = {
                      "coordinates": [-73.58329696,  45.49999921]
                      },
                      "properties": {
-                     "marker-color": "#00ff00",
-                     "name": "Montréal/ Montreal"
+                     name: "Montréal/ Montreal"
                      }
                      },
                      {
@@ -196,8 +199,7 @@ var geoJsonData2 = {
                      "coordinates": [ -79.42002079,  43.69997988]
                      },
                      "properties": {
-                     "marker-color": "#00ff00",
-                    "name": "Toronto"
+                    name: "Toronto"
                      }
                      }
                      ]
@@ -213,8 +215,7 @@ var geoJsonData3 = {
                  "coordinates": [-114.0799982,  51.08299176]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Calgary"
+                 name: "Calgary"
                  
                  }
                  },
@@ -225,8 +226,7 @@ var geoJsonData3 = {
                  "coordinates": [-63.13132512, 46.24928164]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Charlottetown"
+                 name:"Charlottetown"
                  }
                  },
                  {
@@ -236,8 +236,7 @@ var geoJsonData3 = {
                  "coordinates": [-63.60000452,  44.65002525]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Halifax"
+                 name: "Halifax"
                  }
                  },
                  {
@@ -248,8 +247,7 @@ var geoJsonData3 = {
                  "coordinates": [-119.4833118,  49.89998903]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Kelowna"
+                 name: "Kelowna"
                  }
                  },
                  {
@@ -259,8 +257,7 @@ var geoJsonData3 = {
                  "coordinates": [-75.7000153,   45.4166968]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Ottawa-Gatineau/ Ottawa "
+                 name: "Ottawa-Gatineau/ Ottawa "
                  }
                  },
                  {
@@ -270,8 +267,7 @@ var geoJsonData3 = {
                  "coordinates": [-71.24561019,  46.83996909]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Québec"
+                 name: "Québec"
                  }
                  },
                  {
@@ -281,8 +277,7 @@ var geoJsonData3 = {
                  "coordinates": [-104.6170099,  50.45003298]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Regina"
+                 name: "Regina"
                  }
                  },
                  {
@@ -292,8 +287,7 @@ var geoJsonData3 = {
                  "coordinates": [-106.6699854,  52.17003135]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Saskatoon"
+                 name: "Saskatoon"
                  }
                  },
                  {
@@ -303,8 +297,7 @@ var geoJsonData3 = {
                  "coordinates": [-52.68100692,  47.58498822]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "St. John’s"
+                 name: "St. John’s"
                  }
                  },
                  {
@@ -314,8 +307,7 @@ var geoJsonData3 = {
                  "coordinates": [-89.27497481,  48.44615013]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Thunder Bay"
+                 name:"Thunder Bay"
                  }
                  },
                  {
@@ -325,8 +317,7 @@ var geoJsonData3 = {
                  "coordinates": [-123.3500009,  48.43328269]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Victoria"
+                 name: "Victoria"
                  }
                  },
                  {
@@ -336,8 +327,7 @@ var geoJsonData3 = {
                  "coordinates": [-114.3969814, 62.44201418]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Yellowknife	"
+                 name:"Yellowknife	"
                  
                  }
                  },
@@ -348,8 +338,7 @@ var geoJsonData3 = {
                  "coordinates": [-135.0499844, 60.71671897]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Whitehorse"
+                 name:"Whitehorse"
                  
                  }
                  },
@@ -360,8 +349,7 @@ var geoJsonData3 = {
                  "coordinates": [-97.16599186,  49.88298749]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Winnipeg "
+                 name: "Winnipeg "
                  
     
     
@@ -379,8 +367,7 @@ var geoJsonData4 = {
                  "coordinates": [-68.50019175, 63.75045938]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Iqaluit"
+                 name:"Iqaluit"
                  }
                  },
                  {
@@ -390,8 +377,7 @@ var geoJsonData4 = {
                  "coordinates": [-64.76667749,  46.08334861]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Moncton"
+                 name: "Moncton"
                  
                  }
                  },
@@ -402,8 +388,7 @@ var geoJsonData4 = {
                  "coordinates": [-66.07667505,  45.26704185]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Saint John"
+                 name:"Saint John"
     
     
     }
@@ -421,8 +406,7 @@ var geoJsonData5 = {
                  "coordinates": [-79.7000037,   44.38376243]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Barrie"
+                 name: "Barrie"
                  }
                  },
                  {
@@ -432,8 +416,7 @@ var geoJsonData5 = {
                  "coordinates": [-66.63330774, 45.94999758]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Fredericton"
+                 name:"Fredericton"
                  }
                  },
                  {
@@ -443,8 +426,7 @@ var geoJsonData5 = {
                  "coordinates": [-76.48330082,  44.23371991]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name": "Kingston"
+                 name: "Kingston"
                  }
                  },
                  {
@@ -454,8 +436,7 @@ var geoJsonData5 = {
                  "coordinates": [-72.54994918,  46.34997316]
                  },
                  "properties": {
-                 "marker-color": "#00ff00",
-                 "name":"Trois-Rivières"
+                 name:"Trois-Rivières"
     }
     }
     ]
@@ -471,8 +452,7 @@ var geoJsonData5 = {
                   "coordinates": [ -122.2999874,  49.05037681]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Abbotsford"
+                  name: "Abbotsford"
                   }
                   },
                   {
@@ -483,8 +463,7 @@ var geoJsonData5 = {
                   "coordinates": [-80.2644229,   43.1393678]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Brantford"
+                  name: "Brantford"
                   }
                   },
                   {
@@ -494,8 +473,7 @@ var geoJsonData5 = {
                   "coordinates": [-80.314437,   43.3619574]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Cambridge"
+                  name: "Cambridge"
                   }
                   },
                   {
@@ -505,8 +483,7 @@ var geoJsonData5 = {
                   "coordinates": [-80.2481482,   43.5448141]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Guelph"
+                  name: "Guelph"
                   }
                   },
                   {
@@ -516,8 +493,7 @@ var geoJsonData5 = {
                   "coordinates": [-79.82999577,  43.24998151]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Hamilton"
+                  name: "Hamilton"
                   }
                   },
                   {
@@ -527,8 +503,7 @@ var geoJsonData5 = {
                   "coordinates": [ -80.50000655,  43.44999514]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Kitchener"
+                  name: "Kitchener"
                   }
                   },
                   {
@@ -538,8 +513,7 @@ var geoJsonData5 = {
                   "coordinates": [-81.24998661,  42.9699986]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "London"
+                  name: "London"
                   }
                   },
                   {
@@ -550,8 +524,7 @@ var geoJsonData5 = {
                   "coordinates": [-78.84997807,  43.87999473]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Oshawa"
+                  name: "Oshawa"
                   }
                   },
                   {
@@ -561,8 +534,7 @@ var geoJsonData5 = {
                   "coordinates": [-78.33326542,  44.29996909]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Peterborough"
+                  name: "Peterborough"
                   
                   }
                   },
@@ -573,8 +545,7 @@ var geoJsonData5 = {
                   "coordinates": [-71.89998885,  45.40000531]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name":"Sherbrooke"
+                  name:"Sherbrooke"
                   
                   }
                   },
@@ -586,8 +557,7 @@ var geoJsonData5 = {
                   "coordinates": [-79.2469196,   43.1592554]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name":"St. Catharines-Niagara"
+                  name:"St. Catharines-Niagara"
                   
                   }
                   },
@@ -598,8 +568,7 @@ var geoJsonData5 = {
                   "coordinates": [-71.0687466,   48.427966]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name":"Saguenay"
+                  name:"Saguenay"
                   }
                   },
                   {
@@ -610,8 +579,7 @@ var geoJsonData5 = {
                   "coordinates": [-80.96664474,  46.49998985]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name":"Sudbury"
+                  name:"Sudbury"
                   }
                   },
                   {
@@ -621,8 +589,7 @@ var geoJsonData5 = {
                   "coordinates": [-80.5203116,   43.4641072]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Waterloo"
+                  name: "Waterloo"
                   }
                   },
                   {
@@ -632,8 +599,7 @@ var geoJsonData5 = {
                   "coordinates": [-83.03334029,  42.33329327]
                   },
                   "properties": {
-                  "marker-color": "#00ff00",
-                  "name": "Windsor"
+                  name: "Windsor"
 
                   
                   }
@@ -645,12 +611,12 @@ var geoJsonData5 = {
 
 
 
-var geoJsonLabels2 = L.geoJson(geoJsonData2, {
+/*var geoJsonLabels2 = L.geoJson(geoJsonData2, {
                               pointToLayer: L.mapbox.marker.style,
                               style: function(feature) {return feature.properties;}
-                              }).addTo(map);
+                              }).addTo(map);*/
                                       
-var geoJsonLabels3 = L.geoJson(geoJsonData3, {
+/*var geoJsonLabels3 = L.geoJson(geoJsonData3, {
                               pointToLayer: L.mapbox.marker.style,
                               style: function(feature) {return feature.properties;}
                               }).addTo(map);
@@ -668,8 +634,33 @@ var geoJsonLabels5 = L.geoJson(geoJsonData5, {
 var geoJsonLabels6 = L.geoJson(geoJsonData6, {
                               pointToLayer: L.mapbox.marker.style,
                               style: function(feature) {return feature.properties;}
-                              }).addTo(map);
+                              }).addTo(map);*/
                               
+var geojsonMarkerOptions ={
+radius: 8,
+fillColor: '#ff0000',
+color: '#ff0000',
+weight:1,
+opacity:1,
+fillOpacity: 0.8
+};
+
+var geoJsonLabels2 = L.geoJson(geoJsonData2, {
+                               pointToLayer: function(feature,latlng){
+                               return L.circleMarker(latlng, geojsonMarkerOptions);
+                               }
+                               }).addTo(map);
+                               
+
+
+
+
+
+
+
+
+
+
 
 </script>
 

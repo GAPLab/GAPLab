@@ -57,7 +57,10 @@
 }
 
 
-
+.labelClass {
+    white-space: nowrap;
+    color: black
+}
 
 
 

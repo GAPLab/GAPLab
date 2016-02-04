@@ -655,7 +655,7 @@ var geoJsonLabels2 = L.geoJson(geoJsonData2, {
 
 var divIcon = L.divIcon({
                         className: 'labelClass',
-                        html: "textToDisplay"
+                        html: "TestToDisplay"
                         });
 
 var createLabelIcon = function(labelClass,labelText){
@@ -665,8 +665,9 @@ var createLabelIcon = function(labelClass,labelText){
                      })
 };
 
-L.marker([42.33329327, -83.03334029], {icon: divIcon}).addTo(map);
+/*L.marker([42.33329327, -83.03334029], {icon: divIcon}).addTo(map);*/
 
+L.marker(new L.LatLng(42.33329327, -83.03334029), {icon: createLabelIcon("labelClass","Windsor")}).addTo(map);
 
 
 

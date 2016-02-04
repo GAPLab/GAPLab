@@ -59,7 +59,10 @@
 
 .labelClass {
     white-space: nowrap;
-    color: black
+    color: black;
+    font-weight: bold;
+
+
 }
 
 

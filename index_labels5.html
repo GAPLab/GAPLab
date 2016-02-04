@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>GAP Summary Map</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- FONT -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+<!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/m.css">
+
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+<!-- Leaflet -->
+    <link rel ="stylesheet" href ="leaflet/leaflet.css" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="leaflet/leaflet.js"></script>
+   
+   <!-- new for leaflet.labels -->
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js '></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css ' rel='stylesheet' />
+    
+  
+<!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
+    <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
+
+</head>
+
+<body>
+
+<!-- Primary Page Layout -->
+
+<div class= "wrapper">
+<a class="button" href="mChoropleth.html">CHOROPLETH MAPS</a>
+</div>
+
+<div id ='map'></div>
+
+<script src ="js/CDBoundary_simple.js"></script>
+<script src = "js/CanadaESRI.js"></script>
+<script>
+    
+// Setting up custom mapbox basemap
+    L.mapbox.accessToken =
+        'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
+    
+    var southWest = L.latLng(15, -180),
+    northEast = L.latLng(85, -10),
+    bounds = L.latLngBounds(southWest, northEast);
+    
+    var map= L.mapbox.map('map','ruthhannah.97be37d0',
+                          {maxBounds: bounds,})
+                          .setView([67.800, -100.986], 3);
+
+
+//Summary Map
+function style2(feature){
+    return {
+        //fillColor: '#FFFFFF',
+        weight: 0.5,
+        opacity: 1,
+        color: '#000000',
+        dashArray: '',
+        //fillOpacity:0.4
+    };
+}
+   function style(feature){
+        return {
+            fillColor: '#FFFFFF',
+            weight: 0.5,
+            opacity: 1,
+            color: '#000000',
+            dashArray: '',
+            fillOpacity:0.4
+            };
+        }
+var geojson;
+var geo;
+
+// Highlights census divisions
+    function highlightFeature(e){
+        var layer = e.target;
+        info.update(layer.feature.properties);
+        layer.setStyle({
+            weight:1.2,
+            color: '#1a1aff',
+            dashArray:'',
+            fillOpacity:0
+            });
+                   
+            if (!L.Browser.ie && !L.Browser.opera){
+                layer.bringToFront();
+                }
+    }
+
+// Resets the census division highlight
+    var geojson;
+    
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
+
+    function zoomToFeature(e){
+        map.fitBounds(e.target.getBounds());
+    }
+
+// Adds listeners to layer so that census divisions are highlighted and reset
+    function onEachFeature (feature, layer){
+        layer.on({
+             mouseover:highlightFeature,
+             mouseout:resetHighlight,
+             click:zoomToFeature
+             });
+    }
+
+var geo=L.geoJson(CanadaESRI,{
+                  style:style2,
+                  }).addTo(map);
+                  
+                  
+                  var geojson=L.geoJson(CDBoundary_simple,{
+                                        style:style,
+                                        onEachFeature: onEachFeature
+                                        }).addTo(map);
+                      
+    var info = L.control();
+
+    info.onAdd = function(map) {
+        this._div = L.DomUtil.create('div','info');
+        this.update();
+        return this._div;
+        };
+
+    info.update = function(props) {
+        this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
+        + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
+        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "")
+        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(2) + '%' : "")
+        + (props? '<br /><b>Sex ratio 65+: </b>' + props.SR65.toFixed(2): "")
+        + (props? '<br /><b>Sex ratio 80+:</b> ' + props.SR80.toFixed(2): "")
+        + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2): "")
+        + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2): "");
+        };
+    info.addTo(map);
+
+var geoJsonData2 = {
+        "type": "FeatureCollection",
+        "features": [
+                     {
+                     "type": "Feature",
+                     "geometry": {
+                     "type": "Point",
+                     "coordinates": [-123.1216442, 49.27341658]
+                     },
+                     "properties": {
+                     name: "Vancouver"
+                     }
+                     },
+                     {
+                     "type": "Feature",
+                     "geometry": {
+                     "type": "Point",
+                     "coordinates": [-113.4999819 , 53.55002464]
+                     },
+                     "properties": {
+                     name: "Edmonton"
+                     }
+                     },
+                     {
+                     "type": "Feature",
+                     "geometry": {
+                     "type": "Point",
+                     "coordinates": [-73.58329696,  45.49999921]
+                     },
+                     "properties": {
+                     name: "Montréal/ Montreal"
+                     }
+                     },
+                     {
+                     "type": "Feature",
+                     "geometry": {
+                     "type": "Point",
+                     "coordinates": [ -79.42002079,  43.69997988]
+                     },
+                     "properties": {
+                    name: "Toronto"
+                     }
+                     }
+                     ]
+};
+
+var geoJsonData3 = {
+    "type": "FeatureCollection",
+    "features": [
+    {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-114.0799982,  51.08299176]
+                 },
+                 "properties": {
+                 name: "Calgary"
+                 
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-63.13132512, 46.24928164]
+                 },
+                 "properties": {
+                 name:"Charlottetown"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-63.60000452,  44.65002525]
+                 },
+                 "properties": {
+                 name: "Halifax"
+                 }
+                 },
+                 {
+                 
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-119.4833118,  49.89998903]
+                 },
+                 "properties": {
+                 name: "Kelowna"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-75.7000153,   45.4166968]
+                 },
+                 "properties": {
+                 name: "Ottawa-Gatineau/ Ottawa "
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-71.24561019,  46.83996909]
+                 },
+                 "properties": {
+                 name: "Québec"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-104.6170099,  50.45003298]
+                 },
+                 "properties": {
+                 name: "Regina"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-106.6699854,  52.17003135]
+                 },
+                 "properties": {
+                 name: "Saskatoon"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-52.68100692,  47.58498822]
+                 },
+                 "properties": {
+                 name: "St. John’s"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-89.27497481,  48.44615013]
+                 },
+                 "properties": {
+                 name:"Thunder Bay"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-123.3500009,  48.43328269]
+                 },
+                 "properties": {
+                 name: "Victoria"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-114.3969814, 62.44201418]
+                 },
+                 "properties": {
+                 name:"Yellowknife	"
+                 
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-135.0499844, 60.71671897]
+                 },
+                 "properties": {
+                 name:"Whitehorse"
+                 
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-97.16599186,  49.88298749]
+                 },
+                 "properties": {
+                 name: "Winnipeg "
+                 
+    
+    
+    }
+    }
+    ]
+};
+var geoJsonData4 = {
+    "type": "FeatureCollection",
+    "features": [
+    {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-68.50019175, 63.75045938]
+                 },
+                 "properties": {
+                 name:"Iqaluit"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-64.76667749,  46.08334861]
+                 },
+                 "properties": {
+                 name: "Moncton"
+                 
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-66.07667505,  45.26704185]
+                 },
+                 "properties": {
+                 name:"Saint John"
+    
+    
+    }
+    }
+    ]
+};
+
+var geoJsonData5 = {
+    "type": "FeatureCollection",
+    "features": [
+    {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-79.7000037,   44.38376243]
+                 },
+                 "properties": {
+                 name: "Barrie"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-66.63330774, 45.94999758]
+                 },
+                 "properties": {
+                 name:"Fredericton"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-76.48330082,  44.23371991]
+                 },
+                 "properties": {
+                 name: "Kingston"
+                 }
+                 },
+                 {
+                 "type": "Feature",
+                 "geometry": {
+                 "type": "Point",
+                 "coordinates": [-72.54994918,  46.34997316]
+                 },
+                 "properties": {
+                 name:"Trois-Rivières"
+    }
+    }
+    ]
+};
+
+ var geoJsonData6 = {
+     "type": "FeatureCollection",
+     "features": [
+            {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [ -122.2999874,  49.05037681]
+                  },
+                  "properties": {
+                  name: "Abbotsford"
+                  }
+                  },
+                  {
+ 
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-80.2644229,   43.1393678]
+                  },
+                  "properties": {
+                  name: "Brantford"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-80.314437,   43.3619574]
+                  },
+                  "properties": {
+                  name: "Cambridge"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-80.2481482,   43.5448141]
+                  },
+                  "properties": {
+                  name: "Guelph"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-79.82999577,  43.24998151]
+                  },
+                  "properties": {
+                  name: "Hamilton"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [ -80.50000655,  43.44999514]
+                  },
+                  "properties": {
+                  name: "Kitchener"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-81.24998661,  42.9699986]
+                  },
+                  "properties": {
+                  name: "London"
+                  }
+                  },
+                  {
+                  
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-78.84997807,  43.87999473]
+                  },
+                  "properties": {
+                  name: "Oshawa"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-78.33326542,  44.29996909]
+                  },
+                  "properties": {
+                  name: "Peterborough"
+                  
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-71.89998885,  45.40000531]
+                  },
+                  "properties": {
+                  name:"Sherbrooke"
+                  
+                  }
+                  },
+                  {
+                  
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-79.2469196,   43.1592554]
+                  },
+                  "properties": {
+                  name:"St. Catharines-Niagara"
+                  
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-71.0687466,   48.427966]
+                  },
+                  "properties": {
+                  name:"Saguenay"
+                  }
+                  },
+                  {
+                  
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-80.96664474,  46.49998985]
+                  },
+                  "properties": {
+                  name:"Sudbury"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-80.5203116,   43.4641072]
+                  },
+                  "properties": {
+                  name: "Waterloo"
+                  }
+                  },
+                  {
+                  "type": "Feature",
+                  "geometry": {
+                  "type": "Point",
+                  "coordinates": [-83.03334029,  42.33329327]
+                  },
+                  "properties": {
+                  name: "Windsor"
+
+                  
+                  }
+                  }
+                ]
+ };
+
+
+
+
+
+
+
+
+
+
+var createLabelIcon = function(labelClass,labelText){
+    return L.divIcon({
+                     className: labelClass,
+                     html: labelText
+                     })
+};
+
+
+/* working example of labels
+ var Windsor = L.marker(new L.LatLng(42.33329327, -83.03334029), {icon: createLabelIcon("labelClass","Windsor")}),
+Waterloo = L.marker(new L.LatLng(43.4641072, -80.5203116), {icon: createLabelIcon("labelClass","Waterloo")});
+
+var three = L.layerGroup([Windsor, Waterloo]);
+
+
+map.on('zoomend', function() {
+       if (map.getZoom()<4)
+       {
+       map.removeLayer(three)
+       };
+       if (map.getZoom()>=4)
+       {
+       map.addLayer(three)
+       };
+      
+       }
+       );*/
+    
+var Vancouver = L.marker(new L.LatLng(49.27341658, -123.1216442), {icon: createLabelIcon("labelClass","Vancouver")}),
+    Edmonton = L.marker(new L.LatLng(53.55002464, -113.4999819), {icon: createLabelIcon("labelClass","Edmonton")}),
+    Montréal = L.marker(new L.LatLng(45.49999921, -73.58329696), {icon: createLabelIcon("labelClass","Montréal")}),
+    Toronto = L.marker(new L.LatLng(43.69997988, -79.42002079), {icon: createLabelIcon("labelClass","Toronto")});
+    
+var three = L.layerGroup([Vancouver, Edmonton, Montréal, Toronto]);
+
+map.on('zoomend', function() {
+       if (map.getZoom()<3)
+       {
+       map.removeLayer(three)
+       };
+       if (map.getZoom()>=3)
+       {
+       map.addLayer(three)
+       };
+       
+       }
+       );
+</script>
+
+<!-- End Document -->
+</body>
+</html>

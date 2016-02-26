@@ -39,15 +39,48 @@
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
 
+<!--Tooltip-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
 <!-- Primary Page Layout -->
 
-<div class= "wrapper">
-<a class="button" href="mChoropleth.html">CHOROPLETH MAPS</a>
+
+
+<div class= "row">
+    <div class= "wrapper">
+        <div class= "two columns">
+            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Click anywhere on the map"> Canada's Older Population</a></g>
+        </div>
+    </div>
+   
+    
+    <div class="wrapper2">
+        <div class= "ten columns" >
+            <a class="button " href="mChoropleth.html"  data-placement="bottom" > MORE MAPS</a>
+         </div>
+    </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+                      $('[data-toggle="tooltip"]').tooltip();
+                      });
+    $
+    
+    $('g a').tooltip().eq(0).tooltip('show').tooltip('disable').one('mouseout', function() {
+                      $(this).tooltip('enable');
+                      });
+                                                                    
+                      setTimeout(function() {
+                      $('g a').tooltip().eq(0).tooltip('hide').tooltip('enable');
+                      }, 4000);
+    </script>
 
 <div id ='map'></div>
 

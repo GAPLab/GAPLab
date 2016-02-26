@@ -52,8 +52,15 @@
 .wrapper {
     margin-top: 15px;
     margin-right: 15px;
-    margin-left: 15px;
+    margin-left: 40px;
     text-align: center;
+}
+
+.wrapper2 {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: right;
 }
 
 

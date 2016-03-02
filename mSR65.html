@@ -76,11 +76,11 @@
         <span style='background:#8080ff;'></span>
         <span style='background:#1a1aff;'></span>
         <span style='background:#0000b3;'></span>
-        <label>0-79.70</label>
-        <label>79.71-83.26</label>
-        <label>83.27-87.00</label>
-        <label>87.01-93.16</label>
-        <label>93.17+</label>
+        <label>0-79.7</label>
+        <label>79.8-83.3</label>
+        <label>83.4-87.0</label>
+        <label>87.1-93.2</label>
+        <label>93.3+</label>
         
         </div>
 
@@ -105,10 +105,10 @@
     map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
     function getColor(d){
-        return d> 93.16?'#0000b3':
-        d> 87.00 ?'#1a1aff':
-        d> 83.26?'#8080ff':
-        d> 79.70?'#ccccff':
+        return d> 93.2?'#0000b3':
+        d> 87.0 ?'#1a1aff':
+        d> 83.3?'#8080ff':
+        d> 79.7?'#ccccff':
             '#ffffff';
     }
 

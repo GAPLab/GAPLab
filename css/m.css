@@ -68,7 +68,8 @@
     white-space: nowrap;
     color: black;
     font-weight: bold;
-    
+    border-radius: 50%;
+    background: black;
 
 }
 

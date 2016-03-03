@@ -195,7 +195,8 @@ var geojson=L.geoJson(CDBoundary_simple,{
 var createLabelIcon = function(labelClass,labelText){
     return L.divIcon({
                      className: labelClass,
-                     html: labelText
+                     html: labelText,
+                     iconSize: [5,5]
                      })
 };
 

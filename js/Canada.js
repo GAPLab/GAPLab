@@ -1,4 +1,4 @@
-var CanadaESRI =[{
+var Canada =[{
 "type": "FeatureCollection",
                                                                                 
 "features": [

@@ -83,7 +83,7 @@
     <div id ='map'></div>
 
     <script src ="js/CDBoundary_simple.js"></script>
-    <script src = "js/CanadaESRI.js"></script>
+    <script src = "js/Canada.js"></script>
     <script>
     // Setting up custom mapbox basemap
     L.mapbox.accessToken =
@@ -164,7 +164,7 @@ function style2(feature){
              });
     }
     
-    var geo=L.geoJson(CanadaESRI,{
+    var geo=L.geoJson(Canada,{
                       style:style2,
                       }).addTo(map);
                       

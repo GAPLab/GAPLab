@@ -63,6 +63,9 @@
     text-align: right;
 }
 
+.wrapper3 {
+    color: grey;
+}
 
 .labelClass {
     white-space: nowrap;
@@ -72,6 +75,8 @@
     width: 5px;
     border-radius: 50%;
     background: black;
+
+
 
 }
 

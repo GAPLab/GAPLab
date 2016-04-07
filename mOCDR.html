@@ -286,7 +286,28 @@ function style2(feature){
                                 }
                                 );
 </script>
-
+    <center>
+        <div id="acknowledge" style="display:none; font-size:11px; color: grey;" >
+            
+            <p>Adapted from Statistics Canada, 2011 Census of Population, 27 April 2015. Reproduced and distributed on an "as is" basis with the permission of Statistics Canada.</p>
+            
+            <p>Adapted from thematicmapping.org, Canada extracted from world_borders-0.3.zip, 18 Jan. 2016. This does not constitute an endoresment by thematicmapping.org.</p>
+        </div>
+        
+        <input type="button" value="Acknowledgement of Sources" onclick="infobox()"/>
+    </center>
+    
+    <script>
+        function infobox(){
+            var div = document.getElementById("acknowledge");
+            if (div.style.display !== "none") {
+                div.style.display = "none";
+            }
+            else {
+                div.style.display = "block";
+            }
+        }
+    </script>
 <!-- End Document -->
 </body>
 </html>

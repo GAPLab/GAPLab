@@ -126,6 +126,7 @@
     padding: 0px 0px;
     border-radius: 3px;
     border: 1px solid dimgrey;
+    
 }
 
 .legend label {
@@ -146,20 +147,6 @@
     opacity:0.7;
 }
 
-
-
-.labelClass {
-    white-space: nowrap;
-    color: black;
-    font-weight: bold;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background: black;
-
-
-
-}
 
 
 

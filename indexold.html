@@ -43,8 +43,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- Font-awesome --> 
-    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
 
 </head>
 
@@ -56,34 +54,18 @@
 
 <div class= "row">
     <div class= "wrapper">
-        <div class= "six columns">
-            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Canada's Older Population in 2011</a></g>
+        <div class= "two columns">
+            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Click anywhere on the map"> Canada's Older Population</a></g>
         </div>
     </div>
+   
     
     <div class="wrapper2">
-        <div class= "five columns" >
-            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Canada's Older Population in 2016</a></g>
-        </div>
+        <div class= "ten columns" >
+            <a class="button " href="mChoropleth.html"  data-placement="bottom" > MORE MAPS</a>
+         </div>
     </div>
-            
-       <div class= "one column" >      
-            <div class ="dropdown">
-           <i class = "fa fa-plus fa-3x" ></i>
-                <div class= "dropdown-content">
-                    <a class = "button" href="mChoropleth.html">2011</a>
-                    <a class = "button" href="mChoropleth16.html"> 2016</a>
-                </div>
-        
-    
-           
-    
-    
 </div>
-    </div>
-    </div>
-
-    
 
 <script>
     $(document).ready(function(){
@@ -99,8 +81,8 @@
                       $('g a').tooltip().eq(0).tooltip('hide').tooltip('enable');
                       }, 4000);
     </script>
-<!------------------ 2011 MAP ------------------>
-<div id ='map11'></div>
+<!------------------2011 MAP-------------->
+<div id ='map'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
 <script src = "js/Canada.js"></script>
@@ -114,7 +96,7 @@
     northEast = L.latLng(85, -10),
     bounds = L.latLngBounds(southWest, northEast);
     
-    var map11= L.mapbox.map('map11','ruthhannah.97be37d0',
+    var map= L.mapbox.map('map','ruthhannah.97be37d0',
                           {maxBounds: bounds,})
                           .setView([67.800, -100.986], 3);
 
@@ -182,15 +164,15 @@ var geo;
 
 var geo=L.geoJson(Canada,{
                   style:style2,
-                  }).addTo(map11);
+                  }).addTo(map);
                   
                   
                   var geojson=L.geoJson(CDBoundary_simple,{
                                         style:style,
                                         onEachFeature: onEachFeature
-                                        }).addTo(map11);
+                                        }).addTo(map);
                       
-    /*var info = L.control();
+    var info = L.control();
 
     info.onAdd = function(map) {
         this._div = L.DomUtil.create('div','info');
@@ -208,7 +190,7 @@ var geo=L.geoJson(Canada,{
         + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2): "")
         + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2): "");
         };
-    info.addTo(map11);*/
+    info.addTo(map);
 
 
 
@@ -275,248 +257,35 @@ Windsor = L.marker(new L.LatLng(42.33329327, -83.03334029), {icon: createLabelIc
 
 var seven = L.layerGroup([Brantford, Cambridge, Guelph, Hamilton, London, Oshawa, Peterborough, Sherbrooke, StCath, Saguenay, Sudbury, Waterloo, Windsor]);
 
-map11.on('zoomend', function() {
-       if (map11.getZoom()<3)
-       {map11.removeLayer(three)};
-       if (map11.getZoom()>=3)
-       {map11.addLayer(three)};
+map.on('zoomend', function() {
+       if (map.getZoom()<3)
+       {map.removeLayer(three)};
+       if (map.getZoom()>=3)
+       {map.addLayer(three)};
        }
        );
        
-map11.on('zoomend', function() {
-       if (map11.getZoom()<5)
+map.on('zoomend', function() {
+       if (map.getZoom()<5)
        {map.removeLayer(five)};
-       if (map11.getZoom()>=5)
-       {map11.addLayer(five)};
+       if (map.getZoom()>=5)
+       {map.addLayer(five)};
        }
        );
 
-map11.on('zoomend', function() {
-       if (map11.getZoom()<6)
-       {map11.removeLayer(six)};
-       if (map11.getZoom()>=6)
-       {map11.addLayer(six)};
+map.on('zoomend', function() {
+       if (map.getZoom()<6)
+       {map.removeLayer(six)};
+       if (map.getZoom()>=6)
+       {map.addLayer(six)};
        }
        );
        
-map11.on('zoomend', function() {
-       if (map11.getZoom()<7)
-       {map11.removeLayer(seven)};
-       if (map11.getZoom()>=7)
-       {map11.addLayer(seven)};
-       }
-       );
-       
-       
-       
-</script>
-    <!----------------END OF 2011 MAP ---------------->
-    <!----------------END OF 2016 MAP ---------------->
-    
-    <div id ='map16'></div>
-
-<script src ="js/CD_2016Var.js"></script>
-<script src = "js/Canada.js"></script>
-<script>
-    
-// Setting up custom mapbox basemap
-    L.mapbox.accessToken =
-        'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
-    
-    var southWest = L.latLng(15, -180),
-    northEast = L.latLng(85, -10),
-    bounds = L.latLngBounds(southWest, northEast);
-    
-    var map16= L.mapbox.map('map16','ruthhannah.97be37d0',
-                          {maxBounds: bounds,})
-                          .setView([67.800, -100.986], 3);
-
-
-//Summary Map
-function style2(feature){
-    return {
-        //fillColor: '#FFFFFF',
-        weight: 0.5,
-        opacity: 1,
-        color: '#000000',
-        dashArray: '',
-        //fillOpacity:0.4
-    };
-}
-   function style(feature){
-        return {
-            fillColor: '#FFFFFF',
-            weight: 0.5,
-            opacity: 1,
-            color: '#000000',
-            dashArray: '',
-            fillOpacity:0.4
-            };
-        }
-var geojson;
-var geo;
-
-// Highlights census divisions
-    function highlightFeature(e){
-        var layer = e.target;
-        info.update(layer.feature.properties);
-        layer.setStyle({
-            weight:1.2,
-            color: '#31a354',
-            dashArray:'',
-            fillOpacity:0
-            });
-                   
-            if (!L.Browser.ie && !L.Browser.opera){
-                layer.bringToFront();
-                }
-    }
-
-// Resets the census division highlight
-    var geojson;
-    
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-
-    function zoomToFeature(e){
-        map.fitBounds(e.target.getBounds());
-    }
-
-// Adds listeners to layer so that census divisions are highlighted and reset
-    function onEachFeature (feature, layer){
-        layer.on({
-             mouseover:highlightFeature,
-             mouseout:resetHighlight,
-             click:zoomToFeature
-             });
-    }
-
-var geo=L.geoJson(Canada,{
-                  style:style2,
-                  }).addTo(map16);
-                  
-                  
-                  var geojson=L.geoJson(CD_2016Var,{
-                                        style:style,
-                                        onEachFeature: onEachFeature
-                                        }).addTo(map16);
-                      
-    var info = L.control();
-
-    info.onAdd = function(map16) {
-        this._div = L.DomUtil.create('div','info');
-        this.update();
-        return this._div;
-        };
-
-    info.update = function(props) {
-        this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
-        + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "")
-        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex ratio 65+: </b>' + props.SR65.toFixed(2): "")
-        + (props? '<br /><b>Sex ratio 80+:</b> ' + props.SR80.toFixed(2): "")
-        + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2): "")
-        + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2): "");
-        };
-    info.addTo(map16);
-
-
-
-
-
-var createLabelIcon = function(labelClass,labelText){
-    return L.divIcon({
-                     className: labelClass,
-                     html: labelText,
-                     iconSize: [5,5]
-                     })
-};
-
-
-
-var Vancouver = L.marker(new L.LatLng(49.27341658, -123.1216442), {icon: createLabelIcon("labelClass","Vancouver")}),
-    Edmonton = L.marker(new L.LatLng(53.55002464, -113.4999819), {icon: createLabelIcon("labelClass","Edmonton")}),
-    Montréal = L.marker(new L.LatLng(45.49999921, -73.58329696), {icon: createLabelIcon("labelClass","Montréal")}),
-    Toronto = L.marker(new L.LatLng(43.69997988, -79.42002079), {icon: createLabelIcon("labelClass","Toronto")});
-    
-var three = L.layerGroup([Vancouver, Edmonton, Montréal, Toronto]);
-
-var Calgary = L.marker(new L.LatLng(51.08299176, -114.0799982), {icon: createLabelIcon("labelClass","Calgary")}),
-Charlottetown = L.marker(new L.LatLng(46.24928164, -63.13132512), {icon: createLabelIcon("labelClass","Charlottetown")}),
-Halifax = L.marker(new L.LatLng(44.65002525, -63.60000452), {icon: createLabelIcon("labelClass","Halifax")}),
-Iqaluit = L.marker(new L.LatLng(63.75045938, -68.50019175), {icon: createLabelIcon("labelClass","Iqaluit")}),
-Kelowna = L.marker(new L.LatLng(49.89998903, -119.4833118), {icon: createLabelIcon("labelClass","Kelowna")}),
-OttawaGatineau = L.marker(new L.LatLng(45.4166968, -75.7000153), {icon: createLabelIcon("labelClass","Ottawa")}),
-Québec = L.marker(new L.LatLng(46.83996909, -71.24561019), {icon: createLabelIcon("labelClass","Québec")}),
-Regina = L.marker(new L.LatLng(50.45003298, -104.6170099), {icon: createLabelIcon("labelClass","Regina")}),
-Saskatoon = L.marker(new L.LatLng(52.17003135, -106.6699854), {icon: createLabelIcon("labelClass","Saskatoon")}),
-SaintJohn = L.marker(new L.LatLng(45.26704185, -66.07667505), {icon: createLabelIcon("labelClass","Saint John")}),
-Johns = L.marker(new L.LatLng(47.58498822, -52.68100692), {icon: createLabelIcon("labelClass","St. John’s")}),
-ThunderBay = L.marker(new L.LatLng(48.44615013, -89.27497481), {icon: createLabelIcon("labelClass","Thunder Bay")}),
-Victoria = L.marker(new L.LatLng(48.43328269, -123.3500009), {icon: createLabelIcon("labelClass","Victoria")}),
-Yellowknife = L.marker(new L.LatLng(62.44201418, -114.3969814), {icon: createLabelIcon("labelClass","Yellowknife")}),
-Whitehorse = L.marker(new L.LatLng(60.71671897, -135.0499844), {icon: createLabelIcon("labelClass","Whitehorse")}),
-Winnipeg = L.marker(new L.LatLng(49.88298749, -97.16599186), {icon: createLabelIcon("labelClass","Winnipeg")});
-
-var five = L.layerGroup([Calgary, Charlottetown, Halifax, Iqaluit, Kelowna, OttawaGatineau, Québec, Regina, Saskatoon, Johns, SaintJohn, ThunderBay, Victoria, Yellowknife, Whitehorse, Winnipeg]);
-
-var Abbotsford = L.marker(new L.LatLng(49.05037681, -122.2999874), {icon: createLabelIcon("labelClass","Abbortsford")}),
-Barrie = L.marker(new L.LatLng(44.38376243, -79.7000037), {icon: createLabelIcon("labelClass","Barrie")}),
-Fredericton = L.marker(new L.LatLng(45.94999758, -66.63330774), {icon: createLabelIcon("labelClass","Fredericton")}),
-Kingston = L.marker(new L.LatLng(44.23371991, -76.48330082), {icon: createLabelIcon("labelClass","Kingston")}),
-Moncton = L.marker(new L.LatLng(46.08334861, -64.76667749), {icon: createLabelIcon("labelClass","Moncton")}),
-Trois = L.marker(new L.LatLng(46.34997316, -72.54994918), {icon: createLabelIcon("labelClass","Trois-Rivières")});
-
-var six = L.layerGroup([Abbotsford, Barrie, Fredericton, Kingston, Moncton, Trois]);
-
-var Brantford = L.marker(new L.LatLng(43.1393678, -80.2644229), {icon: createLabelIcon("labelClass","Brantford")}),
-Cambridge = L.marker(new L.LatLng(43.3619574, -80.314437), {icon: createLabelIcon("labelClass","Cambridge")}),
-Guelph = L.marker(new L.LatLng(43.5448141, -80.2481482), {icon: createLabelIcon("labelClass","Guelph")}),
-Hamilton = L.marker(new L.LatLng(43.24998151, -79.82999577), {icon: createLabelIcon("labelClass","Hamilton")}),
-London = L.marker(new L.LatLng(42.9699986, -81.24998661), {icon: createLabelIcon("labelClass","London")}),
-Oshawa = L.marker(new L.LatLng(43.87999473, -78.84997807), {icon: createLabelIcon("labelClass","Oshawa")}),
-Peterborough = L.marker(new L.LatLng(44.29996909, -78.33326542), {icon: createLabelIcon("labelClass","Peterborough")}),
-Sherbrooke = L.marker(new L.LatLng(45.40000531, -71.89998885), {icon: createLabelIcon("labelClass","Sherbrooke")}),
-StCath = L.marker(new L.LatLng(43.1592554, -79.2469196), {icon: createLabelIcon("labelClass","St. Catharines-Niagara")}),
-Saguenay = L.marker(new L.LatLng(48.427966, -71.0687466), {icon: createLabelIcon("labelClass","Saguenay")}),
-Sudbury = L.marker(new L.LatLng(46.49998985, -80.96664474), {icon: createLabelIcon("labelClass","Sudbury")}),
-Waterloo = L.marker(new L.LatLng(43.4641072, -80.5203116), {icon: createLabelIcon("labelClass","Kitchener-Waterloo")}),
-Windsor = L.marker(new L.LatLng(42.33329327, -83.03334029), {icon: createLabelIcon("labelClass","Windsor")});
-
-var seven = L.layerGroup([Brantford, Cambridge, Guelph, Hamilton, London, Oshawa, Peterborough, Sherbrooke, StCath, Saguenay, Sudbury, Waterloo, Windsor]);
-
-map16.on('zoomend', function() {
-       if (map16.getZoom()<3)
-       {map16.removeLayer(three)};
-       if (map16.getZoom()>=3)
-       {map16.addLayer(three)};
-       }
-       );
-       
-map16.on('zoomend', function() {
-       if (map16.getZoom()<5)
-       {map16.removeLayer(five)};
-       if (map16.getZoom()>=5)
-       {map16.addLayer(five)};
-       }
-       );
-
-map16.on('zoomend', function() {
-       if (map16.getZoom()<6)
-       {map16.removeLayer(six)};
-       if (map16.getZoom()>=6)
-       {map16.addLayer(six)};
-       }
-       );
-       
-map16.on('zoomend', function() {
-       if (map16.getZoom()<7)
-       {map16.removeLayer(seven)};
-       if (map16.getZoom()>=7)
-       {map16.addLayer(seven)};
+map.on('zoomend', function() {
+       if (map.getZoom()<7)
+       {map.removeLayer(seven)};
+       if (map.getZoom()>=7)
+       {map.addLayer(seven)};
        }
        );
        

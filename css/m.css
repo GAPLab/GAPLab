@@ -74,7 +74,7 @@ a.button.button-primary:hover{
     margin-right: auto;*/
     margin-top:10px;
     margin-bottom: 15px;
-    height: 600px;
+    height: 80vh;
     width: 50%;
     outline-color: dimgrey;
     outline-style: solid;
@@ -89,7 +89,7 @@ a.button.button-primary:hover{
     margin-right: auto;*/
     margin-top:10px;
     margin-bottom: 15px;
-    height: 600px;
+    height: 80vh;
     width: 50%;
     outline-color: dimgrey;
     outline-style: solid;

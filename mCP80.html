@@ -212,7 +212,7 @@ var geojson=L.geoJson(CD_2016Var,{
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Change 80+:</b> ' + props.CP80.toFixed(1): "");
+        + (props? '<br /><b>Change 80+:</b> ' + props.CP80.toFixed(1)+ '%' : "");
         };
 
     info.addTo(map);

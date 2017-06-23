@@ -4,7 +4,7 @@
         
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>GAP Share of the Population over 65</title>
+    <title>2011 Share of the Population over 65</title>
     <meta name="description" content="">
     <meta name="author" content="">
                     
@@ -38,26 +38,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<!-- Font-awesome --> 
+    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
+
 </head>
     
+<!-- HEADER BAR -->
+    
 <body>
-        
-<!-- Primary Page Layout -->
     <div class= "row">
-    <div class= "wrapper">
-        <div class= "two columns">
-            <a class="button " href="index.html">HOME MAP</a>
+        <div class= "wrapper">
+            <div class= "two columns">
+                <a class="button " href="index.html">HOME</a>
+            </div>
         </div>
-        <div class= "ten columns">
-            <a class="button" href="mP65.html"> Percent 65+ </a>
-            <a class="button " href="mP80.html"> Percent 80+</a>
-            <a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> Sex Ratio 65+</a>
-            <a class="button " href="mSR80.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 80+ = males 80 and over / females 80 and over x 100."> Sex Ratio 80+</a>
-            <a class="button " href="mSP65.html" data-toggle="tooltip" data-placement="bottom" title="Share 65+ = population 65 and over in the census division / population 65 and over in Canada x 100."> Share 65+</a>
-            <a class="button " href="mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old Component of the Dependency Ratio = population 65 and over /  population between 15 to 64 x 100. "> OCDR</a>
+        
+        <div class= "wrapper">
+            <div class= "six columns" >
+                <g><a class="button button-primary " href="mSP65.html" data-toggle="tooltip" data-placement="bottom" title="Share 65+ = population 65 and over in the census division / population 65 and over in Canada x 100."> 2011 Share 65+ </a></g>
+            </div> 
+        </div>
+        
+        <div class="wrapper2">
+            <div class= "three columns" >
+                <g><a class="button " href="mSP65_16.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map"> 2016 Share 65+ </a></g>
+            </div> 
+        </div>
+                
+        <div class= "one column" >      
+            <div class ="dropdown">
+                <i class = "fa fa-plus fa-3x" ></i>
+                <div class= "dropdown-content">
+                    <a class = "button" href="mP65.html"> Percent 65+   </a>
+                    <a class = "button" href="mP80.html"> Percent 80+   </a>
+                    <a class = "button" href="mSR65.html"> Sex Ratio 65+ </a>
+                    <a class = "button" href="mSR80.html"> Sex Ratio 80+ </a>
+                    <a class = "button" href="mSP65.html"> Share 65+     </a>
+                    <a class = "button" href="mOCDR.html"> OCDR          </a>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
+    
+<!-- END OF HEADER BAR -->
         
     <script>
         $(document).ready(function(){
@@ -72,11 +95,12 @@
         <span style='background:#8080ff;'></span>
         <span style='background:#1a1aff;'></span>
         <span style='background:#0000b3;'></span>
-        <label>0 - 0.06</label>
-        <label>0.07 - 0.10</label>
-        <label>0.11 - 0.17</label>
-        <label>0.18 - 0.35</label>
-        <label>0.36+</label>
+        <label>0-0.10</label>
+        <label>0.11-0.20</label>
+        <label>0.21-0.30</label>
+        <label>0.31-0.40</label>
+        <label>0.41+</label>
+        </nav>
     </div>
         
     <div id ='map'></div>
@@ -185,7 +209,7 @@
         info.update = function(props) {
             this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
             + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-            + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2) : "");
+            + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(1) : "");
         };
         
         info.addTo(map);

@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>2016 Sex Ratio Over 65</title>
+    <title>Change in Population 65+</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -39,7 +39,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
 <!-- Font-awesome --> 
-    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
     
 </head>
 
@@ -55,16 +55,16 @@
         
         <div class= "wrapper">
             <div class= "six columns" >
-                <g><a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map"> 2011 Sex Ratio 65+ </a></g>
+                <g><a class="button  " href="mCP65.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map">Change in 65+ from 2011 to 2016 </a></g>
             </div> 
         </div>
-
+        
         <div class="wrapper2">
             <div class= "three columns" >
-                <g> <a class="button button-primary " href="mSR65_16.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> 2016 Sex Ratio 65+</a></g>
+                <g><a class="button button-primary" href="mCP80.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map.">Change in 80+ from 2011 to 2016</a></g>
             </div> 
         </div>
-
+                
         <div class= "one column" >      
             <div class ="dropdown">
                 <i class = "fa fa-plus fa-3x" ></i>
@@ -80,30 +80,30 @@
             </div>
         </div>
     </div>
-
+    
 <!-- END OF HEADER BAR -->
+<!-- 2011 MAP -->        
+    
 
 <script>
     $(document).ready(function(){
                       $('[data-toggle="tooltip"]').tooltip();
                       });
-    </script>
+</script>
 
 <div id='legend' style='display:none;'>
-    
     <nav class='legend clearfix'>
-        <span style='background:#ffffff;'></span>
-        <span style='background:#bdd7e7;'></span>
-        <span style='background:#6baedb;'></span>
-        <span style='background:#3182bd;'></span>
-        <span style='background:#08519c;'></span>
-        <label>0-90.0</label>
-            <label>90.1-110.0</label>
-            <label>110.0-130.0</label>
-            <label>130.1-150.0</label>
-            <label>150.1+</label>
+        <span style='background:#fd8d3c;'></span>
+        <span style='background:#edf8e9;'></span>
+        <span style='background:#bae4b3;'></span>
+        <span style='background:#74c476;'></span>
+        <span style='background:#238645;'></span>
+        <label>-15-0.0%</label>
+        <label>0.1-15.0%</label>
+        <label>15.1-30.0%</label>
+        <label>30.1-45.0%</label>
+        <label>45.1%+</label>
     </nav>
-        
 </div>
 
 <div id ='map'></div>
@@ -124,30 +124,31 @@
     var map= L.mapbox.map('map','ruthhannah.97be37d0',
                           {maxBounds: bounds,})
                           .setView([67.800, -100.986], 3);
-    map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+                          
+ 
+   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+   function style2(feature){
+       return {
+           //fillColor: '#FFFFFF',
+           weight: 0.5,
+           opacity: 1,
+           color: '#000000',
+           dashArray: '',
+           //fillOpacity:0.4
+       };
+   }
 
     function getColor(d){
-        return d> 150.0?'#08519c':
-        d> 130.0?'#3182bd':
-        d> 110.0?'#6baedb':
-        d> 90.0?'#bdd7e7':
-            '#ffffff';
+        return d> 45.0?'#238b45':
+        d> 30.0 ?'#74c476':
+        d> 15.0 ?'#bae4b3':
+        d> 0.0  ?'#edf8e9':
+                   '#fd8d3c';
     }
 
-/////////////////////////////////////////////
-function style2(feature){
-    return {
-        //fillColor: '#FFFFFF',
-        weight: 0.5,
-        opacity: 1,
-        color: '#000000',
-        dashArray: '',
-        //fillOpacity:0.4
-    };
-}
     function style(feature){
         return {
-            fillColor: getColor(feature.properties.SR65),
+            fillColor: getColor(feature.properties.CP80),
             weight: 0.3,
             opacity: 1,
             color: '#000000',
@@ -156,58 +157,50 @@ function style2(feature){
         };
     }
 
-
-function highlightFeature(e){
-    var layer = e.target;
-    info.update(layer.feature.properties);
-    layer.setStyle({
-                   weight:0.9,
-                   color: '#000000',
-                   dashArray:'',
-                   fillOpacity:0.7
-                   });
+    function highlightFeature(e){
+        var layer = e.target;
+            info.update(layer.feature.properties);
+            layer.setStyle({
+                           weight:0.9,
+                           color: '#000000',
+                           dashArray:'',
+                           fillOpacity:0.7
+                           });
                    
-                   if (!L.Browser.ie && !L.Browser.opera){
-                       layer.bringToFront();
-                   }
-}
-
+     if (!L.Browser.ie && !L.Browser.opera){
+        layer.bringToFront();
+     }
+    }
 var geojson;
 var geo;
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    info.update();
-}
-
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
 
                       
-                      
-                      
-function zoomToFeature(e){
-                          map.fitBounds(e.target.getBounds());
-                      }
+     function zoomToFeature(e){
+              map.fitBounds(e.target.getBounds());
+              }
 
-function onEachFeature (feature, layer){
-    layer.on({
+    function onEachFeature (feature, layer){
+        layer.on({
              mouseover:highlightFeature,
              mouseout:resetHighlight,
              click:zoomToFeature
              });
-}
+    }
 
 var geo=L.geoJson(Canada,{
                   style:style2,
                   }).addTo(map);
                   
-                  
 var geojson=L.geoJson(CD_2016Var,{
-                 style:style,
-                 onEachFeature: onEachFeature
-                 }).addTo(map);
+                style:style,
+                onEachFeature: onEachFeature
+                }).addTo(map);
 
-//Summary Information Box
-
+    // Summary Information Box
     var info = L.control();
 
     info.onAdd = function(map) {
@@ -219,7 +212,7 @@ var geojson=L.geoJson(CD_2016Var,{
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Sex ratio 65+: </b>' + props.SR65.toFixed(1): "");
+        + (props? '<br /><b>Change 80+:</b> ' + props.CP80.toFixed(1): "");
         };
 
     info.addTo(map);
@@ -319,7 +312,6 @@ map.on('zoomend', function() {
                             {map.addLayer(seven)};
                             }
                             );
-
 </script>
 <center>
     

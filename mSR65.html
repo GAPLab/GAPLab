@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>2016 Sex Ratio Over 65</title>
+    <title>2011 Sex Ratio Over 65</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -37,9 +37,9 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+
 <!-- Font-awesome --> 
-    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
     
 </head>
 
@@ -55,16 +55,16 @@
         
         <div class= "wrapper">
             <div class= "six columns" >
-                <g><a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map"> 2011 Sex Ratio 65+ </a></g>
+                <g><a class="button button-primary " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> 2011 Sex Ratio 65+ </a></g>
             </div> 
         </div>
-
+        
         <div class="wrapper2">
             <div class= "three columns" >
-                <g> <a class="button button-primary " href="mSR65_16.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> 2016 Sex Ratio 65+</a></g>
+                <g><a class="button " href="mSR65_16.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map"> 2016 Sex Ratio 65+ </a></g>
             </div> 
         </div>
-
+                
         <div class= "one column" >      
             <div class ="dropdown">
                 <i class = "fa fa-plus fa-3x" ></i>
@@ -80,38 +80,39 @@
             </div>
         </div>
     </div>
-
+    
 <!-- END OF HEADER BAR -->
+<!-- 2011 MAP -->
+    
 
-<script>
+    <script>
     $(document).ready(function(){
                       $('[data-toggle="tooltip"]').tooltip();
                       });
     </script>
 
-<div id='legend' style='display:none;'>
+    <div id='legend' style='display:none;'>
     
-    <nav class='legend clearfix'>
-        <span style='background:#ffffff;'></span>
-        <span style='background:#bdd7e7;'></span>
-        <span style='background:#6baedb;'></span>
-        <span style='background:#3182bd;'></span>
-        <span style='background:#08519c;'></span>
-        <label>0-90.0</label>
+        <nav class='legend clearfix'>
+            <span style='background:#ffffff;'></span>
+            <span style='background:#ccccff;'></span>
+            <span style='background:#8080ff;'></span>
+            <span style='background:#1a1aff;'></span>
+            <span style='background:#0000b3;'></span>
+            <label>0-90.0</label>
             <label>90.1-110.0</label>
             <label>110.0-130.0</label>
             <label>130.1-150.0</label>
             <label>150.1+</label>
-    </nav>
-        
-</div>
+        </nav>
+    </div>
 
-<div id ='map'></div>
+    <div id ='map'></div>
 
-<script src ="js/CD_2016Var.js"></script>
-<script src = "js/Canada.js"></script>
-
-<script>
+    <script src ="js/CDBoundary_simple.js"></script>
+    <script src = "js/Canada.js"></script>
+    
+    <script>
     // Setting up custom mapbox basemap
   
     L.mapbox.accessToken =
@@ -127,10 +128,10 @@
     map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
     function getColor(d){
-        return d> 150.0?'#08519c':
-        d> 130.0?'#3182bd':
-        d> 110.0?'#6baedb':
-        d> 90.0?'#bdd7e7':
+        return d> 150.0?'#0000b3':
+        d> 130.0 ?'#1a1aff':
+        d> 110.0?'#8080ff':
+        d> 90.0?'#ccccff':
             '#ffffff';
     }
 
@@ -201,7 +202,7 @@ var geo=L.geoJson(Canada,{
                   }).addTo(map);
                   
                   
-var geojson=L.geoJson(CD_2016Var,{
+var geojson=L.geoJson(CDBoundary_simple,{
                  style:style,
                  onEachFeature: onEachFeature
                  }).addTo(map);

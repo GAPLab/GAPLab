@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>Summary Map</title>
+    <title>GAP Percentage over 65</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -28,85 +28,92 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="leaflet/leaflet.js"></script>
-   
-<!-- new for leaflet.labels -->
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js '></script>
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css ' rel='stylesheet' />
-    
   
 <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
+<!--Tooltip-->
 
-<!-- Tooltip -->
+    
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
-<!-- Font-awesome --> 
+    <!-- Font-awesome --> 
     <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
 
 </head>
 
 <body>
-
 <!-- Primary Page Layout -->
-
-
 
 <div class= "row">
     <div class= "wrapper">
-        <div class= "eight columns">
-            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Canada's Older Population in 2011</a></g>
+        <div class= "six columns">
+            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Percent 65+ in 2011</a></g>
         </div>
     </div>
     
     <div class="wrapper2">
-        <div class= "three columns" >
-            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Canada's Older Population in 2016</a></g>
+        <div class= "five columns" >
+            <g><a class="button " href="index.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Percent 65+ in 2016</a></g>
         </div>
     </div>
             
     <div class= "one column" >      
         <div class ="dropdown">
            <i class = "fa fa-plus fa-3x" ></i>
-            <div class= "dropdown-content">
-                <a class = "button" href="mP65.html"> Percent 65+   </a>
-                <a class = "button" href="mP80.html"> Percent 80+   </a>
-                <a class = "button" href="mSR65.html"> Sex Ratio 65+ </a>
-                <a class = "button" href="mSR80.html"> Sex Ratio 80+ </a>
-                <a class = "button" href="mSP65.html"> Share 65+     </a>
-                <a class = "button" href="mOCDR.html"> OCDR          </a>
-                <a class = "button" href="mCP65.html"> Percent Change</a>
-            </div>
+                <div class= "dropdown-content">
+                    <a class = "button" href="index.html"> Home   </a>
+                    <a class = "button" href="mP65_16.html"> Percent 65+   </a>
+                    <a class = "button" href="mP80_16.html"> Percent 80+   </a>
+                    <a class = "button" href="mSR65_16.html"> Sex Ratio 65+ </a>
+                    <a class = "button" href="mSR80_16.html"> Sex Ratio 80+ </a>
+                    <a class = "button" href="mSP65_16.html"> Share 65+     </a>
+                    <a class = "button" href="mOCDR_16.html"> OCDR          </a>
+                </div>
         </div>
     </div>
 </div>
 
-    
 
+
+    
+  
+<!----------------- MAP 2011--------------------> 
 <script>
     $(document).ready(function(){
-                      $('[data-toggle="tooltip"]').tooltip();
-                      });
-    $
-    
-    $('g a').tooltip().eq(0).tooltip('show').tooltip('disable').one('mouseout', function() {
-                      $(this).tooltip('enable');
-                      });
-                                                                    
-                      setTimeout(function() {
-                      $('g a').tooltip().eq(0).tooltip('hide').tooltip('enable');
-                      }, 4000);
-    </script>
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    //might not need this
+
+</script>
+
 <!------------------ 2011 MAP ------------------>
+<div id='legend' style='display:none;'>
+    
+    <nav class='legend clearfix'>
+        <span style='background:#ffffff;'></span>
+        <span style='background:#ccccff;'></span>
+        <span style='background:#8080ff;'></span>
+        <span style='background:#1a1aff;'></span>
+        <span style='background:#0000b3;'></span>
+        <label>2.0 - 8.0%</label>
+        <label>8.1 - 14.0%</label>
+        <label>14.0 - 20.0%</label>
+        <label>20.1 - 26.0%</label>
+        <label>26.1%+</label>
+    </nav>    
+</div>
 <div id ='map11'></div>
 
 <script src ="js/CDBoundary_simple.js"></script>
 <script src = "js/Canada.js"></script>
+
 <script>
     
-// Setting up custom mapbox basemap
+    
+    // Setting up custom mapbox basemap
+
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
@@ -115,70 +122,83 @@
     bounds = L.latLngBounds(southWest, northEast);
     
     var map11= L.mapbox.map('map11','ruthhannah.97be37d0',
-                          {maxBounds: bounds,})
+                          {maxBounds: bounds})
                           .setView([67.800, -100.986], 3);
+    
 
+ 
+   map11.legendControl.addLegend(document.getElementById('legend').innerHTML)
+       .setPosition('bottomleft');
+    
+ 
+   
+   function style2(feature){
+       return {
+           //fillColor: '#FFFFFF',
+           weight: 0.5,
+           opacity: 1,
+           color: '#000000',
+           dashArray: '',
+           //fillOpacity:0.4
+       };
+   }
 
-//Summary Map
-function style2(feature){
-    return {
-        //fillColor: '#FFFFFF',
-        weight: 0.5,
-        opacity: 1,
-        color: '#000000',
-        dashArray: '',
-        //fillOpacity:0.4
-    };
-}
-   function style(feature){
+    function getColor(d){
+        return d> 26.0?'#0000b3':
+        d> 20.0?'#1a1aff':
+        d> 14.0?'#8080ff':
+        d> 8.0?'#ccccff':
+            '#ffffff';
+    }
+
+/////////////////////////////////////////////
+    function style(feature){
         return {
-            fillColor: '#FFFFFF',
-            weight: 0.5,
+            fillColor: getColor(feature.properties.P65),
+            weight: 0.3,
             opacity: 1,
             color: '#000000',
             dashArray: '',
-            fillOpacity:0.4
-            };
-        }
+            fillOpacity:0.7
+        };
+    }
 var geojson;
 var geo;
 
-// Highlights census divisions
-    function highlightFeature(e){
-        var layer = e.target;
-        info.update(layer.feature.properties);
-        layer.setStyle({
-            weight:1.2,
-            color: '#8080ff',
-            dashArray:'',
-            fillOpacity:0
-            });
+function highlightFeature(e){
+    var layer = e.target;
+    info.update(layer.feature.properties);
+    layer.setStyle({
+                   weight:0.9,
+                   color: '#000000',
+                   dashArray:'',
+                   fillOpacity:0.7
+                   });
                    
-            if (!L.Browser.ie && !L.Browser.opera){
-                layer.bringToFront();
-                }
-    }
+                   if (!L.Browser.ie && !L.Browser.opera){
+                       layer.bringToFront();
+                   }
+}
 
-// Resets the census division highlight
-    var geojson;
-    
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+}
 
-    function zoomToFeature(e){
-        map11.fitBounds(e.target.getBounds());
-    }
+                      
+                      
+                      
+                      function zoomToFeature(e){
+                          map.fitBounds(e.target.getBounds());
+                      }
 
-// Adds listeners to layer so that census divisions are highlighted and reset
-    function onEachFeature (feature, layer){
-        layer.on({
+function onEachFeature (feature, layer){
+    layer.on({
              mouseover:highlightFeature,
              mouseout:resetHighlight,
              click:zoomToFeature
              });
-    }
+}
 
 var geo=L.geoJson(Canada,{
                   style:style2,
@@ -189,28 +209,25 @@ var geo=L.geoJson(Canada,{
                                         style:style,
                                         onEachFeature: onEachFeature
                                         }).addTo(map11);
-                      
-    /*var info = L.control();
+
+//////////////////////////////////////SUMMARY INFO
+// When the mouse hovers the variables attached to each
+// census division are shown in an info box when mouse hovers
+  /*  var info = L.control();
 
     info.onAdd = function(map) {
         this._div = L.DomUtil.create('div','info');
         this.update();
         return this._div;
-        };
+    };
 
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "")
-        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex ratio 65+: </b>' + props.SR65.toFixed(2): "")
-        + (props? '<br /><b>Sex ratio 80+:</b> ' + props.SR80.toFixed(2): "")
-        + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2): "")
-        + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2): "");
+        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "");
         };
-    info.addTo(map11);*/
 
-
+    info.addTo(map16);*/
 
 
 
@@ -225,10 +242,10 @@ var createLabelIcon = function(labelClass,labelText){
 
 
 var Vancouver = L.marker(new L.LatLng(49.27341658, -123.1216442), {icon: createLabelIcon("labelClass","Vancouver")}),
-    Edmonton = L.marker(new L.LatLng(53.55002464, -113.4999819), {icon: createLabelIcon("labelClass","Edmonton")}),
-    Montréal = L.marker(new L.LatLng(45.49999921, -73.58329696), {icon: createLabelIcon("labelClass","Montréal")}),
-    Toronto = L.marker(new L.LatLng(43.69997988, -79.42002079), {icon: createLabelIcon("labelClass","Toronto")});
-    
+Edmonton = L.marker(new L.LatLng(53.55002464, -113.4999819), {icon: createLabelIcon("labelClass","Edmonton")}),
+Montréal = L.marker(new L.LatLng(45.49999921, -73.58329696), {icon: createLabelIcon("labelClass","Montréal")}),
+Toronto = L.marker(new L.LatLng(43.69997988, -79.42002079), {icon: createLabelIcon("labelClass","Toronto")});
+
 var three = L.layerGroup([Vancouver, Edmonton, Montréal, Toronto]);
 
 var Calgary = L.marker(new L.LatLng(51.08299176, -114.0799982), {icon: createLabelIcon("labelClass","Calgary")}),
@@ -258,6 +275,7 @@ Moncton = L.marker(new L.LatLng(46.08334861, -64.76667749), {icon: createLabelIc
 Trois = L.marker(new L.LatLng(46.34997316, -72.54994918), {icon: createLabelIcon("labelClass","Trois-Rivières")});
 
 var six = L.layerGroup([Abbotsford, Barrie, Fredericton, Kingston, Moncton, Trois]);
+
 
 var Brantford = L.marker(new L.LatLng(43.1393678, -80.2644229), {icon: createLabelIcon("labelClass","Brantford")}),
 Cambridge = L.marker(new L.LatLng(43.3619574, -80.314437), {icon: createLabelIcon("labelClass","Cambridge")}),
@@ -283,43 +301,65 @@ map11.on('zoomend', function() {
        }
        );
        
-map11.on('zoomend', function() {
-       if (map11.getZoom()<5)
-       {map.removeLayer(five)};
-       if (map11.getZoom()>=5)
-       {map11.addLayer(five)};
-       }
-       );
-
-map11.on('zoomend', function() {
-       if (map11.getZoom()<6)
-       {map11.removeLayer(six)};
-       if (map11.getZoom()>=6)
-       {map11.addLayer(six)};
-       }
-       );
-       
-map11.on('zoomend', function() {
-       if (map11.getZoom()<7)
-       {map11.removeLayer(seven)};
-       if (map11.getZoom()>=7)
-       {map11.addLayer(seven)};
-       }
-       );
-       
-       
-       
+       map11.on('zoomend', function() {
+              if (map11.getZoom()<5)
+              {map11.removeLayer(five)};
+              if (map11.getZoom()>=5)
+              {map11.addLayer(five)};
+              }
+              );
+              
+              map11.on('zoomend', function() {
+                     if (map11.getZoom()<6)
+                     {map11.removeLayer(six)};
+                     if (map11.getZoom()>=6)
+                     {map11.addLayer(six)};
+                     }
+                     );
+                     
+                     map11.on('zoomend', function() {
+                            if (map11.getZoom()<7)
+                            {map11.removeLayer(seven)};
+                            if (map11.getZoom()>=7)
+                            {map11.addLayer(seven)};
+                            }
+                            );
 </script>
-    <!----------------END OF 2011 MAP ---------------->
-    <!----------------END OF 2016 MAP ---------------->
+
+<!----------------- End MAP 2011-------------------->   
+<!----------------- Begin MAP 2016------------------>
+  
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+<div id='legend' style='display:none;'>
     
-    <div id ='map16'></div>
+    <nav class='legend clearfix'>
+        <span style='background:#ffffff;'></span>
+        <span style='background:#ccccff;'></span>
+        <span style='background:#8080ff;'></span>
+        <span style='background:#1a1aff;'></span>
+        <span style='background:#0000b3;'></span>
+        <label>2.0 - 8.0%</label>
+        <label>8.1 - 14.0%</label>
+        <label>14.0 - 20.0%</label>
+        <label>20.1 - 26.0%</label>
+        <label>26.1%+</label>
+    </nav>    
+</div>
+<div id ='map16'></div>
 
 <script src ="js/CD_2016Var.js"></script>
 <script src = "js/Canada.js"></script>
+
 <script>
     
-// Setting up custom mapbox basemap
+    
+    // Setting up custom mapbox basemap
+
     L.mapbox.accessToken =
         'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
     
@@ -328,70 +368,79 @@ map11.on('zoomend', function() {
     bounds = L.latLngBounds(southWest, northEast);
     
     var map16= L.mapbox.map('map16','ruthhannah.97be37d0',
-                          {maxBounds: bounds,})
+                         {maxBounds: bounds})
                           .setView([67.800, -100.986], 3);
+ 
+ //  map16.legendControl.addLegend(document.getElementById('legend').innerHTML)
+ //      .setPosition('topleft');
+   
+   function style2(feature){
+       return {
+           //fillColor: '#FFFFFF',
+           weight: 0.5,
+           opacity: 1,
+           color: '#000000',
+           dashArray: '',
+           //fillOpacity:0.4
+       };
+   }
 
+    function getColor(d){
+        return d> 26.0?'#0000b3':
+        d> 20.0?'#1a1aff':
+        d> 14.0?'#8080ff':
+        d> 8.0?'#ccccff':
+            '#ffffff';
+    }
 
-//Summary Map
-function style2(feature){
-    return {
-        //fillColor: '#FFFFFF',
-        weight: 0.5,
-        opacity: 1,
-        color: '#000000',
-        dashArray: '',
-        //fillOpacity:0.4
-    };
-}
-   function style(feature){
+/////////////////////////////////////////////
+    function style(feature){
         return {
-            fillColor: '#FFFFFF',
-            weight: 0.5,
+            fillColor: getColor(feature.properties.P65),
+            weight: 0.3,
             opacity: 1,
             color: '#000000',
             dashArray: '',
-            fillOpacity:0.4
-            };
-        }
+            fillOpacity:0.7
+        };
+    }
 var geojson;
 var geo;
 
-// Highlights census divisions
-    function highlightFeature(e){
-        var layer = e.target;
-        info.update(layer.feature.properties);
-        layer.setStyle({
-            weight:1.2,
-            color: '#6baed6',
-            dashArray:'',
-            fillOpacity:0
-            });
+function highlightFeature(e){
+    var layer = e.target;
+    info.update(layer.feature.properties);
+    layer.setStyle({
+                   weight:0.9,
+                   color: '#000000',
+                   dashArray:'',
+                   fillOpacity:0.7
+                   });
                    
-            if (!L.Browser.ie && !L.Browser.opera){
-                layer.bringToFront();
-                }
-    }
+                   if (!L.Browser.ie && !L.Browser.opera){
+                       layer.bringToFront();
+                   }
+}
 
-// Resets the census division highlight
-    var geojson;
-    
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+}
 
-    function zoomToFeature(e){
-        map.fitBounds(e.target.getBounds());
-    }
+                      
+                      
+                      
+                      function zoomToFeature(e){
+                          map.fitBounds(e.target.getBounds());
+                      }
 
-// Adds listeners to layer so that census divisions are highlighted and reset
-    function onEachFeature (feature, layer){
-        layer.on({
+function onEachFeature (feature, layer){
+    layer.on({
              mouseover:highlightFeature,
              mouseout:resetHighlight,
              click:zoomToFeature
              });
-    }
+}
 
 var geo=L.geoJson(Canada,{
                   style:style2,
@@ -402,30 +451,27 @@ var geo=L.geoJson(Canada,{
                                         style:style,
                                         onEachFeature: onEachFeature
                                         }).addTo(map16);
-                      
+
+//////////////////////////////////////SUMMARY INFO
+// When the mouse hovers the variables attached to each
+// census division are shown in an info box when mouse hovers
     var info = L.control();
 
     info.onAdd = function(map16) {
         this._div = L.DomUtil.create('div','info');
         this.update();
         return this._div;
-        };
+    };
 
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "")
-        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(2) + '%' : "")
-        + (props? '<br /><b>Sex ratio 65+: </b>' + props.SR65.toFixed(2): "")
-        + (props? '<br /><b>Sex ratio 80+:</b> ' + props.SR80.toFixed(2): "")
-        + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2): "")
-        + (props? '<br /><b>Old component of the dependency ratio: </b>' + props.ODR.toFixed(2): "");
+        + (props? '<br /><b>Percent of the population 65+: </b>' + props.P65.toFixed(2)+ '%' : "");
         };
+
     info.addTo(map16);
 
 
-
-/*
 
 var createLabelIcon = function(labelClass,labelText){
     return L.divIcon({
@@ -438,10 +484,10 @@ var createLabelIcon = function(labelClass,labelText){
 
 
 var Vancouver = L.marker(new L.LatLng(49.27341658, -123.1216442), {icon: createLabelIcon("labelClass","Vancouver")}),
-    Edmonton = L.marker(new L.LatLng(53.55002464, -113.4999819), {icon: createLabelIcon("labelClass","Edmonton")}),
-    Montréal = L.marker(new L.LatLng(45.49999921, -73.58329696), {icon: createLabelIcon("labelClass","Montréal")}),
-    Toronto = L.marker(new L.LatLng(43.69997988, -79.42002079), {icon: createLabelIcon("labelClass","Toronto")});
-    
+Edmonton = L.marker(new L.LatLng(53.55002464, -113.4999819), {icon: createLabelIcon("labelClass","Edmonton")}),
+Montréal = L.marker(new L.LatLng(45.49999921, -73.58329696), {icon: createLabelIcon("labelClass","Montréal")}),
+Toronto = L.marker(new L.LatLng(43.69997988, -79.42002079), {icon: createLabelIcon("labelClass","Toronto")});
+
 var three = L.layerGroup([Vancouver, Edmonton, Montréal, Toronto]);
 
 var Calgary = L.marker(new L.LatLng(51.08299176, -114.0799982), {icon: createLabelIcon("labelClass","Calgary")}),
@@ -472,6 +518,7 @@ Trois = L.marker(new L.LatLng(46.34997316, -72.54994918), {icon: createLabelIcon
 
 var six = L.layerGroup([Abbotsford, Barrie, Fredericton, Kingston, Moncton, Trois]);
 
+
 var Brantford = L.marker(new L.LatLng(43.1393678, -80.2644229), {icon: createLabelIcon("labelClass","Brantford")}),
 Cambridge = L.marker(new L.LatLng(43.3619574, -80.314437), {icon: createLabelIcon("labelClass","Cambridge")}),
 Guelph = L.marker(new L.LatLng(43.5448141, -80.2481482), {icon: createLabelIcon("labelClass","Guelph")}),
@@ -496,57 +543,61 @@ map16.on('zoomend', function() {
        }
        );
        
-map16.on('zoomend', function() {
-       if (map16.getZoom()<5)
-       {map16.removeLayer(five)};
-       if (map16.getZoom()>=5)
-       {map16.addLayer(five)};
-       }
-       );
-
-map16.on('zoomend', function() {
-       if (map16.getZoom()<6)
-       {map16.removeLayer(six)};
-       if (map16.getZoom()>=6)
-       {map16.addLayer(six)};
-       }
-       );
-       
-map16.on('zoomend', function() {
-       if (map16.getZoom()<7)
-       {map16.removeLayer(seven)};
-       if (map16.getZoom()>=7)
-       {map16.addLayer(seven)};
-       }
-       );
-       
-       
-       */
+       map16.on('zoomend', function() {
+              if (map16.getZoom()<5)
+              {map16.removeLayer(five)};
+              if (map16.getZoom()>=5)
+              {map16.addLayer(five)};
+              }
+              );
+              
+              map16.on('zoomend', function() {
+                     if (map16.getZoom()<6)
+                     {map16.removeLayer(six)};
+                     if (map16.getZoom()>=6)
+                     {map16.addLayer(six)};
+                     }
+                     );
+                     
+                     map16.on('zoomend', function() {
+                            if (map16.getZoom()<7)
+                            {map16.removeLayer(seven)};
+                            if (map16.getZoom()>=7)
+                            {map16.addLayer(seven)};
+                            }
+                            );
 </script>
 <center>
- 
+
+    
+    
+    
+    
     <div id="acknowledge" style="display:none; font-size:11px; color: grey;" >
         
         <p>Adapted from Statistics Canada, 2011 Census of Population, 27 April 2015. Reproduced and distributed on an "as is" basis with the permission of Statistics Canada.</p>
-     
+        
         <p>Adapted from thematicmapping.org, Canada extracted from world_borders-0.3.zip, 18 Jan. 2016. This does not constitute an endoresment by thematicmapping.org.</p>
     </div>
-       <div class="wrapper3">
-    <input type="button" value="Acknowledgement of Sources" onclick="infobox()"/>
+    
+    
+    <div class="wrapper3">
+        <input type="button" value="Acknowledgement of Sources" onclick="infobox()"/>
     </div>
+         
 </center>
 
 <script>
     function infobox(){
         var div = document.getElementById("acknowledge");
-            if (div.style.display !== "none") {
-                div.style.display = "none";
-                }
+        if (div.style.display !== "none") {
+            div.style.display = "none";
+        }
         else {
-                div.style.display = "block";
-            }
-     }
-</script> 
+            div.style.display = "block";
+        }
+    }
+</script>
 <!-- End Document -->
 </body>
 </html>

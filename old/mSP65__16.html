@@ -1,229 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+        
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>2011 Old Component of the Dependency Ratio</title>
+    <title>GAP Share of the Population over 65</title>
     <meta name="description" content="">
     <meta name="author" content="">
-
+                    
 <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+                        
 <!-- FONT -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
+                            
 <!-- CSS -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/m.css">
-
+                                        
 <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-
+                                            
 <!-- Leaflet -->
     <link rel ="stylesheet" href ="leaflet/leaflet.css" />
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="leaflet/leaflet.js"></script>
-  
+                                            
 <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
 
-<!-- Tooltip -->
+<!--Tooltip-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
-<!-- Font-awesome --> 
-    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
-    
+
 </head>
-
-<!-- HEADER BAR -->
-
-<body>    
-    <div class= "row">
-        <div class= "wrapper">
-            <div class= "two columns">
-                <a class="button " href="index.html">HOME</a>
-            </div>
-        </div>
     
-        <div class= "wrapper">
-            <div class= "six columns" >
-                <g> <a class="button button-primary" href="mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old Component of the Dependency Ratio = population 65 and over /  population between 15 to 64 x 100. "> OCDR in 2011</a> </g>
-            </div> 
-        </div>
+<body>
         
-        <div class="wrapper2">
-            <div class= "three columns" >
-                <g><a class="button " href="mOCDR_16.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map"> OCDR in 2016</a></g>
-            </div>
+<!-- Primary Page Layout -->
+    <div class= "row">
+    <div class= "wrapper">
+        <div class= "two columns">
+            <a class="button " href="index.html">HOME MAP</a>
         </div>
-                
-        <div class= "one column" >      
-            <div class ="dropdown">
-                <i class = "fa fa-plus fa-3x" ></i>
-                <div class= "dropdown-content">
-                    <a class = "button" href="mP65.html"> Percent 65+   </a>
-                    <a class = "button" href="mP80.html"> Percent 80+   </a>
-                    <a class = "button" href="mSR65.html"> Sex Ratio 65+ </a>
-                    <a class = "button" href="mSR80.html"> Sex Ratio 80+ </a>
-                    <a class = "button" href="mSP65.html"> Share 65+     </a>
-                    <a class = "button" href="mOCDR.html"> OCDR          </a>
-                    <a class = "button" href="mCP65.html"> Percent Change</a>
-                </div>
-            </div>
+        <div class= "ten columns">
+            <a class="button" href="mP65.html"> Percent 65+ </a>
+            <a class="button " href="mP80.html"> Percent 80+</a>
+            <a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> Sex Ratio 65+</a>
+            <a class="button " href="mSR80.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 80+ = males 80 and over / females 80 and over x 100."> Sex Ratio 80+</a>
+            <a class="button " href="mSP65.html" data-toggle="tooltip" data-placement="bottom" title="Share 65+ = population 65 and over in the census division / population 65 and over in Canada x 100."> Share 65+</a>
+            <a class="button " href="mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old Component of the Dependency Ratio = population 65 and over /  population between 15 to 64 x 100. "> OCDR</a>
         </div>
     </div>
+    </div>
         
-<!-- END OF HEADER BAR -->
-
-<!-- 2011 MAP -->
     <script>
         $(document).ready(function(){
-                          $('[data-toggle="tooltip"]').tooltip();
-                          });
-        </script>
-
+                                    $('[data-toggle="tooltip"]').tooltip();
+                                    });
+    </script>
+        
     <div id='legend' style='display:none;'>
         <nav class='legend clearfix'>
-            <span style='background:#ffffff;'></span>
-            <span style='background:#ccccff;'></span>
-            <span style='background:#8080ff;'></span>
-            <span style='background:#1a1aff;'></span>
-            <span style='background:#0000b3;'></span>
-            <label>0 - 10.0</label>
-            <label>10.1 - 20.0</label>
-            <label>20.1 - 30.0</label>
-            <label>30.1 - 40.0</label>
-            <label>40.1+</label>
-        </nav>
+        <span style='background:#ffffff;'></span>
+        <span style='background:#ccccff;'></span>
+        <span style='background:#8080ff;'></span>
+        <span style='background:#1a1aff;'></span>
+        <span style='background:#0000b3;'></span>
+        <label>0 - 0.06</label>
+        <label>0.07 - 0.10</label>
+        <label>0.11 - 0.17</label>
+        <label>0.18 - 0.35</label>
+        <label>0.36+</label>
     </div>
-
+        
     <div id ='map'></div>
-
     <script src ="js/CDBoundary_simple.js"></script>
     <script src = "js/Canada.js"></script>
+    
     <script>
-    // Setting up custom mapbox basemap
-    L.mapbox.accessToken =
-        'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
+        // Setting up custom mapbox basemap
+            
+        L.mapbox.accessToken =
+            'pk.eyJ1IjoicnV0aGhhbm5haCIsImEiOiJjaWh6MW1sc2MwNDZidWhrb2F3NjkwcmtmIn0.-kBXpXiYaLRbz7Km3UWwEg';
+            
+            var southWest = L.latLng(15, -180),
+            northEast = L.latLng(85, -10),
+            bounds = L.latLngBounds(southWest, northEast);
+            
+            var map= L.mapbox.map('map','ruthhannah.97be37d0',
+                                  {maxBounds: bounds,})
+                                  .setView([67.800, -100.986], 3);
+                                  
+            map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+                                  
+                                  function style2(feature){
+                                      return {
+                                          //fillColor: '#FFFFFF',
+                                          weight: 0.5,
+                                          opacity: 1,
+                                          color: '#000000',
+                                          dashArray: '',
+                                          //fillOpacity:0.4
+                                      };
+                                  }
     
-    var southWest = L.latLng(15, -180),
-    northEast = L.latLng(85, -10),
-    bounds = L.latLngBounds(southWest, northEast);
-    
-    var map= L.mapbox.map('map','ruthhannah.97be37d0',
-                          {maxBounds: bounds,})
-                          .setView([67.800, -100.986], 3);
-                          
-    map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+        function getColor(d){
+            return d> .35 ?'#0000b3':
+                   d> .17 ?'#1a1aff':
+                   d> .10 ?'#8080ff':
+                   d> .06 ?'#ccccff':
+                           '#ffffff';
+                   }
 
-function style2(feature){
-    return {
-        //fillColor: '#FFFFFF',
-        weight: 0.5,
-        opacity: 1,
-        color: '#000000',
-        dashArray: '',
-        //fillOpacity:0.4
-    };
-}
-    function getColor(d){
-        return d> 40.0?'#0000b3':
-               d> 30.0?'#1a1aff':
-               d> 20.0?'#8080ff':
-               d> 10.0?'#ccccff':
-                         '#ffffff';
-    }
-
-    function style(feature){
-        return {
-            fillColor: getColor(feature.properties.ODR),
-            weight: 0.3,
-            opacity: 1,
-            color: '#000000',
-            dashArray: '',
-            fillOpacity:0.7
-        };
-    }
+        function style(feature){
+            return {
+                fillColor: getColor(feature.properties.S65),
+                weight: 0.3,
+                opacity: 1,
+                color: '#000000',
+                dashArray: '',
+                fillOpacity:0.7
+                };
+        }
     var geojson;
     var geo;
     
-    function highlightFeature(e){
-        var layer = e.target;
+        function highlightFeature(e){
+            var layer = e.target;
             info.update(layer.feature.properties);
             layer.setStyle({
-                weight:0.9,
-                color: '#000000',
-                dashArray:'',
-                fillOpacity:0.7
-                });
-                   
-        if (!L.Browser.ie && !L.Browser.opera){
-            layer.bringToFront();
-            }
-    }
-
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-
-
-                      
-    function zoomToFeature(e){
-         map.fitBounds(e.target.getBounds());
-         }
-
-    function onEachFeature (feature, layer){
-        layer.on({
-             mouseover:highlightFeature,
-             mouseout:resetHighlight,
-             click:zoomToFeature
-             });
-    }
+                           weight:0.9,
+                           color: '#000000',
+                           dashArray:'',
+                           fillOpacity:0.7
+                           });
+                           
+                           if (!L.Browser.ie && !L.Browser.opera){
+                               layer.bringToFront();
+                           }
+        }
+    
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+            info.update();
+        }
+    
+                              
+       function zoomToFeature(e){
+             map.fitBounds(e.target.getBounds());
+             }
+        
+        function onEachFeature (feature, layer){
+            layer.on({
+                     mouseover:highlightFeature,
+                     mouseout:resetHighlight,
+                     click:zoomToFeature
+                     });
+        }
     
     var geo=L.geoJson(Canada,{
                       style:style2,
                       }).addTo(map);
                       
                       
-                      var geojson=L.geoJson(CDBoundary_simple,{
-                                            style:style,
-                                            onEachFeature: onEachFeature
-                                            }).addTo(map);
-
-// Summary Information Box
-    var info = L.control();
-
-    info.onAdd = function(map) {
-        this._div = L.DomUtil.create('div','info');
-        this.update();
-        return this._div;
-    };
-
-    info.update = function(props) {
-        this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
-        + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Old Component of the Dependency Ratio: </b>' + props.ODR.toFixed(1): "");
+     var geojson=L.geoJson(CDBoundary_simple,{
+                      style:style,
+                      onEachFeature: onEachFeature
+                      }).addTo(map);
+                                            
+        var info = L.control();
+        
+        info.onAdd = function(map) {
+            this._div = L.DomUtil.create('div','info');
+            this.update();
+            return this._div;
         };
-
-    info.addTo(map);
-    
-    
-    var createLabelIcon = function(labelClass,labelText){
-        return L.divIcon({
-                         className: labelClass,
-                         html: labelText,
-                         iconSize: [5,5]
-                        })
-    };
+        
+        info.update = function(props) {
+            this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
+            + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
+            + (props? '<br /><b>Share of the population 65+: </b>' + props.S65.toFixed(2) : "");
+        };
+        
+        info.addTo(map);
+        
+        
+        var createLabelIcon = function(labelClass,labelText){
+            return L.divIcon({
+                             className: labelClass,
+                             html: labelText,
+                             iconSize: [5,5]
+                             })
+        };
     
     
     
@@ -310,7 +284,7 @@ function style2(feature){
                                 {map.addLayer(seven)};
                                 }
                                 );
-</script>
+            </script>
     <center>
         
         <div id="acknowledge" style="display:none; font-size:11px; color: grey;" >
@@ -335,6 +309,6 @@ function style2(feature){
             }
         }
     </script>
-<!-- End Document -->
-</body>
+        <!-- End Document -->
+    </body>
 </html>

@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>GAP Percentage over 80</title>
+    <title>2011 Percentage over 80</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -33,34 +33,57 @@
     <script src="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js"> </script>
     <link href="https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css" rel='stylesheet' />
 
-<!--Tooltip-->
-
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Tooltip -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Font-awesome --> 
+    <link rel="stylesheet" href="buttons/css/font-awesome.min.css">
     
 </head>
 
 <body>
-
-<!-- Primary Page Layout -->
-<div class= "row">
-    <div class= "wrapper">
-        <div class= "two columns">
-            <a class="button " href="index.html">HOME MAP</a>
+    
+<!-- HEADER BAR -->
+    <div class= "row">
+        <div class= "wrapper">
+            <div class= "two columns">
+                <a class="button " href="index.html">HOME</a>
+            </div>
         </div>
-        <div class= "ten columns">
-            <a class="button" href="mP65.html"> Percent 65+ </a>
-            <a class="button " href="mP80.html"> Percent 80+</a>
-            <a class="button " href="mSR65.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 65+ = males 65 and over / females 65 and over x 100."> Sex Ratio 65+</a>
-            <a class="button " href="mSR80.html" data-toggle="tooltip" data-placement="bottom" title="Sex Ratio 80+ = males 80 and over / females 80 and over x 100."> Sex Ratio 80+</a>
-            <a class="button " href="mSP65.html" data-toggle="tooltip" data-placement="bottom" title="Share 65+ = population 65 and over in the census division / population 65 and over in Canada x 100."> Share 65+</a>
-            <a class="button " href="mOCDR.html" data-toggle="tooltip" data-placement="bottom" title="Old Component of the Dependency Ratio = population 65 and over /  population between 15 to 64 x 100. "> OCDR</a>
+    
+        <div class= "wrapper">
+            <div class= "six columns">
+                <g><a class="button button-primary" href="mP80.html" data-toggle="tooltip" data-placement="bottom" title="Hover over the map"> Percent 80+ in 2011</a></g>
+            </div>
         </div>
         
+        <div class="wrapper2">
+            <div class= "three columns" >
+                <g><a class="button " href="mP80_16.html" data-toggle="tooltip" data-placement="bottom" title="Click to see map"> Percent 80+ in 2016</a></g>
+            </div>
+        </div>
+            
+        <div class= "one column" >      
+            <div class ="dropdown">
+                <i class = "fa fa-plus fa-3x" ></i>
+                <div class= "dropdown-content">
+                    <a class = "button" href="mP65.html"> Percent 65+   </a>
+                    <a class = "button" href="mP80.html"> Percent 80+   </a>
+                    <a class = "button" href="mSR65.html"> Sex Ratio 65+ </a>
+                    <a class = "button" href="mSR80.html"> Sex Ratio 80+ </a>
+                    <a class = "button" href="mSP65.html"> Share 65+     </a>
+                    <a class = "button" href="mOCDR.html"> OCDR          </a>
+                    <a class = "button" href="mCP65.html"> Percent Change</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+<!-- END PAGE HEADER-->
+    
+<!--Begin 2011 MAP -->
 
 <script>
     $(document).ready(function(){
@@ -76,12 +99,12 @@
         <span style='background:#8080ff;'></span>
         <span style='background:#1a1aff;'></span>
         <span style='background:#0000b3;'></span>
-        <label>0 - 3.2%</label>
-        <label>3.3 - 4.1%</label>
-        <label>4.2 - 4.7%</label>
-        <label>4.8 - 5.6%</label>
-        <label>5.7%+</label>
-        
+        <label>0-1.5%</label>
+        <label>1.6-4.0%</label>
+        <label>4.1-5.5%</label>
+        <label>5.6-7.0%</label>
+        <label>7.1%+</label>
+    </nav> 
 </div>
 <div id ='map'></div>
 
@@ -115,10 +138,10 @@
    }
 
     function getColor(d){
-        return d> 5.6?'#0000b3':
-        d> 4.7 ?'#1a1aff':
-        d> 4.1?'#8080ff':
-        d> 3.2?'#ccccff':
+        return d> 7.0?'#0000b3':
+        d> 5.5?'#1a1aff':
+        d> 4.0?'#8080ff':
+        d> 1.5?'#ccccff':
             '#ffffff';
     }
 
@@ -197,7 +220,7 @@ var geo=L.geoJson(Canada,{
     info.update = function(props) {
         this._div.innerHTML = (props? '<b> Province</b>: '+ props.PRNAME : "")
         + (props? '<br/><b>Census Division</b>: '+ props.CDNAME : "")
-        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(2)+ '%' : "");
+        + (props? '<br /><b>Percent of the population 80+: </b>' + props.P80.toFixed(1)+ '%' : "");
         };
 
     info.addTo(map);
